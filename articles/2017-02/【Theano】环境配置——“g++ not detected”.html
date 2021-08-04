@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="o4pXUBsPyW" />
+	
+    <!--Description-->
+    
+        <meta name="description" content="To be more curious and less lazy.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chen Dian">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【Theano】环境配置——“g++ not detected”"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="To be more curious and less lazy." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="CDPlayer&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>【Theano】环境配置——“g++ not detected” - CDPlayer&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+	
+	<!-- Baidu Analytics -->
+    
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?{{ theme.baidu_analytics }}";
+		  var s = document.getElementsByTagName("script")[0];
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+	
+	<!-- star map -->
+	<script type="text/javascript" color="255,255,255" opacity='0.75' zIndex="-2" count="88" src="js/canvas.js"></script>
+	
+	<!-- Earth -->
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/articles/2017-02/%E3%80%90Theano%E3%80%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%94%E2%80%94%E2%80%9Cg++%20not%20detected%E2%80%9D.html">
+                【Theano】环境配置——“g++ not detected”
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017-02-07</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/环境配置/">环境配置</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+		<!-- MathJax support -->
+		
+
+		
+        <!-- Post Content -->
+        <h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><p>不管想要做些什么，配置环境总是最让人头疼的部分……<br>看了半天的Theano，终于打算跑跑程序瞧瞧了……<br>谁知道新的一轮配置才刚刚开始……<br>提示：懒得看我那么多废话的可以直接跳到配置方法</p>
+<span id="more"></span>
+
+<h2 id="0x01-WARNING-theano-configdefaults"><a href="#0x01-WARNING-theano-configdefaults" class="headerlink" title="0x01 WARNING (theano.configdefaults)"></a>0x01 WARNING (theano.configdefaults)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 尝试运行</span><br><span class="line">$ python example.py</span><br><span class="line"></span><br><span class="line"># 报错文本</span><br><span class="line">WARNING (theano.configdefaults): g++ not available, if using conda: `conda install m2w64-toolchain`</span><br><span class="line">WARNING (theano.configdefaults): g++ not detected ! Theano will be unable to execute optimized C-implementations (for both CPU and GPU) and will default to Python implementations. Performance will be severely degraded. To remove this warning, set Theano flags cxx to an empty string.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"># 尝试 Step1 (那装个mingw试试？)</span><br><span class="line">$ conda install mingw libpython</span><br><span class="line"></span><br><span class="line"># 反馈文本</span><br><span class="line">Fetching package metadata .........</span><br><span class="line">Solving package specifications: ..........</span><br><span class="line"></span><br><span class="line">Package plan for installation in environment C:\Program Files\Anaconda2:</span><br><span class="line"></span><br><span class="line">The following packages will be downloaded:</span><br><span class="line"></span><br><span class="line">    package                    |            build</span><br><span class="line">    ---------------------------|-----------------</span><br><span class="line">    conda-env-2.6.0            |                0          498 B</span><br><span class="line">    mingw-4.7                  |                1        56.1 MB</span><br><span class="line">    libpython-2.0              |           py27_0          30 KB</span><br><span class="line">    requests-2.12.4            |           py27_0         755 KB</span><br><span class="line">    pyopenssl-16.2.0           |           py27_0          68 KB</span><br><span class="line">    conda-4.3.8                |           py27_0         522 KB</span><br><span class="line">    ------------------------------------------------------------</span><br><span class="line">                                           Total:        57.4 MB</span><br><span class="line"></span><br><span class="line">The following NEW packages will be INSTALLED:</span><br><span class="line"></span><br><span class="line">    conda-env: 2.6.0-0       (copy)</span><br><span class="line">    libpython: 2.0-py27_0    (copy)</span><br><span class="line">    mingw:     4.7-1         (copy)</span><br><span class="line"></span><br><span class="line">The following packages will be UPDATED:</span><br><span class="line"></span><br><span class="line">    conda:     4.2.9-py27_0  --&gt; 4.3.8-py27_0  (copy)</span><br><span class="line">    pyopenssl: 16.0.0-py27_0 --&gt; 16.2.0-py27_0 (copy)</span><br><span class="line">    requests:  2.11.1-py27_0 --&gt; 2.12.4-py27_0 (copy)</span><br><span class="line"></span><br><span class="line"># 报错文本</span><br><span class="line">CondaIOError: IO error: Missing write permissions in: C:\Program Files\Anaconda2</span><br><span class="line">#</span><br><span class="line"># You don&#x27;t appear to have the necessary permissions to install packages</span><br><span class="line"># into the install area &#x27;C:\Program Files\Anaconda2&#x27;.</span><br><span class="line"># However you can clone this environment into your home directory and</span><br><span class="line"># then make changes to it.</span><br><span class="line"># This may be done using the command:</span><br><span class="line">#</span><br><span class="line"># $ conda create -n my_root --clone=C:\Program Files\Anaconda2</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x02-CondaIOError-IO-error"><a href="#0x02-CondaIOError-IO-error" class="headerlink" title="0x02 CondaIOError: IO error"></a>0x02 CondaIOError: IO error</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 尝试 Step2（那按照提示试试？）</span><br><span class="line">$ conda create -n my_root --clone=C:\Program Files\Anaconda2</span><br><span class="line"></span><br><span class="line"># 报错文本</span><br><span class="line">TooManyArgumentsError: Too many arguments: did not expect any arguments for --clone. Got 1 argument (Files\Anaconda2) and expected 0.</span><br><span class="line"></span><br><span class="line"># 尝试 Step3（是不是应该框起来？）</span><br><span class="line">$ conda create -n my_root --clone=&quot;C:\Program Files\Anaconda2&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"># 反馈文本</span><br><span class="line">Source:      C:\Program Files\Anaconda2</span><br><span class="line">Destination: C:\Users\Work\.conda\envs\my_root</span><br><span class="line">The following packages cannot be cloned out of the root environment:</span><br><span class="line"> - conda-4.2.9-py27_0</span><br><span class="line"> - conda-build-2.0.2-py27_0</span><br><span class="line">Packages: 181</span><br><span class="line">Files: 22</span><br><span class="line">WARNING conda.lock:touch(53): Failed to create lock, do not run conda in parallel processes [errno 13]</span><br><span class="line">An unexpected error has occurred.</span><br><span class="line">Please consider posting the following information to the</span><br><span class="line">conda GitHub issue tracker at:</span><br><span class="line"></span><br><span class="line">    https://github.com/conda/conda/issues</span><br><span class="line"></span><br><span class="line">Current conda install:</span><br><span class="line"></span><br><span class="line">               platform : win-64</span><br><span class="line">          conda version : 4.2.9</span><br><span class="line">       conda is private : False</span><br><span class="line">      conda-env version : 4.2.9</span><br><span class="line">    conda-build version : 2.0.2</span><br><span class="line">         python version : 2.7.12.final.0</span><br><span class="line">       requests version : 2.11.1</span><br><span class="line">       root environment : C:\Program Files\Anaconda2  (read only)</span><br><span class="line">    default environment : C:\Program Files\Anaconda2</span><br><span class="line">       envs directories : C:\Users\Work\.conda\envs</span><br><span class="line">                          C:\Program Files\Anaconda2\envs</span><br><span class="line">          package cache : C:\Users\Work\.conda\envs\.pkgs</span><br><span class="line">                          C:\Program Files\Anaconda2\pkgs</span><br><span class="line">           channel URLs : https://repo.continuum.io/pkgs/free/win-64/</span><br><span class="line">                          https://repo.continuum.io/pkgs/free/noarch/</span><br><span class="line">                          https://repo.continuum.io/pkgs/pro/win-64/</span><br><span class="line">                          https://repo.continuum.io/pkgs/pro/noarch/</span><br><span class="line">                          https://repo.continuum.io/pkgs/msys2/win-64/</span><br><span class="line">                          https://repo.continuum.io/pkgs/msys2/noarch/</span><br><span class="line">            config file : None</span><br><span class="line">           offline mode : False</span><br><span class="line"></span><br><span class="line">` C:\Program Files\Anaconda2\Scripts\conda-script.py create -n my_root --clone=C:\Program Files\Anaconda2`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Traceback (most recent call last):</span><br><span class="line">      File &quot;C:\Program Files\Anaconda2\lib\site-packages\conda\exceptions.py&quot;, line 473, in conda_exception_handler</span><br><span class="line">        return_value = func(*args, **kwargs)</span><br><span class="line">        ......</span><br><span class="line">        makedirs(head, mode)</span><br><span class="line">      File &quot;C:\Program Files\Anaconda2\lib\os.py&quot;, line 157, in makedirs</span><br><span class="line">        mkdir(name, mode)</span><br><span class="line">    WindowsError: [Error 5] : u&#x27;C:\\Program Files\\Anaconda2\\pkgs\\menuinst-1.4.1-py27_0.tmp&#x27;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 尝试 Step4 (哦路径有个空格，会不会是要这样加双引号？)</span><br><span class="line">conda create -n my_root --clone=C:\&quot;Program Files&quot;\Anaconda2</span><br><span class="line"></span><br><span class="line"># 报错文本</span><br><span class="line">CondaValueError: Value error: prefix already exists: C:\Users\Work\.conda\envs\my_root</span><br><span class="line"></span><br><span class="line"># 纠结的去碎觉了</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x03-Missing-write-permissions"><a href="#0x03-Missing-write-permissions" class="headerlink" title="0x03 Missing write permissions"></a>0x03 Missing write permissions</h2><p>所以说来说去还是因为没有权限对吧……<br>那我就把这文件夹的权限开放好了：<br><img src="/assets/1505385197526.png" alt="Alt text"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># 好的，正常了</span><br><span class="line"></span><br><span class="line">$ conda install mingw libpython</span><br><span class="line">Fetching package metadata .........</span><br><span class="line">Solving package specifications: ..........</span><br><span class="line"></span><br><span class="line">Package plan for installation in environment C:\Program Files\Anaconda2:</span><br><span class="line"></span><br><span class="line">The following packages will be downloaded:</span><br><span class="line"></span><br><span class="line">    package                    |            build</span><br><span class="line">    ---------------------------|-----------------</span><br><span class="line">    mingw-4.7                  |                1        56.1 MB</span><br><span class="line">    libpython-2.0              |           py27_0          30 KB</span><br><span class="line">    requests-2.12.4            |           py27_0         755 KB</span><br><span class="line">    pyopenssl-16.2.0           |           py27_0          68 KB</span><br><span class="line">    conda-4.3.9                |           py27_0         525 KB</span><br><span class="line">    ------------------------------------------------------------</span><br><span class="line">                                           Total:        57.4 MB</span><br><span class="line"></span><br><span class="line">The following NEW packages will be INSTALLED:</span><br><span class="line"></span><br><span class="line">    conda-env: 2.6.0-0</span><br><span class="line">    libpython: 2.0-py27_0</span><br><span class="line">    mingw:     4.7-1</span><br><span class="line"></span><br><span class="line">The following packages will be UPDATED:</span><br><span class="line"></span><br><span class="line">    conda:     4.2.9-py27_0  --&gt; 4.3.9-py27_0</span><br><span class="line">    pyopenssl: 16.0.0-py27_0 --&gt; 16.2.0-py27_0</span><br><span class="line">    requests:  2.11.1-py27_0 --&gt; 2.12.4-py27_0</span><br><span class="line"></span><br><span class="line">Proceed ([y]/n)?</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 感动QAQ</span><br><span class="line">Fetching packages ...</span><br><span class="line">mingw-4.7-1.ta 100% |###############################| Time: 0:06:54 141.86 kB/s</span><br><span class="line">libpython-2.0- 100% |###############################| Time: 0:00:00 124.08 kB/s</span><br><span class="line">requests-2.12. 100% |###############################| Time: 0:00:12  64.36 kB/s</span><br><span class="line">pyopenssl-16.2 100% |###############################| Time: 0:00:00 161.22 kB/s</span><br><span class="line">conda-4.3.9-py 100% |###############################| Time: 0:00:04 109.79 kB/s</span><br><span class="line">Extracting packages ...</span><br><span class="line">[      COMPLETE      ]|##################################################| 100%</span><br><span class="line">Unlinking packages ...</span><br><span class="line">[      COMPLETE      ]|##################################################| 100%</span><br><span class="line">Linking packages ...</span><br><span class="line">[      COMPLETE      ]|##################################################| 100%</span><br></pre></td></tr></table></figure>
+
+<p>既然知道怎么用conda装东西了，回到之前遇到的问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WARNING (theano.configdefaults): g++ not available, if using conda: `conda install m2w64-toolchain`</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"># 太好了，终于成功啦QAQ</span><br><span class="line">$ conda install m2w64-toolchain</span><br><span class="line">Fetching package metadata ...........</span><br><span class="line">Solving package specifications: .</span><br><span class="line"></span><br><span class="line">Package plan for installation in environment C:\Program Files\Anaconda2:</span><br><span class="line"></span><br><span class="line">The following NEW packages will be INSTALLED:</span><br><span class="line"></span><br><span class="line">    m2w64-binutils:                 2.25.1-5</span><br><span class="line">    m2w64-bzip2:                    1.0.6-6</span><br><span class="line">    m2w64-crt-git:                  5.0.0.4636.2595836-2</span><br><span class="line">    m2w64-gcc:                      5.3.0-6</span><br><span class="line">    m2w64-gcc-ada:                  5.3.0-6</span><br><span class="line">    m2w64-gcc-fortran:              5.3.0-6</span><br><span class="line">    m2w64-gcc-libgfortran:          5.3.0-6</span><br><span class="line">    m2w64-gcc-libs:                 5.3.0-7</span><br><span class="line">    m2w64-gcc-libs-core:            5.3.0-7</span><br><span class="line">    m2w64-gcc-objc:                 5.3.0-6</span><br><span class="line">    m2w64-gmp:                      6.1.0-2</span><br><span class="line">    m2w64-headers-git:              5.0.0.4636.c0ad18a-2</span><br><span class="line">    m2w64-isl:                      0.16.1-2</span><br><span class="line">    m2w64-libiconv:                 1.14-6</span><br><span class="line">    m2w64-libmangle-git:            5.0.0.4509.2e5a9a2-2</span><br><span class="line">    m2w64-libwinpthread-git:        5.0.0.4634.697f757-2</span><br><span class="line">    m2w64-make:                     4.1.2351.a80a8b8-2</span><br><span class="line">    m2w64-mpc:                      1.0.3-3</span><br><span class="line">    m2w64-mpfr:                     3.1.4-4</span><br><span class="line">    m2w64-pkg-config:               0.29.1-2</span><br><span class="line">    m2w64-toolchain:                5.3.0-7</span><br><span class="line">    m2w64-tools-git:                5.0.0.4592.90b8472-2</span><br><span class="line">    m2w64-windows-default-manifest: 6.4-3</span><br><span class="line">    m2w64-winpthreads-git:          5.0.0.4634.697f757-2</span><br><span class="line">    m2w64-zlib:                     1.2.8-10</span><br><span class="line">    msys2-conda-epoch:              20160418-1</span><br><span class="line"></span><br><span class="line">The following packages will be UPDATED:</span><br><span class="line"></span><br><span class="line">    anaconda:                       4.2.0-np111py27_0    --&gt; custom-py27_0</span><br><span class="line"></span><br><span class="line">Proceed ([y]/n)? y</span><br><span class="line"></span><br><span class="line">msys2-conda-ep 100% |###############################| Time: 0:00:00 187.73 kB/s</span><br><span class="line">m2w64-gmp-6.1. 100% |###############################| Time: 0:00:03 214.94 kB/s</span><br><span class="line">m2w64-gmp-6.1. 100% |###############################| Time: 0:00:09  76.21 kB/s</span><br><span class="line">m2w64-gmp-6.1. 100% |###############################| Time: 0:00:08  79.34 kB/s</span><br><span class="line">m2w64-headers- 100% |###############################| Time: 0:01:21  72.44 kB/s</span><br><span class="line">m2w64-isl-0.16 100% |###############################| Time: 0:00:09  72.56 kB/s</span><br><span class="line">m2w64-libiconv 100% |###############################| Time: 0:00:33  45.89 kB/s</span><br><span class="line">m2w64-libmangl 100% |###############################| Time: 0:00:00  53.69 kB/s</span><br><span class="line">m2w64-libwinpt 100% |###############################| Time: 0:00:00  47.28 kB/s</span><br><span class="line">m2w64-make-4.1 100% |###############################| Time: 0:00:02  48.44 kB/s</span><br><span class="line">m2w64-windows- 100% |###############################| Time: 0:00:00 434.62 kB/s</span><br><span class="line">anaconda-custo 100% |###############################| Time: 0:00:00  59.71 kB/s</span><br><span class="line">m2w64-crt-git- 100% |###############################| Time: 0:00:28 122.83 kB/s</span><br><span class="line">m2w64-gcc-libs 100% |###############################| Time: 0:00:01 112.73 kB/s</span><br><span class="line">m2w64-mpfr-3.1 100% |###############################| Time: 0:00:03  92.55 kB/s</span><br><span class="line">m2w64-pkg-conf 100% |###############################| Time: 0:00:06  71.01 kB/s</span><br><span class="line">m2w64-gcc-libg 100% |###############################| Time: 0:00:07  43.77 kB/s</span><br><span class="line">m2w64-mpc-1.0. 100% |###############################| Time: 0:00:01  41.31 kB/s</span><br><span class="line">m2w64-winpthre 100% |###############################| Time: 0:00:00  47.91 kB/s</span><br><span class="line">m2w64-gcc-libs 100% |###############################| Time: 0:00:07  73.92 kB/s</span><br><span class="line">m2w64-bzip2-1. 100% |###############################| Time: 0:00:00 113.92 kB/s</span><br><span class="line">m2w64-tools-gi 100% |###############################| Time: 0:00:05  58.54 kB/s</span><br><span class="line">m2w64-zlib-1.2 100% |###############################| Time: 0:00:07  28.71 kB/s</span><br><span class="line">m2w64-binutils 100% |###############################| Time: 0:07:49  99.05 kB/s</span><br><span class="line">m2w64-gcc-5.3. 100% |###############################| Time: 0:11:21  63.30 kB/s</span><br><span class="line">m2w64-gcc-5.3. 100% |###############################| Time: 0:11:25  62.89 kB/s</span><br><span class="line">m2w64-gcc-ada- 100% |###############################| Time: 0:11:35  50.55 kB/s</span><br><span class="line">m2w64-gcc-fort 100% |###############################| Time: 0:03:51  46.45 kB/s</span><br><span class="line">m2w64-gcc-objc 100% |###############################| Time: 0:05:56  44.59 kB/s</span><br><span class="line">m2w64-toolchai 100% |###############################| Time: 0:00:00   3.57 kB/s</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x04-ImportError-cannot-import-name-gof"><a href="#0x04-ImportError-cannot-import-name-gof" class="headerlink" title="0x04 ImportError: cannot import name gof"></a>0x04 ImportError: cannot import name gof</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 开心的import试试看~</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; import theano</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">  File &quot;C:\Python27\lib\site-packages\theano\__init__.py&quot;, line 66, in &lt;module&gt;</span><br><span class="line">    from theano.compile import (</span><br><span class="line">  File &quot;C:\Python27\lib\site-packages\theano\compile\__init__.py&quot;, line 10, in &lt;module&gt;</span><br><span class="line">    from theano.compile.function_module import *</span><br><span class="line">  File &quot;C:\Python27\lib\site-packages\theano\compile\function_module.py&quot;, line 18, in &lt;module&gt;</span><br><span class="line">    from theano import config, gof</span><br><span class="line">ImportError: cannot import name gof</span><br><span class="line"></span><br><span class="line"># 。。。。。。</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x05-环境配置：从入门到放弃"><a href="#0x05-环境配置：从入门到放弃" class="headerlink" title="0x05 环境配置：从入门到放弃"></a>0x05 环境配置：从入门到放弃</h2><p>小标题说明一切……<br>所以我装了半天的mingw还是被认作是cygwin是么……<br>（绝望脸）反正我也只是为了练习Theano的语法，不纠结那么多用起来再说……</p>
+<p>于是……投奔了实验室的ssh远程CentOS操作，虽然只要两三分钟不输入指令就会断线……但好歹能用啊……</p>
+<h2 id="0x06-后记"><a href="#0x06-后记" class="headerlink" title="0x06 后记"></a>0x06 后记</h2><p>因为看到有人评论了这篇文章，才突然想起来，oh，这里有个坑忘了填，现在在这里补充一下。<br>想了想不如就直接写个从零开始配置Theano的流程 (Thx for @caoyixuan)<br>此处使用Anaconda平台来为我们的安装进行辅助：</p>
+<ul>
+<li>Windows<ul>
+<li>Install <code>Anaconda</code>: download package from <a target="_blank" rel="noopener" href="https://anaconda.org/">https://anaconda.org/</a></li>
+<li>cmd: &gt;<code>conda install mingw libpython</code></li>
+<li>add environment  variables: <ul>
+<li>D:\Anaconda2;</li>
+<li>D:\Anaconda2\Library\bin;</li>
+<li>D:\Anaconda2\MinGW\bin;</li>
+<li>D:\Anaconda2\MinGW\x86_64-w64-mingw32\lib;</li>
+<li>D:\Anaconda2\Scripts;</li>
+</ul>
+</li>
+<li>cmd: &gt;<code>pip install theano</code></li>
+<li>you should get/create a <code>.theanorc.txt</code> in your user folder: <ul>
+<li>c:\Users\name.theanorc.txt</li>
+<li>If you have GPU and want to make use of it , follows the installation instruction in <a target="_blank" rel="noopener" href="http://deeplearning.net/software/theano/install.html">http://deeplearning.net/software/theano/install.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Linux<ul>
+<li>Install <code>Anaconda</code>: download package from <a target="_blank" rel="noopener" href="https://anaconda.org/">https://anaconda.org/</a></li>
+<li>make sure anacoda is your default python path</li>
+<li>cmd: &gt;<code>pip install theano</code></li>
+<li>you should get/create a <code>.theanor file</code> in your user folder:    <ul>
+<li>~/.theanorc</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="0xFF-Theano-Scripts"><a href="#0xFF-Theano-Scripts" class="headerlink" title="0xFF Theano Scripts"></a>0xFF Theano Scripts</h2><p>开工开工…… 开始看基础</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><span class="line">Python 2.7.12 (v2.7.12:d33e0cf91556, Jun 27 2016, 15:24:40) [MSC v.1500 64 bit (AMD64)] on win32</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; import theano</span><br><span class="line">WARNING (theano.configdefaults): g++ not available, if using conda: `conda install m2w64-toolchain`</span><br><span class="line">WARNING (theano.configdefaults): g++ not detected ! Theano will be unable to execute optimized C-implementations (for both CPU and GPU) and will default to Python implementations. Performance will be severely degraded. To remove this warning, set Theano flags cxx to an empty string.</span><br><span class="line">&gt;&gt;&gt; import theano.tensor as T</span><br><span class="line">&gt;&gt;&gt; from theano import function, pp, printing, scan, shared</span><br><span class="line">&gt;&gt;&gt; import numpy as np</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; &#x27;&#x27;&#x27;Define a function&#x27;&#x27;&#x27;</span><br><span class="line">&#x27;Define a function&#x27;</span><br><span class="line">&gt;&gt;&gt; # 1. theano function</span><br><span class="line">... x, y, a, b = T.fscalars(&#x27;x&#x27;, &#x27;y&#x27;, &#x27;a&#x27;, &#x27;b&#x27;)</span><br><span class="line">&gt;&gt;&gt; a = x + y</span><br><span class="line">&gt;&gt;&gt; b = x - y</span><br><span class="line">&gt;&gt;&gt; f_add = theano.function(inputs=[x, y], outputs=a)</span><br><span class="line">&gt;&gt;&gt; f_add_minus = theano.function(inputs=[x, y], outputs=[a, b])</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; x1 = 10.</span><br><span class="line">&gt;&gt;&gt; y1 = 1.</span><br><span class="line">&gt;&gt;&gt; a1 = f_add(x1, y1)</span><br><span class="line">&gt;&gt;&gt; a2, b2 = f_add_minus(x1, y1)</span><br><span class="line">&gt;&gt;&gt; print a1, a2, b2</span><br><span class="line">11.0 11.0 9.0</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; # 2. python function</span><br><span class="line">... def f_add(x, y):</span><br><span class="line">...     a = x + y</span><br><span class="line">...     return a</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; def f_add_minus(x, y):</span><br><span class="line">...     a = x + y</span><br><span class="line">...     b = x - y</span><br><span class="line">...     return a, b</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; x1 = 10.</span><br><span class="line">&gt;&gt;&gt; y1 = 1.</span><br><span class="line">&gt;&gt;&gt; a1 = f_add(x1, y1)</span><br><span class="line">&gt;&gt;&gt; a2, b2 = f_add_minus(x1, y1)</span><br><span class="line">&gt;&gt;&gt; print a1, a2, b2</span><br><span class="line">11.0 11.0 9.0</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; &#x27;&#x27;&#x27; Derivatives &#x27;&#x27;&#x27;</span><br><span class="line">&#x27; Derivatives &#x27;</span><br><span class="line">&gt;&gt;&gt; # Derivative</span><br><span class="line">... x = T.scalar(&#x27;x&#x27;, dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; y = x ** 2</span><br><span class="line">&gt;&gt;&gt; gy = T.grad(y, x)</span><br><span class="line">&gt;&gt;&gt; f = theano.function([x], gy)</span><br><span class="line">&gt;&gt;&gt; print f(4)</span><br><span class="line">8.0</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; # partial derivative</span><br><span class="line">... x = T.scalar(&#x27;x&#x27;, dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; a = T.scalar(&#x27;a&#x27;, dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; y = x * a</span><br><span class="line">&gt;&gt;&gt; gy = T.grad(y, [x, a])</span><br><span class="line">&gt;&gt;&gt; f = theano.function([x, a], gy)</span><br><span class="line">&gt;&gt;&gt; print f(4, 3)</span><br><span class="line">[array(3.0, dtype=float32), array(4.0, dtype=float32)]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; &#x27;&#x27;&#x27; Debugging tricks &#x27;&#x27;&#x27;</span><br><span class="line">&#x27; Debugging tricks &#x27;</span><br><span class="line">&gt;&gt;&gt; x = T.scalar(&#x27;x&#x27;,dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; y = x ** 2</span><br><span class="line">&gt;&gt;&gt; gy = T.grad(y, x)</span><br><span class="line">&gt;&gt;&gt; f = function([x], gy)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; # using pp</span><br><span class="line">... pp(gy)   # before optimization</span><br><span class="line">&#x27;((fill((x ** TensorConstant&#123;2&#125;), TensorConstant&#123;1.0&#125;) * TensorConstant&#123;2&#125;) * (x ** (TensorConstant&#123;2&#125; - TensorConstant&#123;1&#125;)))&#x27;</span><br><span class="line">&gt;&gt;&gt; pp(f.maker.fgraph.outputs[0])  # after optimization</span><br><span class="line">&#x27;(TensorConstant&#123;2.0&#125; * x)&#x27;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; # using printing.debugprinting</span><br><span class="line">... printing.debugprint(gy)  # before optimization</span><br><span class="line">Elemwise&#123;mul&#125; [id A] &#x27;&#x27;</span><br><span class="line"> |Elemwise&#123;mul&#125; [id B] &#x27;&#x27;</span><br><span class="line"> | |Elemwise&#123;second,no_inplace&#125; [id C] &#x27;&#x27;</span><br><span class="line"> | | |Elemwise&#123;pow,no_inplace&#125; [id D] &#x27;&#x27;</span><br><span class="line"> | | | |x [id E]</span><br><span class="line"> | | | |TensorConstant&#123;2&#125; [id F]</span><br><span class="line"> | | |TensorConstant&#123;1.0&#125; [id G]</span><br><span class="line"> | |TensorConstant&#123;2&#125; [id F]</span><br><span class="line"> |Elemwise&#123;pow&#125; [id H] &#x27;&#x27;</span><br><span class="line">   |x [id E]</span><br><span class="line">   |Elemwise&#123;sub&#125; [id I] &#x27;&#x27;</span><br><span class="line">     |TensorConstant&#123;2&#125; [id F]</span><br><span class="line">     |InplaceDimShuffle&#123;&#125; [id J] &#x27;&#x27;</span><br><span class="line">       |TensorConstant&#123;1&#125; [id K]</span><br><span class="line">&gt;&gt;&gt; printing.debugprint(f.maker.fgraph.outputs[0])  # after optimization</span><br><span class="line">Elemwise&#123;mul,no_inplace&#125; [id A] &#x27;&#x27;</span><br><span class="line"> |TensorConstant&#123;2.0&#125; [id B]</span><br><span class="line"> |x [id C]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; # printing.Print</span><br><span class="line">... # recall that functions defined before do not print internal variables</span><br><span class="line">... x = T.scalar(&#x27;x&#x27;,dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; xp2 = x + 2</span><br><span class="line">&gt;&gt;&gt; xp2_printed = printing.Print(&#x27;this is xp2:&#x27;)(xp2)</span><br><span class="line">&gt;&gt;&gt; xp2m2 = xp2_printed * 2</span><br><span class="line">&gt;&gt;&gt; f = function([x], xp2m2)</span><br><span class="line">&gt;&gt;&gt; f(20)</span><br><span class="line">this is xp2: __str__ = 22.0</span><br><span class="line">array(44.0, dtype=float32)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; # try to make this work</span><br><span class="line">... x = T.scalar(&#x27;x&#x27;,dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; y = x ** 2</span><br><span class="line">&gt;&gt;&gt; yprint = printing.Print(&#x27;this is y:&#x27;)(y)</span><br><span class="line">&gt;&gt;&gt; gy = T.grad(yprint, x)</span><br><span class="line">&gt;&gt;&gt; f = function([x], gy)</span><br><span class="line">&gt;&gt;&gt; # alternatively:</span><br><span class="line">... # p = printing.Print(&#x27;y&#x27;)</span><br><span class="line">... # yprint = p(y)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; &#x27;&#x27;&#x27; shared variable &#x27;&#x27;&#x27;</span><br><span class="line">&#x27; shared variable &#x27;</span><br><span class="line">&gt;&gt;&gt; state = shared(0.)</span><br><span class="line">&gt;&gt;&gt; inc = T.iscalar(&#x27;inc&#x27;)</span><br><span class="line">&gt;&gt;&gt; accumulator = function([inc], state, updates=[(state, state+inc)])</span><br><span class="line">&gt;&gt;&gt; print state.get_value()</span><br><span class="line">0.0</span><br><span class="line">&gt;&gt;&gt; z = accumulator(10)</span><br><span class="line">&gt;&gt;&gt; print z</span><br><span class="line">0.0</span><br><span class="line">&gt;&gt;&gt; print state.get_value()</span><br><span class="line">10.0</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; &#x27;&#x27;&#x27; Loop &#x27;&#x27;&#x27;</span><br><span class="line">&#x27; Loop &#x27;</span><br><span class="line">&gt;&gt;&gt; # python for loop</span><br><span class="line">... import numpy</span><br><span class="line">&gt;&gt;&gt; A = numpy.array([1, 2], dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; k = 5</span><br><span class="line">&gt;&gt;&gt; result = [numpy.array([1,1])]</span><br><span class="line">&gt;&gt;&gt; def mul(a, b): return a*b</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; for i in range(k):</span><br><span class="line">...     result.append(mul(result[-1], A))</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; print result[-1]</span><br><span class="line">[  1.  32.]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; # theano scan</span><br><span class="line">... k = T.scalar(&quot;k&quot;, dtype=&#x27;int32&#x27;)</span><br><span class="line">&gt;&gt;&gt; A = T.vector(&quot;A&quot;, dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; def mul(a, b): return a*b</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; result, updates = theano.scan(</span><br><span class="line">...                 fn=mul,</span><br><span class="line">...                 outputs_info=T.ones_like(A),</span><br><span class="line">...                 non_sequences=A,</span><br><span class="line">...                 n_steps=k)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; power = theano.function(</span><br><span class="line">...                 inputs=[A,k],</span><br><span class="line">...                 outputs=result[-1],</span><br><span class="line">...                 updates=updates)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; A_val = numpy.array([1, 2], dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; k_val = 5</span><br><span class="line">&gt;&gt;&gt; r = power(A_val, 5)</span><br><span class="line">&gt;&gt;&gt; print r</span><br><span class="line">[  1.  32.]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; # calculate polynomial</span><br><span class="line">... # that is, a0 * x^0 + a1 * x^1 + a2 * x^2 + ... + an * x^n</span><br><span class="line">... coefficients = theano.tensor.vector(&quot;coefficients&quot;, dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; x = T.scalar(&quot;x&quot;, dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; max_coefficients_supported = 10000</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; def cumulative_poly(coeff, power, prior_sum, x):</span><br><span class="line">...     return prior_sum + coeff * (x ** power)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; # Generate the components of the polynomial</span><br><span class="line">... zero = np.asarray(0., dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; full_range=theano.tensor.arange(max_coefficients_supported, dtype=&#x27;float32&#x27;)</span><br><span class="line">&gt;&gt;&gt; results, updates = theano.scan(fn=cumulative_poly,</span><br><span class="line">...                                 outputs_info=T.as_tensor_variable(zero),</span><br><span class="line">...                                 sequences=[coefficients, full_range],</span><br><span class="line">...                                 non_sequences=x)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; polynomial = results[-1]</span><br><span class="line">&gt;&gt;&gt; calculate_polynomial = theano.function(inputs=[coefficients, x],</span><br><span class="line">...                                      outputs=polynomial)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; test_coeff = np.asarray([1, 0, 2], dtype=np.float32)</span><br><span class="line">&gt;&gt;&gt; print(calculate_polynomial(test_coeff, 3))</span><br><span class="line">19.0</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Theano/">#Theano</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Coding the world, try to fetch more.
+                </p>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">【Grpc】使用grpc配置通过端口访问的python服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-02/%E3%80%90HNS%E3%80%91%E8%AF%95%E7%9D%80%E9%A2%86%E4%B8%80%E4%B8%8B%20HandShake%20%E4%B8%BA%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E5%8F%91%E6%94%BE%E7%9A%84%20HNS%20Coin.html">【HNS】试着领一下 HandShake 发给开源社区的 HNS Coin</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://okcd00.oschina.io/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:okcd00@vip.qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @<a target="_blank" rel="noopener" href="https://github.com/okcd00/">Dian Chen</a>. 2017-2022 All right reserved | Re-design & Deploy: <a href="blog.csdn.net/okcd00">okcd00</a> | Hexo Theme: <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'okcd00';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- "//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" -->
+<script type="text/javascript" color="0,255,255" opacity='0.75' zIndex="-2" count="75" src='/js/canvas.js'></script>
+
+</body>
+</html>

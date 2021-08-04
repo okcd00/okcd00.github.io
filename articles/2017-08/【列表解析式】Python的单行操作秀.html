@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="o4pXUBsPyW" />
+	
+    <!--Description-->
+    
+        <meta name="description" content="To be more curious and less lazy.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chen Dian">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【列表解析式】Python的单行操作秀"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="To be more curious and less lazy." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="CDPlayer&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>【列表解析式】Python的单行操作秀 - CDPlayer&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+	
+	<!-- Baidu Analytics -->
+    
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?{{ theme.baidu_analytics }}";
+		  var s = document.getElementsByTagName("script")[0];
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+	
+	<!-- star map -->
+	<script type="text/javascript" color="255,255,255" opacity='0.75' zIndex="-2" count="88" src="js/canvas.js"></script>
+	
+	<!-- Earth -->
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/articles/2017-08/%E3%80%90%E5%88%97%E8%A1%A8%E8%A7%A3%E6%9E%90%E5%BC%8F%E3%80%91Python%E7%9A%84%E5%8D%95%E8%A1%8C%E6%93%8D%E4%BD%9C%E7%A7%80.html">
+                【列表解析式】Python的单行操作秀
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017-08-11</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/编程记忆/">编程记忆</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+		<!-- MathJax support -->
+		
+
+		
+        <!-- Post Content -->
+        <p>##0x00 前言</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">items = [line <span class="keyword">for</span> line <span class="keyword">in</span> <span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>)]</span><br></pre></td></tr></table></figure>
+<p>通常，我们会在代码中看到一些形似上面的炫目操作（什么你们觉得很正常？好嘛是我菜了QvQ）</p>
+<p>我一头猛扎进了python的怀抱，正是因为“人生苦短，我用python”，可能是相似的原因，我第一眼就看上了这种表达方式，并且乐于在自己的代码中使用这种方式来更加精简与清晰地生成所需要的列表。</p>
+<p>由于在项目实现过程中产生过大量的问题与需求，在无数次尝试之后决定总结一下如何使用列表解析式（也可称作链表推导式，本文中使用前者，不为什么，因为觉得这很Coooooool呀~）来解决这些类型的问题。</p>
+<span id="more"></span>
+
+<h2 id="0x01-两层列表解析式"><a href="#0x01-两层列表解析式" class="headerlink" title="0x01 两层列表解析式"></a>0x01 两层列表解析式</h2><p>个人觉得吧，循序渐进是个必要的过程，啊啊啊我好懒啊，好想直接贴代码就算了啊……<br>不行，这么干的话以后我自己也看不懂的……<br>那么稍微解释一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 写法如下</span></span><br><span class="line">ret = [x <span class="keyword">for</span> j <span class="keyword">in</span> L <span class="keyword">for</span> x <span class="keyword">in</span> j]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个是不是看起来很头疼？</span></span><br><span class="line"><span class="comment"># 但是实际上我们本来就是为了简短这种写法会很常见的</span></span><br><span class="line"><span class="comment"># 为了方便理解大概是下面这种感觉：</span></span><br><span class="line">ret = [items <span class="keyword">for</span> sub_list <span class="keyword">in</span> L <span class="keyword">for</span> items <span class="keyword">in</span> sub_list]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其含义是：</span></span><br><span class="line">ret = []</span><br><span class="line"><span class="keyword">for</span> sub_list <span class="keyword">in</span> L:</span><br><span class="line">    <span class="keyword">for</span> items <span class="keyword">in</span> sub_list:</span><br><span class="line">        ret.append(items)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 但是明显解析式会快得多，</span></span><br><span class="line"><span class="comment"># 想要深究原因的话可以试着从append()的实现，</span></span><br><span class="line"><span class="comment"># 与解析式如何生成list的区别这个方向来进行思考。</span></span><br></pre></td></tr></table></figure>
+
+<p>对于形似如下这种讨厌的参差不齐的二维列表，想对其进行Flatten操作的时候可以使用简单的两层列表解析式搞定（但是对于形似 <code>L = [1, [2,3]]</code> 这种的是不行的哦）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">L = [</span><br><span class="line">    [<span class="number">1</span>,<span class="number">3</span>],</span><br><span class="line">    [<span class="number">3</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x02-两层列表解析式·进阶"><a href="#0x02-两层列表解析式·进阶" class="headerlink" title="0x02 两层列表解析式·进阶"></a>0x02 两层列表解析式·进阶</h2><p>特别的，实际上本身不是个两层，但是也有类似的需求该如何是好呢？<br>其实我们可以在解析式中对相关元素进行操作的，先直接上代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 举个栗子：</span></span><br><span class="line">delim = <span class="string">u&#x27;；&#x27;</span></span><br><span class="line">L = [<span class="string">u&#x27;今天是个好天气！&#x27;</span>, <span class="string">u&#x27;对呀对呀；我也这么想~&#x27;</span>]</span><br><span class="line">ret = [x <span class="keyword">for</span> j <span class="keyword">in</span> L <span class="keyword">for</span> x <span class="keyword">in</span> j.split(delim)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其含义是：</span></span><br><span class="line">ret = []</span><br><span class="line">delim = <span class="string">u&#x27;；&#x27;</span></span><br><span class="line"><span class="keyword">for</span> sentence <span class="keyword">in</span> L:</span><br><span class="line">    <span class="keyword">for</span> items <span class="keyword">in</span> sentence.split(delim):</span><br><span class="line">        ret.append(items)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 应用场景实例如下，需求为将传入句子按分号隔开获得新的句子列表：</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">split_list</span>(<span class="params">L, delim=<span class="string">&#x27;；&#x27;</span></span>):</span></span><br><span class="line">    <span class="keyword">if</span> L.__len__() == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(L[<span class="number">0</span>], unicode) <span class="keyword">and</span> <span class="built_in">isinstance</span>(delim, <span class="built_in">str</span>):</span><br><span class="line">        delim = delim.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    ret = [x <span class="keyword">for</span> j <span class="keyword">in</span> L <span class="keyword">for</span> x <span class="keyword">in</span> j.split(delim)]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">filter</span>(<span class="keyword">lambda</span> x: x != <span class="string">&#x27;&#x27;</span>, ret)</span><br></pre></td></tr></table></figure>
+
+<p>在上述例子中，其实只是一个一维列表，但是我们使用 <code>split(delim)</code> 将一维列表中的每个字符串变成了一个列表，此处不仅仅是split，你们还可以自行设置各种更复杂的函数，只不过记得返回值是可迭代的就可以啦~</p>
+<h2 id="0x03-带判断的列表解析式"><a href="#0x03-带判断的列表解析式" class="headerlink" title="0x03 带判断的列表解析式"></a>0x03 带判断的列表解析式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"># 举个栗子：</span><br><span class="line">dic = &#123;</span><br><span class="line">    1:&#123;&#x27;index&#x27;:2, &#x27;data&#x27;:&#x27;klm&#x27;&#125;,</span><br><span class="line">    2:&#123;&#x27;index&#x27;:7, &#x27;data&#x27;:&#x27;cde&#x27;&#125;,</span><br><span class="line">&#125;</span><br><span class="line">ran = xrange(1,5)</span><br><span class="line">ret = [(k, v) for (k, v) in dic.items() if v[&#x27;index&#x27;] in ran]</span><br><span class="line"></span><br><span class="line"># 其含义是：</span><br><span class="line">ret = []</span><br><span class="line">for (k,v) in dic.items():</span><br><span class="line">    idx = v[&#x27;index&#x27;]</span><br><span class="line">    if idx in ran:</span><br><span class="line">        ret.append( (k,v) )</span><br><span class="line"></span><br><span class="line"># 应用实例如下，需求为每次生成满足条件的子dict，</span><br><span class="line"># 并更新元素中几个字段表示的在新dict中的位置：</span><br><span class="line">def dict_select(self, dic, lef, rig=None, pos_lef=None):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return a dict which satisfied the range of current segment.</span><br><span class="line">    :param dic: a dict</span><br><span class="line">    :param lef: left index of word_index</span><br><span class="line">    :param rig: right index of word_index</span><br><span class="line">    :param pos_lef: left index of position</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    def change_pos(inp):</span><br><span class="line">        cp = inp.copy()  # MUST BE A COPY for no-modify</span><br><span class="line">        cp[u&#x27;word_index&#x27;] = inp[u&#x27;word_index&#x27;] - lef</span><br><span class="line">        cp[u&#x27;position&#x27;] = inp[u&#x27;position&#x27;] - pos_lef</span><br><span class="line">        return cp</span><br><span class="line"></span><br><span class="line">    if rig:</span><br><span class="line">        ran = xrange(lef, rig)</span><br><span class="line">        ret = [(k, v) for (k, v) in dic.items() if v[u&#x27;word_index&#x27;] in ran]</span><br><span class="line">    else:</span><br><span class="line">        ret = [(k, v) for (k, v) in dic.items() if v[u&#x27;word_index&#x27;] &gt;= lef]</span><br><span class="line">    return dict([(k, change_pos(v)) for (k, v) in ret])</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x04-常用而实用的小函数"><a href="#0x04-常用而实用的小函数" class="headerlink" title="0x04 常用而实用的小函数"></a>0x04 常用而实用的小函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">a = [1,2,3]</span><br><span class="line">b = [4,5,6,7]</span><br><span class="line"></span><br><span class="line">def func(x): return x+1</span><br><span class="line"></span><br><span class="line"># lambda 为匿名函数，此处的f和func是一个效果</span><br><span class="line">f = lambda x: x+1</span><br><span class="line">j = lambda x: x%2==1</span><br><span class="line"></span><br><span class="line">map(f, a) # 对于list中的每一个元素做函数f操作</span><br><span class="line"># =&gt; [2, 3, 4]</span><br><span class="line"></span><br><span class="line">zip(a, b) # 按顺序组成pair的list，长度为两者较短的那个</span><br><span class="line"># =&gt; [(1, 4), (2, 5), (3, 6)]</span><br><span class="line"></span><br><span class="line">filter(j, a) # 判断是否满足条件，输出满足条件的list</span><br><span class="line"># =&gt; [1, 3]</span><br><span class="line"></span><br><span class="line">a.__len__() # 输出长度，这个要比len()用起来要好些</span><br><span class="line"># =&gt; 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x05-综合应用"><a href="#0x05-综合应用" class="headerlink" title="0x05 综合应用"></a>0x05 综合应用</h2><p>也就是说，在两层列表解析式中，x, j, L 你们都可以想想怎么瞎改，<br>这里我只试着对x和j改来改去，因为我觉得吧——<br>你要改传入的L的话……你为什么不在外头改好了再扔进来呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 栗子快举完了</span></span><br><span class="line">L = [</span><br><span class="line">    (<span class="string">u&#x27;A&#x27;</span>, <span class="string">u&#x27;这个句子大概是A类，我也是A类，还有我A类&#x27;</span>),</span><br><span class="line">    (<span class="string">u&#x27;B&#x27;</span>, <span class="string">u&#x27;这个句子大概是B类，我才不告诉你我也是B类&#x27;</span>),</span><br><span class="line">    (<span class="string">u&#x27;A&#x27;</span>, <span class="string">u&#x27;A类吧大概，哼我是A类&#x27;</span>),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">ret = [x.strip() <span class="keyword">for</span> j <span class="keyword">in</span> L <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">zip</span>(</span><br><span class="line">    [j[<span class="number">0</span>]] * <span class="built_in">len</span>(j[<span class="number">1</span>].split(delim)),</span><br><span class="line">    <span class="built_in">filter</span>(<span class="keyword">lambda</span> x: x != <span class="string">&#x27;&#x27;</span>, j[<span class="number">1</span>].split(delim))</span><br><span class="line">)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其含义是：</span></span><br><span class="line">ret = []</span><br><span class="line">delim = <span class="string">u&#x27;，&#x27;</span></span><br><span class="line"><span class="keyword">for</span> pair <span class="keyword">in</span> L:</span><br><span class="line">    label, data = pair</span><br><span class="line">    items = data.split(delim)</span><br><span class="line">    <span class="keyword">for</span> it <span class="keyword">in</span> <span class="built_in">zip</span>([label] * <span class="built_in">len</span>(items), items):</span><br><span class="line">        ret.append(it)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 应用场景实例如下，需求为将传入的(label, data)中的data按逗号隔开</span></span><br><span class="line"><span class="comment"># 并使用共同的label，以获得新的句子列表：</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">split_pair</span>(<span class="params">self, L, delim=<span class="string">&#x27;，&#x27;</span></span>):</span></span><br><span class="line">    <span class="keyword">if</span> L.__len__() == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(L[<span class="number">0</span>][<span class="number">1</span>], unicode) <span class="keyword">and</span> <span class="built_in">isinstance</span>(delim, <span class="built_in">str</span>):</span><br><span class="line">        delim = delim.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> [x <span class="keyword">for</span> j <span class="keyword">in</span> L <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">zip</span>(</span><br><span class="line">        [j[<span class="number">0</span>]] * <span class="built_in">len</span>(j[<span class="number">1</span>].split(delim)),</span><br><span class="line">        <span class="built_in">filter</span>(<span class="keyword">lambda</span> x: x != <span class="string">&#x27;&#x27;</span>, j[<span class="number">1</span>].split(delim))</span><br><span class="line">    )]</span><br></pre></td></tr></table></figure>
+
+<h2 id="0xFF"><a href="#0xFF" class="headerlink" title="0xFF"></a>0xFF</h2><p>忙忙碌碌到现在终于有假期了哎~<br>想着要好好休息休息但是觉得不行趁着余热写点东西要不然我这脑子过两天就忘干净了~</p>
+<p>BTW. 啊夏活开始了我去看看twitch休息一下下~<br><img src="/assets/152533btzkkttlxmo3xtpk.gif" alt="@Kancolle Summer17 | center"></p>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Coding the world, try to fetch more.
+                </p>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">【Grpc】使用grpc配置通过端口访问的python服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-02/%E3%80%90HNS%E3%80%91%E8%AF%95%E7%9D%80%E9%A2%86%E4%B8%80%E4%B8%8B%20HandShake%20%E4%B8%BA%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E5%8F%91%E6%94%BE%E7%9A%84%20HNS%20Coin.html">【HNS】试着领一下 HandShake 发给开源社区的 HNS Coin</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://okcd00.oschina.io/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:okcd00@vip.qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @<a target="_blank" rel="noopener" href="https://github.com/okcd00/">Dian Chen</a>. 2017-2022 All right reserved | Re-design & Deploy: <a href="blog.csdn.net/okcd00">okcd00</a> | Hexo Theme: <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'okcd00';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- "//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" -->
+<script type="text/javascript" color="0,255,255" opacity='0.75' zIndex="-2" count="75" src='/js/canvas.js'></script>
+
+</body>
+</html>

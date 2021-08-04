@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="o4pXUBsPyW" />
+	
+    <!--Description-->
+    
+        <meta name="description" content="To be more curious and less lazy.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chen Dian">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【codecs.BOM】使用Python程序输出csv格式数据"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="To be more curious and less lazy." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="CDPlayer&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>【codecs.BOM】使用Python程序输出csv格式数据 - CDPlayer&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+	
+	<!-- Baidu Analytics -->
+    
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?{{ theme.baidu_analytics }}";
+		  var s = document.getElementsByTagName("script")[0];
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+	
+	<!-- star map -->
+	<script type="text/javascript" color="255,255,255" opacity='0.75' zIndex="-2" count="88" src="js/canvas.js"></script>
+	
+	<!-- Earth -->
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/articles/2016-03/%E3%80%90codecs.BOM%E3%80%91%E4%BD%BF%E7%94%A8Python%E7%A8%8B%E5%BA%8F%E8%BE%93%E5%87%BAcsv%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AE.html">
+                【codecs.BOM】使用Python程序输出csv格式数据
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016-03-17</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/编程记忆/">编程记忆</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+		<!-- MathJax support -->
+		
+
+		
+        <!-- Post Content -->
+        <p>这些天做一个数据处理的任务：<br>要求是输出一个csv格式的文件。<br>每次用NotePad++打开都正常，一用excel打开就一万个乱码，<br>好不容易乱码没了，用作分隔符的逗号也进单元格去了（变成单列了）</p>
+<p>辛苦的查原因调试代码测试输出过程略去（以后要是有心情再来写好了）……<br>重点是！~<br>把能用的模板记录一下，以后说不定还要用呢QwQ</p>
+<span id="more"></span>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">[Convert2Csv.py]</span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> codecs  </span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> commands</span><br><span class="line"><span class="keyword">import</span> ConfigParser</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span> :</span><br><span class="line">    infile = <span class="string">&quot;./outSort&quot;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;Features.csv&#x27;</span>, <span class="string">&#x27;wb+&#x27;</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">        csvfile.write(codecs.BOM_UTF8) </span><br><span class="line">        spamwriter = csv.writer(csvfile,dialect=<span class="string">&#x27;excel&#x27;</span>)</span><br><span class="line">        spamwriter.writerow([<span class="string">&#x27;Sign&#x27;</span>, <span class="string">&#x27;Count&#x27;</span>, <span class="string">&#x27;Feature&#x27;</span>, <span class="string">&#x27;Info&#x27;</span>])</span><br><span class="line">        <span class="keyword">for</span> each <span class="keyword">in</span> [line <span class="keyword">for</span> line <span class="keyword">in</span> file(infile)] :</span><br><span class="line">            <span class="built_in">list</span> = [<span class="string">&#x27;0&#x27;</span>]</span><br><span class="line">            sublist1 = [<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>]</span><br><span class="line">            sublist2 = [<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>]</span><br><span class="line">            segs = each.split(<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> segs :</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="built_in">list</span>.append(segs[<span class="number">0</span>])</span><br><span class="line">            <span class="built_in">list</span>.append(segs[<span class="number">1</span>])</span><br><span class="line">            <span class="built_in">list</span>.append(segs[<span class="number">2</span>])</span><br><span class="line">            <span class="keyword">if</span> segs[<span class="number">3</span>]:</span><br><span class="line">                sublist1.append(segs[<span class="number">3</span>])</span><br><span class="line">            <span class="keyword">if</span> segs[<span class="number">4</span>]:</span><br><span class="line">                sublist2.append(segs[<span class="number">4</span>])</span><br><span class="line">            spamwriter.writerow(<span class="built_in">list</span>)</span><br><span class="line">            spamwriter.writerow(sublist1)</span><br><span class="line">            spamwriter.writerow(sublist2)</span><br><span class="line">```        </span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">输入：UTF-<span class="number">8</span>编码文件</span><br><span class="line">输出：Scv格式数据，使用Excel打开或NotePad打开中文均不乱码</span><br><span class="line"></span><br><span class="line">要点：</span><br><span class="line">``` python</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;Features.csv&#x27;</span>, <span class="string">&#x27;wb+&#x27;</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">        csvfile.write(codecs.BOM_UTF8) </span><br><span class="line">        spamwriter = csv.writer(csvfile,dialect=<span class="string">&#x27;excel&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>CSV写入函数解释：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spamwriter.writerow(<span class="built_in">list</span>) </span><br><span class="line"><span class="comment"># 传入一个list即可，写一行，每个元素为当前行的一列，若需要空行，请务必增加一个空字符串元素</span></span><br></pre></td></tr></table></figure>
+
+<p>【Updated 2016/03/18】<br>现在难度大了点，要合并单元格，于是就学着用了用xlwt和xlrd：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> codecs  </span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> commands</span><br><span class="line"><span class="keyword">import</span> ConfigParser</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MakeCsv</span>():</span></span><br><span class="line">    infile = <span class="string">&quot;./outSort&quot;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;Features.csv&#x27;</span>, <span class="string">&#x27;wb+&#x27;</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">        csvfile.write(codecs.BOM_UTF8) </span><br><span class="line">        spamwriter = csv.writer(csvfile,dialect=<span class="string">&#x27;excel&#x27;</span>)</span><br><span class="line">        spamwriter.writerow([<span class="string">&#x27;Sign&#x27;</span>, <span class="string">&#x27;Count&#x27;</span>, <span class="string">&#x27;Feature&#x27;</span>, <span class="string">&#x27;Info&#x27;</span>])</span><br><span class="line">        <span class="keyword">for</span> each <span class="keyword">in</span> [line <span class="keyword">for</span> line <span class="keyword">in</span> file(infile)] :</span><br><span class="line">            <span class="built_in">list</span> = [<span class="string">&#x27;0&#x27;</span>]</span><br><span class="line">            sublist1 = [<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>]</span><br><span class="line">            sublist2 = [<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>]</span><br><span class="line">            segs = each.split(<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> segs :</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="built_in">list</span>.append(segs[<span class="number">0</span>])</span><br><span class="line">            <span class="built_in">list</span>.append(segs[<span class="number">1</span>])</span><br><span class="line">            <span class="built_in">list</span>.append(segs[<span class="number">2</span>])</span><br><span class="line">            <span class="keyword">if</span> segs[<span class="number">3</span>]:</span><br><span class="line">                sublist1.append(segs[<span class="number">3</span>])</span><br><span class="line">            <span class="keyword">if</span> segs[<span class="number">4</span>]:</span><br><span class="line">                sublist2.append(segs[<span class="number">4</span>])</span><br><span class="line">            spamwriter.writerow(<span class="built_in">list</span>)</span><br><span class="line">            spamwriter.writerow(sublist1)</span><br><span class="line">            spamwriter.writerow(sublist2)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MakeInput</span>() :</span></span><br><span class="line">    (status, output) = commands.getstatusoutput(<span class="string">&#x27;sort -k1 -n -r outData &gt; outSort&#x27;</span>)</span><br><span class="line">            </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Combine</span>() :</span></span><br><span class="line">    <span class="comment"># Create a Workbook</span></span><br><span class="line">    f = xlwt.Workbook()</span><br><span class="line">    sheet = f.add_sheet(<span class="string">u&#x27;Feature&#x27;</span>,cell_overwrite_ok=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># sheet.write(codecs.BOM_UTF8)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Generate 0-th line</span></span><br><span class="line">    row0 = [<span class="string">&#x27;Sign&#x27;</span>, <span class="string">&#x27;Count&#x27;</span>, <span class="string">&#x27;Feature&#x27;</span>, <span class="string">&#x27;Info&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(row0)):</span><br><span class="line">        sheet.write(<span class="number">0</span>,i,row0[i])</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># Generate Others</span></span><br><span class="line">    cur_row = <span class="number">1</span></span><br><span class="line">    infile = <span class="string">&quot;./outSort&quot;</span></span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> [line.decode(<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">for</span> line <span class="keyword">in</span> file(infile)] :   </span><br><span class="line">        segs = each.split(<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> segs :</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        sheet.write_merge(cur_row,cur_row+<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">        sheet.write_merge(cur_row,cur_row+<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>,segs[<span class="number">0</span>])</span><br><span class="line">        sheet.write_merge(cur_row,cur_row+<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,segs[<span class="number">1</span>])</span><br><span class="line">        sheet.write(cur_row,<span class="number">3</span>,segs[<span class="number">2</span>])</span><br><span class="line">        <span class="keyword">if</span> segs[<span class="number">3</span>]:</span><br><span class="line">            sheet.write(cur_row+<span class="number">1</span>,<span class="number">3</span>,segs[<span class="number">3</span>])</span><br><span class="line">        <span class="keyword">if</span> segs[<span class="number">4</span>]:</span><br><span class="line">            sheet.write(cur_row+<span class="number">2</span>,<span class="number">3</span>,segs[<span class="number">4</span>])</span><br><span class="line">        cur_row += <span class="number">3</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># print &#x27;OVER&#x27;</span></span><br><span class="line">    f.save(<span class="string">&#x27;./Demo.xls&#x27;</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span> :</span><br><span class="line">    <span class="comment"># MakeCsv()</span></span><br><span class="line">    MakeInput()</span><br><span class="line">    Combine()</span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Coding the world, try to fetch more.
+                </p>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">【Grpc】使用grpc配置通过端口访问的python服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-02/%E3%80%90HNS%E3%80%91%E8%AF%95%E7%9D%80%E9%A2%86%E4%B8%80%E4%B8%8B%20HandShake%20%E4%B8%BA%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E5%8F%91%E6%94%BE%E7%9A%84%20HNS%20Coin.html">【HNS】试着领一下 HandShake 发给开源社区的 HNS Coin</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://okcd00.oschina.io/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:okcd00@vip.qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @<a target="_blank" rel="noopener" href="https://github.com/okcd00/">Dian Chen</a>. 2017-2022 All right reserved | Re-design & Deploy: <a href="blog.csdn.net/okcd00">okcd00</a> | Hexo Theme: <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'okcd00';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- "//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" -->
+<script type="text/javascript" color="0,255,255" opacity='0.75' zIndex="-2" count="75" src='/js/canvas.js'></script>
+
+</body>
+</html>

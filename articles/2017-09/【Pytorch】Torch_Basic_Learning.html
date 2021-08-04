@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="o4pXUBsPyW" />
+	
+    <!--Description-->
+    
+        <meta name="description" content="To be more curious and less lazy.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chen Dian">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【Pytorch】Torch_Basic_Learning"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="To be more curious and less lazy." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="CDPlayer&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>【Pytorch】Torch_Basic_Learning - CDPlayer&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+	
+	<!-- Baidu Analytics -->
+    
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?{{ theme.baidu_analytics }}";
+		  var s = document.getElementsByTagName("script")[0];
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+	
+	<!-- star map -->
+	<script type="text/javascript" color="255,255,255" opacity='0.75' zIndex="-2" count="88" src="js/canvas.js"></script>
+	
+	<!-- Earth -->
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/articles/2017-09/%E3%80%90Pytorch%E3%80%91Torch_Basic_Learning.html">
+                【Pytorch】Torch_Basic_Learning
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017-09-27</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/机器学习/">机器学习</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+		<!-- MathJax support -->
+		
+
+		
+        <!-- Post Content -->
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本篇为在<code>.ipynb</code>页面上的自学尝试记录，<br>可以在本人的个人主页上查看或下载自行测试，关于Windows10如何配置Pytorch请移步前篇文章即可~</p>
+<ul>
+<li><a href="https://okcd00.github.io/articles/2017-09/%E3%80%90Pytorch%E3%80%91Torch_Basic_Learning.html">传送到</a> 个人主页 (Github Pages) </li>
+<li><a target="_blank" rel="noopener" href="https://okcd00.oschina.io/articles/2017-09/%E3%80%90Pytorch%E3%80%91Torch_Basic_Learning.html">传送到</a> 个人主页 (国内镜像源，加载速度稍快) </li>
+<li><a target="_blank" rel="noopener" href="https://github.com/okcd00/okcd00.github.io/blob/master/wlog/backup/Torch_Basic_Learning.ipynb">传送到</a> Ipynb的查看或下载</li>
+</ul>
+<h2 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h2><ul>
+<li>Tensor computation (like numpy) with strong GPU acceleration</li>
+<li>PyTorch is an optimized tensor library for deep learning using GPUs and CPUs.</li>
+<li>It has a CUDA counterpart, that enables you to run your tensor computations on an NVIDIA GPU with compute capability &gt;= 3.0.</li>
+</ul>
+<span id="more"></span>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> torch.autograd <span class="keyword">as</span> autograd</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Import success.\nTorch Version:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(torch.__version__))</span><br></pre></td></tr></table></figure>
+
+<pre><code>Import success.
+Torch Version:0.2.1+a4fc05a
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Package</th>
+<th align="right">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">torch</td>
+<td align="right">a Tensor library like NumPy, with strong GPU support</td>
+</tr>
+<tr>
+<td align="left">torch.autograd</td>
+<td align="right">a tape based automatic differentiation library that supports all differentiable Tensor operations in torch</td>
+</tr>
+<tr>
+<td align="left">torch.nn</td>
+<td align="right">a neural networks library deeply integrated with autograd designed for maximum flexibility</td>
+</tr>
+<tr>
+<td align="left">torch.optim</td>
+<td align="right">an optimization package to be used with torch.nn with standard optimization methods such as SGD, RMSProp, LBFGS, Adam etc.</td>
+</tr>
+<tr>
+<td align="left">torch.multiprocessing</td>
+<td align="right">python multiprocessing, but with magical memory sharing of torch Tensors across processes. Useful for data loading and hogwild training.</td>
+</tr>
+<tr>
+<td align="left">torch.utils</td>
+<td align="right">DataLoader, Trainer and other utility functions for convenience</td>
+</tr>
+<tr>
+<td align="left">torch.legacy(.nn/.optim)</td>
+<td align="right">legacy code that has been ported over from torch for backward compatibility reasons</td>
+</tr>
+</tbody></table>
+<h3 id="Brief-view-in-pytorch"><a href="#Brief-view-in-pytorch" class="headerlink" title="Brief view in pytorch"></a>Brief view in pytorch</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">torch.set_printoptions(</span><br><span class="line">    precision=<span class="literal">None</span>, <span class="comment"># Number of digits of precision for floating point output (default 8).</span></span><br><span class="line">    threshold=<span class="literal">None</span>, <span class="comment"># Total number of array elements which trigger summarization rather than full repr (default 1000).</span></span><br><span class="line">    edgeitems=<span class="literal">None</span>, <span class="comment"># Number of array items in summary at beginning and end of each dimension (default 3).</span></span><br><span class="line">    linewidth=<span class="literal">None</span>, <span class="comment"># The number of characters per line for the purpose of inserting line breaks (default 80). </span></span><br><span class="line">                    <span class="comment"># Thresholded matricies will ignore this parameter.</span></span><br><span class="line">    profile=<span class="literal">None</span>,   <span class="comment"># Sane defaults for pretty printing. Can override with any of the above options. (default, short, full) </span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">np_mat = np.random.randn(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">tc_mat = torch.randn(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Numpy Matrix:\n&quot;</span>, np_mat)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\nTorch Matrix:&quot;</span>, tc_mat)</span><br><span class="line"></span><br><span class="line">torch.set_printoptions(precision=<span class="number">5</span>) <span class="comment"># change print options, just link numpy</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\nTorch Matrix:&quot;</span>, tc_mat)</span><br><span class="line">torch.set_printoptions(profile=<span class="string">&#x27;default&#x27;</span>) <span class="comment"># back to default_pretty_printing</span></span><br><span class="line"><span class="comment"># print(&quot;\nTorch Matrix:&quot;, tc_mat) </span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Numpy Matrix:
+ [[[[-1.26951553 -0.5783194  -0.2817905  -1.91081633]
+   [-1.03255087  0.09356858  0.87141257  0.24527875]
+   [-1.57634325 -0.95006681 -0.54418479 -0.81721992]]
+
+  [[ 1.52620998  1.19114026  0.12362855  0.30176001]
+   [-0.18951867  0.33470665 -1.13370011  1.17999206]
+   [ 0.17942397 -0.15441461  0.53326092 -0.22955392]]]]
+
+Torch Matrix: 
+(0 ,0 ,.,.) = 
+  1.6238  0.4029 -1.6028  0.4393
+  0.0485 -0.5608 -1.3842  1.6696
+  0.9837  0.7565 -0.8661 -0.6509
+
+(0 ,1 ,.,.) = 
+ -0.3699 -0.8046  0.3459  0.3806
+  0.0225 -0.0216  0.5001  0.4924
+  0.2519 -1.1100 -1.5480 -0.0549
+[torch.FloatTensor of size 1x2x3x4]
+
+
+Torch Matrix: 
+(0 ,0 ,.,.) = 
+ 1.62381 0.40293 -1.60275 0.43934
+ 0.04847 -0.56078 -1.38419 1.66964
+ 0.98369 0.75650 -0.86610 -0.65095
+
+(0 ,1 ,.,.) = 
+ -0.36994 -0.80465 0.34593 0.38057
+ 0.02247 -0.02161 0.50013 0.49238
+ 0.25189 -1.10998 -1.54797 -0.05489
+[torch.FloatTensor of size 1x2x3x4]
+</code></pre>
+<h3 id="Easy-defination-and-assignment-with-numpy"><a href="#Easy-defination-and-assignment-with-numpy" class="headerlink" title="Easy defination and assignment with numpy"></a>Easy defination and assignment with numpy</h3><ul>
+<li>torch.from_numpy(<type numpy.array>) creates a Tensor from a numpy.ndarray.</li>
+</ul>
+<blockquote>
+<p>The returned tensor and ndarray <strong>share the same memory</strong>. Modifications to the tensor will be reflected in the ndarray and vice versa.<br>The returned tensor is <strong>not resizable</strong>.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tc_mat = torch.from_numpy(np_mat)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Numpy Matrix:\n&quot;</span>, np_mat)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\nTorch matrix from Numpy:&quot;</span>, tc_mat)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Numpy Matrix:
+ [[[[ 0.28134406 -0.34748676  0.83155334  0.85618986]
+   [-0.95961146 -0.68374939 -1.67800331  0.84947823]
+   [-0.72478517  0.71535117 -2.02988345 -0.1911564 ]]
+
+  [[ 1.04884339  0.35382358 -0.69535152  0.27244267]
+   [-0.18157492 -0.02892887 -0.54348221  1.49079913]
+   [ 0.6273026   0.86512992 -1.02024843 -0.58441433]]]]
+Torch matrix from Numpy:
+ 
+(0 ,0 ,.,.) = 
+  0.2813 -0.3475  0.8316  0.8562
+ -0.9596 -0.6837 -1.6780  0.8495
+ -0.7248  0.7154 -2.0299 -0.1912
+
+(0 ,1 ,.,.) = 
+  1.0488  0.3538 -0.6954  0.2724
+ -0.1816 -0.0289 -0.5435  1.4908
+  0.6273  0.8651 -1.0202 -0.5844
+[torch.DoubleTensor of size 1x2x3x4]
+</code></pre>
+<h3 id="Data-preprocessing"><a href="#Data-preprocessing" class="headerlink" title="Data preprocessing"></a>Data preprocessing</h3><ul>
+<li>torch.clamp(x, min, max)</li>
+<li>torch.cat((x, x, …, x), 0)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = torch.randn(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Original Matrix a:&#x27;</span>, a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\nAfter torch.clamp:&#x27;</span>, torch.clamp(a, <span class="built_in">min</span>=-<span class="number">0.5</span>, <span class="built_in">max</span>=<span class="number">0.5</span>))</span><br><span class="line"></span><br><span class="line">cat0, cat1 = torch.cat((a, a, a), <span class="number">0</span>), torch.cat((a, a), <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\nAfter torch.cat((a,a), axis=1):&#x27;</span>, cat1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\nAfter torch.cat((a,a,a), axis=0):&#x27;</span>, cat0)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Original Matrix a: 
+-0.0708  0.7695  0.4194 -0.2349
+-1.6515  0.4604  0.7691  0.3826
+-0.7259 -0.0289 -0.7962  0.5046
+[torch.FloatTensor of size 3x4]
+
+
+After torch.clamp: 
+-0.0708  0.5000  0.4194 -0.2349
+-0.5000  0.4604  0.5000  0.3826
+-0.5000 -0.0289 -0.5000  0.5000
+[torch.FloatTensor of size 3x4]
+
+
+After torch.cat((a,a), axis=1): 
+-0.0708  0.7695  0.4194 -0.2349 -0.0708  0.7695  0.4194 -0.2349
+-1.6515  0.4604  0.7691  0.3826 -1.6515  0.4604  0.7691  0.3826
+-0.7259 -0.0289 -0.7962  0.5046 -0.7259 -0.0289 -0.7962  0.5046
+[torch.FloatTensor of size 3x8]
+
+
+After torch.cat((a,a,a), axis=0): 
+-0.0708  0.7695  0.4194 -0.2349
+-1.6515  0.4604  0.7691  0.3826
+-0.7259 -0.0289 -0.7962  0.5046
+-0.0708  0.7695  0.4194 -0.2349
+-1.6515  0.4604  0.7691  0.3826
+-0.7259 -0.0289 -0.7962  0.5046
+-0.0708  0.7695  0.4194 -0.2349
+-1.6515  0.4604  0.7691  0.3826
+-0.7259 -0.0289 -0.7962  0.5046
+[torch.FloatTensor of size 9x4]
+</code></pre>
+<h3 id="Data-Select"><a href="#Data-Select" class="headerlink" title="Data Select"></a>Data Select</h3><ul>
+<li>torch.masked_select</li>
+<li>torch.index_select<blockquote>
+<p>Returned Tensor does not use the same storage as the original Tensor<br>and <code>masked_select returns a 1-dim tensor</code></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">select = torch.LongTensor([<span class="number">0</span>, <span class="number">2</span>])</span><br><span class="line">sel0 = torch.index_select(a, <span class="number">0</span>, select)</span><br><span class="line">sel1 = torch.index_select(a, <span class="number">1</span>, select)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Original Matrix a:&#x27;</span>, a)</span><br><span class="line"></span><br><span class="line">mask = a.gt(<span class="number">0.5</span>) <span class="comment"># if element is greater than 0.5</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\nMask for greater_than_0.5:&#x27;</span>, mask)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\nAfter torch.masked_select(a, mask):&#x27;</span>, torch.masked_select(a, mask))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;We select index: select = torch.LongTensor([0, 2])&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\nAfter torch.index_select(a, axis=0, select):&#x27;</span>, sel0)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\nAfter torch.index_select(a, axis=1, select):&#x27;</span>, sel1)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Original Matrix a: 
+-0.0708  0.7695  0.4194 -0.2349
+-1.6515  0.4604  0.7691  0.3826
+-0.7259 -0.0289 -0.7962  0.5046
+[torch.FloatTensor of size 3x4]
+
+
+Mask for greater_than_0.5: 
+ 0  1  0  0
+ 0  0  1  0
+ 0  0  0  1
+[torch.ByteTensor of size 3x4]
+
+
+After torch.masked_select(a, mask): 
+ 0.7695
+ 0.7691
+ 0.5046
+[torch.FloatTensor of size 3]
+
+We select index: select = torch.LongTensor([0, 2])
+
+After torch.index_select(a, axis=0, select): 
+-0.0708  0.7695  0.4194 -0.2349
+-0.7259 -0.0289 -0.7962  0.5046
+[torch.FloatTensor of size 2x4]
+
+
+After torch.index_select(a, axis=1, select): 
+-0.0708  0.4194
+-1.6515  0.7691
+-0.7259 -0.7962
+[torch.FloatTensor of size 3x2]
+</code></pre>
+<h3 id="Data-Squeeze"><a href="#Data-Squeeze" class="headerlink" title="Data Squeeze"></a>Data Squeeze</h3><ul>
+<li>torch.squeeze</li>
+</ul>
+<blockquote>
+<p>You can select which axis to be squeezed</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z = torch.zeros(<span class="number">4</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Size of Z:                 \t &quot;</span>, z.size())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Size of Z after squeeze(z):\t &quot;</span>, torch.squeeze(z).size())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Size of Z after squeeze(z, 1):\t &quot;</span>, torch.squeeze(z, <span class="number">1</span>).size())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Size of Z after squeeze(z, 2):\t &quot;</span>, torch.squeeze(z, <span class="number">2</span>).size())</span><br></pre></td></tr></table></figure>
+
+<pre><code>Size of Z:                       torch.Size([4, 5, 1, 2])
+Size of Z after squeeze(z):      torch.Size([4, 5, 2])
+Size of Z after squeeze(z, 1):      torch.Size([4, 5, 1, 2])
+Size of Z after squeeze(z, 2):      torch.Size([4, 5, 2])
+</code></pre>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://pytorch.org/docs/master/notes/serialization.html#recommend-saving-models">Serialization</a></li>
+<li><a target="_blank" rel="noopener" href="http://pytorch.org/docs/master/torch.html#parallelism">Parallelism</a><ul>
+<li>torch.<code>set_num_threads(int)</code></li>
+<li>torch.<code>get_num_threads()</code> → int</li>
+</ul>
+</li>
+<li>Check Matrix Comparison<ul>
+<li>torch.<code>eq()</code>/<code>ge()</code>/<code>gt()</code> -&gt; Tensor</li>
+<li>torch.<code>equal()</code> -&gt; Bool</li>
+</ul>
+</li>
+</ul>
+<h3 id="In-place-random-sampling"><a href="#In-place-random-sampling" class="headerlink" title="In-place random sampling"></a>In-place random sampling</h3><p>There are a few more in-place random sampling functions defined on Tensors as well. Click through to refer to their documentation:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Distribution</th>
+<th align="right">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>torch.Tensor.bernoulli_()</code></td>
+<td align="right">in-place version of torch.bernoulli()</td>
+</tr>
+<tr>
+<td align="left"><code>torch.Tensor.cauchy_()</code></td>
+<td align="right">numbers drawn from the Cauchy distribution</td>
+</tr>
+<tr>
+<td align="left"><code>torch.Tensor.exponential_()</code></td>
+<td align="right">numbers drawn from the exponential distribution</td>
+</tr>
+<tr>
+<td align="left"><code>torch.Tensor.geometric_()</code></td>
+<td align="right">elements drawn from the geometric distribution</td>
+</tr>
+<tr>
+<td align="left"><code>torch.Tensor.log_normal_()</code></td>
+<td align="right">samples from the log-normal distribution</td>
+</tr>
+<tr>
+<td align="left"><code>torch.Tensor.normal_()</code></td>
+<td align="right">in-place version of torch.normal()</td>
+</tr>
+<tr>
+<td align="left"><code>torch.Tensor.random_()</code></td>
+<td align="right">numbers sampled from the discrete uniform distribution</td>
+</tr>
+<tr>
+<td align="left"><code>torch.Tensor.uniform_()</code></td>
+<td align="right">numbers sampled from the uniform distribution</td>
+</tr>
+</tbody></table>
+<h3 id="Variable-for-requires-grad-or-not"><a href="#Variable-for-requires-grad-or-not" class="headerlink" title="Variable for requires_grad or not"></a>Variable for requires_grad or not</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"><span class="comment"># http://pytorch.org/docs/master/autograd.html#torch.autograd.Function</span></span><br><span class="line">x = Variable(torch.randn(<span class="number">5</span>, <span class="number">5</span>))</span><br><span class="line">y = Variable(torch.randn(<span class="number">5</span>, <span class="number">5</span>))</span><br><span class="line">z = Variable(torch.randn(<span class="number">5</span>, <span class="number">5</span>), requires_grad=<span class="literal">True</span>)</span><br><span class="line">a = x + y</span><br><span class="line">b = a + z</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Variable a=x+y requires grad: &quot;</span>, a.requires_grad)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Variable b=a+z requires grad: &quot;</span>, b.requires_grad)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Variable a=x+y requires grad:  False
+Variable b=a+z requires grad:  True
+</code></pre>
+<h3 id="Finished-Basic"><a href="#Finished-Basic" class="headerlink" title="Finished Basic"></a>Finished Basic</h3><p>I can’t wait for Machine learning!<br>Let’s start new learning into <a target="_blank" rel="noopener" href="http://pytorch.org/docs/master/nn.html">torch.nn</a>~</p>
+<p><img src="http://pytorch.org/static/img/dynamic_graph.gif" alt="dynamic_graph"></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/PyTorch/">#PyTorch</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Coding the world, try to fetch more.
+                </p>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">【Grpc】使用grpc配置通过端口访问的python服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-02/%E3%80%90HNS%E3%80%91%E8%AF%95%E7%9D%80%E9%A2%86%E4%B8%80%E4%B8%8B%20HandShake%20%E4%B8%BA%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E5%8F%91%E6%94%BE%E7%9A%84%20HNS%20Coin.html">【HNS】试着领一下 HandShake 发给开源社区的 HNS Coin</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://okcd00.oschina.io/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:okcd00@vip.qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @<a target="_blank" rel="noopener" href="https://github.com/okcd00/">Dian Chen</a>. 2017-2022 All right reserved | Re-design & Deploy: <a href="blog.csdn.net/okcd00">okcd00</a> | Hexo Theme: <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'okcd00';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- "//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" -->
+<script type="text/javascript" color="0,255,255" opacity='0.75' zIndex="-2" count="75" src='/js/canvas.js'></script>
+
+</body>
+</html>

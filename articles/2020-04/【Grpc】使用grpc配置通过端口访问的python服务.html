@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="o4pXUBsPyW" />
+	
+    <!--Description-->
+    
+        <meta name="description" content="To be more curious and less lazy.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chen Dian">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【Grpc】使用grpc配置通过端口访问的python服务"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="To be more curious and less lazy." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="CDPlayer&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>【Grpc】使用grpc配置通过端口访问的python服务 - CDPlayer&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+	
+	<!-- Baidu Analytics -->
+    
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?{{ theme.baidu_analytics }}";
+		  var s = document.getElementsByTagName("script")[0];
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+	
+	<!-- star map -->
+	<script type="text/javascript" color="255,255,255" opacity='0.75' zIndex="-2" count="88" src="js/canvas.js"></script>
+	
+	<!-- Earth -->
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">
+                【Grpc】使用grpc配置通过端口访问的python服务
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-04-16</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/编程记忆/">编程记忆</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+		<!-- MathJax support -->
+		
+
+		
+        <!-- Post Content -->
+        <h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><p>近期兴趣使然的技术调研越发的少了（TTS算一个），主要的都是为了项目和任务去研究的东西。目前的情况是为了节约显存，对一个较大的模型而言，比起使用4个worker来重复的占用显存，不如只占用一份显存，但是开启服务流式或触发式地处理不同项目的需求。<br>于是 @caoyixuan93 学长向我推荐了GRPC，经过 @hongfeng 和 @phchang 的帮助，终于得以成功实现了一个小的自定义demo，后续再花些时间把模型装载上去。</p>
+<span id="more"></span>
+
+<h2 id="0x01-GRPC介绍"><a href="#0x01-GRPC介绍" class="headerlink" title="0x01 GRPC介绍"></a>0x01 GRPC介绍</h2><blockquote>
+<p><strong>GRPC</strong>: A high performance, open source, general-purpose RPC framework</p>
+</blockquote>
+<p>简单的来说，就是一个开源的“服务端-客户端”框架，你可以把你的服务（例如模型的预测函数）挂载起来，随时接受到通过端口发送来的输入数据，计算后将输出返回回去。当有多个访问时，以队列或者流的形式逐个处理。</p>
+<h2 id="0x02-环境配置"><a href="#0x02-环境配置" class="headerlink" title="0x02 环境配置"></a>0x02 环境配置</h2><p>我们来参照 <a target="_blank" rel="noopener" href="https://www.grpc.io/docs/quickstart/python/">Python Quick Start</a> ，对于一个简单的grpc服务，逐步搭建起来依次需要哪些东西，从而来对应的看看需要配置的环境吧：</p>
+<ul>
+<li><code>Python &gt;= 3.4</code> grpc有很多版本，这里我选择使用便捷的python</li>
+<li><code>grpcio&gt;=1.28.1</code> 既然要用grpc那自然要装上grpc了，这里的<code>grpcio</code>是指grpc的python版本，此外还有其他各种语言的版本就没有多做研究啦，直接 <code>pip install grpcio</code> 即可</li>
+<li><code>grpcio-tools</code> 这个工具的作用是通过读取<code>.proto</code>格式的配置文件，产生两段python代码供直接调用，直接 <code>pip install grpcio-tools</code> 即可</li>
+<li><code>protobuf==3.6.0</code> 上一步的 <code>pip install</code> 会附赠安装一个<code>3.11.x</code>的，结果版本太高了反而容易出错，这里我们选用稳定的<code>3.6.0</code>版本了，用途是读取上面提到的<code>.proto</code>格式的文件，进行服务的变量名配置</li>
+</ul>
+<h2 id="0x03-源码及分析"><a href="#0x03-源码及分析" class="headerlink" title="0x03 源码及分析"></a>0x03 源码及分析</h2><p>个人可能脑袋瓜比较笨，看 <a target="_blank" rel="noopener" href="https://www.grpc.io/docs/quickstart/python/">Python Quick Start</a> 里的例子是硬生生没明白，所以比起他的helloworld，不如自己自定义一个demo来尝试跑通，这用来学习一种新框架是一个不错的方法。</p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/okcd00/CDAlter/tree/master/CDMemory/protos">https://github.com/okcd00/CDAlter/tree/master/CDMemory/protos</a></p>
+</blockquote>
+<p>首先是令人劝退的 protobuf 语言，啊我没学过怎么办，啊看起来头好疼。<br>然后看着看着，哦，就这呀？还好还好，又不用写逻辑，就是配置嘛，那我会，yml我也不会呀但我照葫芦画瓢写配置还是能做到的嘛。</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 意思是我们用了proto3的版本，不用管这行，大概python2会变成proto2吧，我瞎猜的</span></span><br><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们自定义的这个配置文件叫啥，会用在产生代码的时候当名字用</span></span><br><span class="line"><span class="keyword">package</span> keyvaluestore;  </span><br><span class="line"></span><br><span class="line"><span class="comment">// service里就是预先定义一下你这个服务有哪些函数可以调用</span></span><br><span class="line"><span class="comment">// 这里只需要定义不需要实现任何功能，功能都是在python里实现的</span></span><br><span class="line"><span class="class"><span class="keyword">service</span> <span class="title">KeyValueStore</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 函数格式： rpc 函数名 (输入变量) returns (输出变量) &#123;&#125;</span></span><br><span class="line">  <span class="comment">// 变量都要在下面用 message 来定义了才能用哦</span></span><br><span class="line">  <span class="function"><span class="keyword">rpc</span> ask (Key) <span class="keyword">returns</span> (Response) </span>&#123;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">rpc</span> remember (Item) <span class="keyword">returns</span> (Response) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量名：Key</span></span><br><span class="line"><span class="comment">// 有一个成员变量，为词典里的键</span></span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">Key</span> </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> key = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量名：Item</span></span><br><span class="line"><span class="comment">// 有两个成员变量，为词典里的键和值</span></span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">Item</span> </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> key = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">string</span> value = <span class="number">2</span>;  </span><br><span class="line">  <span class="comment">// 这个1和2就当作是标识符就好，有几个变量就要写到几，这样服务器才能数的清楚不会搞错</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量名：Response </span></span><br><span class="line"><span class="comment">// 有一个成员变量，为词典里的值</span></span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">Response</span> </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> value = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个<code>proto</code>文件设置好了之后，通过命令行（cmd，命令提示符，git bash都可以）来调用tool自动生成两个python文件，调用方法为，先进入proto所在的文件夹（例如 <code>cd /i/Github/CDAlter/CDMemory/protos</code>），然后执行如下命令（这里我的proto文件叫作<code>keyvaluestore.proto</code>）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python -m grpc_tools.protoc \</span><br><span class="line">    -I ./ \ </span><br><span class="line">    --python_out=. \</span><br><span class="line">    --grpc_python_out=. \</span><br><span class="line">    keyvaluestore.proto</span><br></pre></td></tr></table></figure>
+<p>里面的 <code>\</code> 是为了格式好看点，偷懒的话在提供个可以直接输入一整行的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m grpc_tools.protoc -I ./ --python_out=. --grpc_python_out=. keyvaluestore.proto</span><br></pre></td></tr></table></figure>
+
+<p>因为我的配置文件叫<code>keyvaluestore.proto</code>，所以在当前目录下生成了<code>keyvaluestore_pb2.py</code>和<code>keyvaluestore_pb2_grpc.py</code>两个文件。</p>
+<h3 id="服务端与客户端"><a href="#服务端与客户端" class="headerlink" title="服务端与客户端"></a>服务端与客户端</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/okcd00/CDAlter/tree/master/CDNerve">https://github.com/okcd00/CDAlter/tree/master/CDNerve</a></p>
+</blockquote>
+<h4 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: gbk -*-</span></span><br><span class="line"><span class="comment"># ==========================================================================</span></span><br><span class="line"><span class="comment">#   Copyright (C) since 2020 All rights reserved.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#   filename : grpc_server.py</span></span><br><span class="line"><span class="comment">#   author   : chendian / okcd00@qq.com</span></span><br><span class="line"><span class="comment">#   date     : 2020-04-16</span></span><br><span class="line"><span class="comment">#   desc     : server in grpc service</span></span><br><span class="line"><span class="comment"># ==========================================================================</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> grpc</span><br><span class="line"><span class="keyword">from</span> concurrent <span class="keyword">import</span> futures</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line"><span class="keyword">from</span> grpc._cython.cygrpc <span class="keyword">import</span> CompressionAlgorithm, CompressionLevel</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"># generate it at first</span></span><br><span class="line"><span class="string">python -m grpc_tools.protoc \</span></span><br><span class="line"><span class="string">    -I ./ \ </span></span><br><span class="line"><span class="string">    --python_out=. \</span></span><br><span class="line"><span class="string">    --grpc_python_out=. \</span></span><br><span class="line"><span class="string">    keyvaluestore.proto</span></span><br><span class="line"><span class="string"># then you can get keyvaluestore_pb2_grpc and keyvaluestore_pb2</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 这里我的protos不在当前目录下，所以加了个pythonpath</span></span><br><span class="line">sys.path.append(<span class="string">&#x27;../CDMemory/protos/&#x27;</span>)</span><br><span class="line"><span class="keyword">from</span> CDMemory.protos <span class="keyword">import</span> keyvaluestore_pb2_grpc, keyvaluestore_pb2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KVServicer</span>(<span class="params">keyvaluestore_pb2_grpc.KeyValueStoreServicer</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">    	<span class="comment"># 这里可以把模型什么的都放进来，比如 self.model = AlbertModel()</span></span><br><span class="line">        self.records = OrderedDict()  <span class="comment"># 这里用一个字典来作为Demo服务的载体</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 之前在 service 的部分预先定义的函数都要在这里重载，而且变量名的个数要一致，</span></span><br><span class="line">    <span class="comment"># 不然会报错：&quot;Exception iterating requests!&quot;</span></span><br><span class="line">    <span class="comment"># 我这里统一用了重载的函数名，也可以写成 `def ask(self, Key, context):` </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">ask</span>(<span class="params">self, request, context</span>):</span>  </span><br><span class="line">    	<span class="comment"># 对应 rpc ask (Key) returns (Response) &#123;&#125;</span></span><br><span class="line">        <span class="comment"># 这个 request 就是 `ask` 后面那个 `Key`</span></span><br><span class="line">        _value = self.records.get(request.key, <span class="string">&quot;Empty&quot;</span>)  </span><br><span class="line">        <span class="comment"># 这个`keyvaluestore_pb2.Response`就是 `returns` 后面的那个 `Response`</span></span><br><span class="line">        <span class="keyword">return</span> keyvaluestore_pb2.Response(value=_value)</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 我这里统一用了重载的函数名，也可以写成 `def remember(self, Item, context):` </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remember</span>(<span class="params">self, request, context</span>):</span></span><br><span class="line">	    <span class="comment"># 对应 rpc remember (Item) returns (Response) &#123;&#125;</span></span><br><span class="line">        <span class="comment"># 这个 request 就是 `remember ` 后面那个 `Item`</span></span><br><span class="line">        key, value = request.key, request.value  <span class="comment"># 就是我们在Item里定义的key/value</span></span><br><span class="line">        self.records.update(&#123;key: value&#125;)  <span class="comment"># 这个grpc的demo效果就是字典的写和查</span></span><br><span class="line">        <span class="keyword">return</span> keyvaluestore_pb2.Response(</span><br><span class="line">            value=<span class="string">&quot;Remembered: the value for &#123;&#125; is &#123;&#125;&quot;</span>.<span class="built_in">format</span>(key, value))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">serve</span>(<span class="params">n_worker=<span class="number">4</span>, port=<span class="number">20416</span></span>):</span></span><br><span class="line">    max_receive_message_length = <span class="number">512</span></span><br><span class="line">    <span class="comment"># 初始化 Servicer 实例</span></span><br><span class="line">    service = KVServicer()</span><br><span class="line">    <span class="comment"># 多线程池，设定线程数量</span></span><br><span class="line">    service.process_pool = Pool(processes=n_worker)</span><br><span class="line">    <span class="comment"># 建立 server 实例</span></span><br><span class="line">    server = grpc.server(futures.ThreadPoolExecutor(max_workers=n_worker), </span><br><span class="line">    	options=[  <span class="comment"># 这里的options可以省去不要，我这里加的设置是限制最大长度和压缩</span></span><br><span class="line">	        (<span class="string">&#x27;grpc.max_receive_message_length&#x27;</span>, max_receive_message_length),</span><br><span class="line">	        (<span class="string">&#x27;grpc.default_compression_algorithm&#x27;</span>, CompressionAlgorithm.gzip),</span><br><span class="line">	        (<span class="string">&#x27;grpc.grpc.default_compression_level&#x27;</span>, CompressionLevel.high)</span><br><span class="line">    ])</span><br><span class="line">    <span class="comment"># 用自动生成的 keyvaluestore_pb2_grpc 来添加 Servicer 到服务中</span></span><br><span class="line">    keyvaluestore_pb2_grpc.add_KeyValueStoreServicer_to_server(service, server)</span><br><span class="line">	<span class="comment"># 设置端口号（内网外网均可访问）</span></span><br><span class="line">    server.add_insecure_port(<span class="string">&#x27;[::]:&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(port))</span><br><span class="line">	<span class="comment"># 服务启动</span></span><br><span class="line">    server.start()</span><br><span class="line">    <span class="comment"># server.wait_for_termination()</span></span><br><span class="line">    <span class="keyword">return</span> server</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;starting server...&quot;</span>)</span><br><span class="line">    server_agent = serve()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;server started.&quot;</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        time.sleep(<span class="number">10000</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[ALIVE] &#123;&#125;&quot;</span>.<span class="built_in">format</span>(time.ctime()))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: gbk -*-</span></span><br><span class="line"><span class="comment"># ==========================================================================</span></span><br><span class="line"><span class="comment">#   Copyright (C) since 2020 All rights reserved.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#   filename : grpc_client.py</span></span><br><span class="line"><span class="comment">#   author   : chendian / okcd00@qq.com</span></span><br><span class="line"><span class="comment">#   date     : 2020-04-16</span></span><br><span class="line"><span class="comment">#   desc     : client in grpc service</span></span><br><span class="line"><span class="comment"># ==========================================================================</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">if</span> os.environ.get(<span class="string">&#x27;https_proxy&#x27;</span>):</span><br><span class="line">    <span class="keyword">del</span> os.environ[<span class="string">&#x27;https_proxy&#x27;</span>]</span><br><span class="line"><span class="keyword">if</span> os.environ.get(<span class="string">&#x27;http_proxy&#x27;</span>):</span><br><span class="line">    <span class="keyword">del</span> os.environ[<span class="string">&#x27;http_proxy&#x27;</span>]</span><br><span class="line"><span class="keyword">import</span> grpc</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"># generate it at first</span></span><br><span class="line"><span class="string">python -m grpc_tools.protoc \</span></span><br><span class="line"><span class="string">    -I ./ \ </span></span><br><span class="line"><span class="string">    --python_out=. \</span></span><br><span class="line"><span class="string">    --grpc_python_out=. \</span></span><br><span class="line"><span class="string">    keyvaluestore.proto</span></span><br><span class="line"><span class="string"># then you can get keyvaluestore_pb2_grpc and keyvaluestore_pb2</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 这里我的protos不在当前目录下，所以加了个pythonpath</span></span><br><span class="line">sys.path.append(<span class="string">&#x27;../CDMemory/protos/&#x27;</span>)  </span><br><span class="line"><span class="keyword">from</span> CDMemory.protos <span class="keyword">import</span> keyvaluestore_pb2_grpc, keyvaluestore_pb2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	<span class="comment"># 连接上对应端口的grpc服务</span></span><br><span class="line">    <span class="keyword">with</span> grpc.insecure_channel(<span class="string">&#x27;localhost:20416&#x27;</span>) <span class="keyword">as</span> channel:</span><br><span class="line">        <span class="comment"># 初始化一个实例作为客户端</span></span><br><span class="line">        stub = keyvaluestore_pb2_grpc.KeyValueStoreStub(channel)</span><br><span class="line">		<span class="comment"># 调用我们定义的remember函数，效果是写入 key=name, value=cd</span></span><br><span class="line">        response = stub.remember(keyvaluestore_pb2.Item(key=<span class="string">&#x27;name&#x27;</span>, value=<span class="string">&#x27;cd&#x27;</span>))</span><br><span class="line">        <span class="built_in">print</span>(response)  <span class="comment"># value: &quot;Remembered: the value for name is cd&quot;</span></span><br><span class="line">        <span class="comment"># 调用我们定义的ask函数，效果是查询 key=name 对应的 value</span></span><br><span class="line">        response = stub.ask(keyvaluestore_pb2.Key(key=<span class="string">&#x27;name&#x27;</span>))</span><br><span class="line">        <span class="built_in">print</span>(response)  <span class="comment"># value: &quot;cd&quot;</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Coding the world, try to fetch more.
+                </p>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">【Grpc】使用grpc配置通过端口访问的python服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-02/%E3%80%90HNS%E3%80%91%E8%AF%95%E7%9D%80%E9%A2%86%E4%B8%80%E4%B8%8B%20HandShake%20%E4%B8%BA%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E5%8F%91%E6%94%BE%E7%9A%84%20HNS%20Coin.html">【HNS】试着领一下 HandShake 发给开源社区的 HNS Coin</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://okcd00.oschina.io/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:okcd00@vip.qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @<a target="_blank" rel="noopener" href="https://github.com/okcd00/">Dian Chen</a>. 2017-2022 All right reserved | Re-design & Deploy: <a href="blog.csdn.net/okcd00">okcd00</a> | Hexo Theme: <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'okcd00';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- "//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" -->
+<script type="text/javascript" color="0,255,255" opacity='0.75' zIndex="-2" count="75" src='/js/canvas.js'></script>
+
+</body>
+</html>

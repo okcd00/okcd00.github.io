@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="o4pXUBsPyW" />
+	
+    <!--Description-->
+    
+        <meta name="description" content="To be more curious and less lazy.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chen Dian">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【矩阵分解】Python下基于Numpy的四种矩阵基本分解的实现"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="To be more curious and less lazy." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="CDPlayer&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>【矩阵分解】Python下基于Numpy的四种矩阵基本分解的实现 - CDPlayer&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+	
+	<!-- Baidu Analytics -->
+    
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?{{ theme.baidu_analytics }}";
+		  var s = document.getElementsByTagName("script")[0];
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+	
+	<!-- star map -->
+	<script type="text/javascript" color="255,255,255" opacity='0.75' zIndex="-2" count="88" src="js/canvas.js"></script>
+	
+	<!-- Earth -->
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/articles/2016-12/%E3%80%90%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%E3%80%91Python%E4%B8%8B%E5%9F%BA%E4%BA%8ENumpy%E7%9A%84%E5%9B%9B%E7%A7%8D%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E5%88%86%E8%A7%A3%E7%9A%84%E5%AE%9E%E7%8E%B0.html">
+                【矩阵分解】Python下基于Numpy的四种矩阵基本分解的实现
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016-12-04</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/功能脚本/">功能脚本</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+		<!-- MathJax support -->
+		
+
+		
+        <!-- Post Content -->
+        <h3 id="0x00-需求"><a href="#0x00-需求" class="headerlink" title="0x00 需求"></a>0x00 需求</h3><p>完成课堂上讲的关于矩阵分解的<br>· LU、<br>· QR（Gram-Schmidt）<br>· Orthogonal Reduction<br>    Householder reduction<br>    Givens reduction<br>程序实现，要求一个综合程序，根据选择参数的不同，实现不同的矩阵分解。</p>
+<p>反正也是要写，就顺手做成了实现类，可以import调用的那种，为了写作业方便，也设置了输出中间过程，方便拿过程分。</p>
+<span id="more"></span>
+
+<h3 id="0x01-作者"><a href="#0x01-作者" class="headerlink" title="0x01 作者"></a>0x01 作者</h3><ul>
+<li>陈点 学号 201618013229031</li>
+<li>个人邮箱 <a href="mailto:&#99;&#x68;&#x65;&#110;&#100;&#x69;&#97;&#110;&#64;&#x62;&#x61;&#105;&#100;&#117;&#46;&#x63;&#x6f;&#x6d;">&#99;&#x68;&#x65;&#110;&#100;&#x69;&#97;&#110;&#64;&#x62;&#x61;&#105;&#100;&#117;&#46;&#x63;&#x6f;&#x6d;</a></li>
+<li>个人主页 blog.csdn.net/okcd00</li>
+<li>Github github.com/okcd00</li>
+</ul>
+<h3 id="0x02-文件树"><a href="#0x02-文件树" class="headerlink" title="0x02 文件树"></a>0x02 文件树</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">E:\UCAS\矩阵分析与应用\CD_MatrixDecomp 的目录</span><br><span class="line"></span><br><span class="line">2016/11/28  23:11                27 A.txt		% 用于测试各种不同种类输入的文件</span><br><span class="line">2016/11/28  23:11                28 B.txt		% 用于测试非方阵进行LU分解时的文件</span><br><span class="line">2016/11/23  15:51                40 LU.txt		% 用于测试LU分解的输入示例</span><br><span class="line">2016/11/28  23:17            10,560 MatrixDecomp.py	% 主程序，python MatrixDecomp.py即可</span><br><span class="line">2016/11/23  15:50                27 QR.txt		% 用于测试QR分解的输入示例</span><br><span class="line">2016/11/27  16:01             2,606 Readme.txt		% 说明文档</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x03-程序输入"><a href="#0x03-程序输入" class="headerlink" title="0x03 程序输入"></a>0x03 程序输入</h3><p>封装为类，返回值实际为一个dict，在LU分解时返回的dict包含三个键值对：P,A,T，类似的QR分解时范围的是Q与R，value均为np.ndarray格式矩阵<br>在import该类进行矩阵计算的时候可以直接调用各类函数，将该类为主进程打开时会通过简单的main函数的提示信息引导展示输入输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">E:\UCAS\矩阵分析与应用\BigHomework&gt;python MatrixDecomp.py</span><br><span class="line">&gt; Current Selection is: &lt;Default&gt;</span><br><span class="line">&gt; Please show me the Matrix for Decomposition</span><br><span class="line">&gt; It can be a list or path to a Matrix_File</span><br><span class="line">&gt; Example: [[1,0],[0,1]] or &quot;A.txt&quot;</span><br><span class="line">The Matrix is: </span><br></pre></td></tr></table></figure>
+
+<p>可直接输入形似[[1,0,0],[0,1,0],[0,0,1]]的list，也可以输入文件地址，需要注意地址应该加上引号，如”A.txt”<br>目录下提供了课件上的LU分解的实例与QR分解时使用的矩阵</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; Current Selection is: &lt;Mode&gt;</span><br><span class="line">&gt; Please Select Decomposition Type</span><br><span class="line">&gt; Example: LU GS HH or GV</span><br><span class="line">The Matrix&#x27;s Size: </span><br></pre></td></tr></table></figure>
+
+
+<p>此处可选择LU GS HH or GV，分别代表LU分解，Gram-Schmidt、Householder、与Givens的QR分解</p>
+<h3 id="0x04-参数"><a href="#0x04-参数" class="headerlink" title="0x04 参数"></a>0x04 参数</h3><p>mdp.Show_Process = False<br>（强烈推荐调成True跑一下看看效果，也不枉coding那么久QvQ）<br>该参数控制是否输出形似如下形式的中间计算过程：<br>Calculation[0]:<br>Q = xxx<br>R = xxx<br>Calculation[1]:<br>Q = xxx<br>R = xxx<br>Calculation[x]:</p>
+<p>mdp.setMatA(mdp.getInput(‘Default’))<br>目前已经编码的合法参数为default, random, mode，其中random为随机生成矩阵，根据提示输入矩阵的行列数，值为0-9之间随机选择</p>
+<h3 id="0x05-程序源码"><a href="#0x05-程序源码" class="headerlink" title="0x05 程序源码"></a>0x05 程序源码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf8</span></span><br><span class="line"><span class="comment"># ========================================================</span></span><br><span class="line"><span class="comment">#   Copyright (C) 2016 All rights reserved.</span></span><br><span class="line"><span class="comment">#   </span></span><br><span class="line"><span class="comment">#   filename : MatrixDecomp.py</span></span><br><span class="line"><span class="comment">#   author   : okcd00 / chendian@baidu.com</span></span><br><span class="line"><span class="comment">#   date     : 2016-11-23</span></span><br><span class="line"><span class="comment">#   desc     : Matrix Decomposition</span></span><br><span class="line"><span class="comment">#   homepage : blog.csdn.net/okcd00</span></span><br><span class="line"><span class="comment"># ======================================================== </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Basic package</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> os,sys,time</span><br><span class="line"></span><br><span class="line"><span class="comment"># Numpy for Matrix Calculation</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> linalg <span class="keyword">as</span> La</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MatrixDecomp</span>:</span></span><br><span class="line">    </span><br><span class="line">    Time = <span class="number">0</span></span><br><span class="line">    Mode = <span class="string">&quot;NULL&quot;</span> <span class="comment"># LU QR(Gram-Schmidt\HouseHolder\Given)</span></span><br><span class="line">    MatA = <span class="string">&quot;No Input&quot;</span> <span class="comment"># Matrix_A for Calculation</span></span><br><span class="line">    bak_MatA = <span class="string">&quot;temp&quot;</span> <span class="comment"># Matrix_A Back_Up</span></span><br><span class="line">    Show_Process = <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.Time = time.localtime(time.time())</span><br><span class="line">            </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setMatA</span>(<span class="params">self, inp</span>):</span></span><br><span class="line">        <span class="comment"># Judge the type of inp, then achieve the Matrix</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">isinstance</span>(inp, np.ndarray):</span><br><span class="line">            self.MatA = inp</span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">isinstance</span>(inp, <span class="built_in">list</span>):</span><br><span class="line">            self.MatA = np.array(inp)</span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">isinstance</span>(inp, <span class="built_in">str</span>):</span><br><span class="line">            <span class="keyword">if</span> os.path.exists(inp): </span><br><span class="line">                self.MatA = np.array(self.readFile(inp))</span><br><span class="line">            <span class="keyword">elif</span> os.path.exists(inp + <span class="string">&#x27;.txt&#x27;</span>):</span><br><span class="line">                self.MatA = np.array(self.readFile(inp + <span class="string">&#x27;.txt&#x27;</span>))</span><br><span class="line">        <span class="keyword">else</span>: </span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;Invalid Input&quot;</span></span><br><span class="line">        self.bak_MatA = self.MatA</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">MatDecomp</span>(<span class="params">self, inp</span>):</span></span><br><span class="line">        self.Mode = inp</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> inp.upper() == <span class="string">&quot;LU&quot;</span>: <span class="keyword">return</span> self.LU_Decomp(self.MatA)</span><br><span class="line">            <span class="keyword">if</span> inp.upper() == <span class="string">&quot;GS&quot;</span>: <span class="keyword">return</span> self.GS_Decomp(self.MatA)</span><br><span class="line">            <span class="keyword">if</span> inp.upper() == <span class="string">&quot;HH&quot;</span>: <span class="keyword">return</span> self.HH_Decomp(self.MatA)</span><br><span class="line">            <span class="keyword">if</span> inp.upper() == <span class="string">&quot;GV&quot;</span>: <span class="keyword">return</span> self.GV_Decomp(self.MatA)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Invalid Decomp Type. (LU/GS/HH/GV)&quot;</span></span><br><span class="line">        <span class="keyword">except</span> Exception,e:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Decomposition Error for %s&quot;</span> % <span class="built_in">str</span>(e)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Row_Swap</span>(<span class="params">self, mat, ra, rb</span>):</span></span><br><span class="line">        ret = mat</span><br><span class="line">        <span class="keyword">if</span> mat.ndim == <span class="number">1</span>:</span><br><span class="line">            ret[ra], ret[rb] = mat[rb], mat[ra]</span><br><span class="line">        <span class="keyword">if</span> mat.ndim == <span class="number">2</span>:</span><br><span class="line">            ret[[ra, rb],:] = mat[[rb, ra],:]</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Col_Swap</span>(<span class="params">self, mat, ca, cb</span>):</span></span><br><span class="line">        ret = mat</span><br><span class="line">        <span class="keyword">if</span> mat.ndim == <span class="number">1</span>:</span><br><span class="line">            ret[ca], ret[cb] = mat[cb], mat[ca]</span><br><span class="line">        <span class="keyword">if</span> mat.ndim == <span class="number">2</span>:</span><br><span class="line">            ret[:,[ca, cb]] = mat[:,[cb, ca]]</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">MaxLine</span>(<span class="params">self, colomn, row</span>):</span></span><br><span class="line">        ret = row</span><br><span class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(row, colomn.__len__()):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">abs</span>(colomn[idx]) &gt; <span class="built_in">abs</span>(colomn[ret]):</span><br><span class="line">                ret = idx</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">LU_Operation</span>(<span class="params">self, A, cur</span>):</span></span><br><span class="line">        (rSize, cSize) = A.shape</span><br><span class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(cur+<span class="number">1</span>, rSize):</span><br><span class="line">            A[r][cur] = A[r][cur] / A[cur][cur]</span><br><span class="line">            <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">range</span>(cur+<span class="number">1</span>, cSize):</span><br><span class="line">                A[r][c] = A[r][c] - A[r][cur] * A[cur][c]</span><br><span class="line">        <span class="keyword">return</span> A</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">LU_GetAns</span>(<span class="params">self, P1D, A</span>):</span></span><br><span class="line">        (rSize, cSize) = A.shape</span><br><span class="line">        <span class="comment"># Need to transform P from 1D to 2D</span></span><br><span class="line">        P = np.zeros([rSize, rSize])</span><br><span class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(rSize):</span><br><span class="line">            P[idx][P1D[idx]-<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">        L = np.eye(rSize, cSize)</span><br><span class="line">        U = np.zeros([rSize, cSize])</span><br><span class="line">        <span class="comment"># Split MatrixA into L-Lower &amp; U-Upper</span></span><br><span class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(rSize):</span><br><span class="line">            <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">range</span>(cSize):</span><br><span class="line">                <span class="keyword">if</span> r &lt;= c : U[r][c] = A[r][c]</span><br><span class="line">                <span class="keyword">else</span> : L[r][c] = A[r][c]</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;P&#x27;</span>:P, <span class="string">&#x27;L&#x27;</span>:L, <span class="string">&#x27;U&#x27;</span>:U&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">LU_Decomp</span>(<span class="params">self, A</span>):</span> <span class="comment"># PA = LU</span></span><br><span class="line">        (rSize, cSize) = A.shape</span><br><span class="line">        <span class="keyword">if</span> rSize!=cSize :</span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;&gt; LU_Decomp needs a Nonsingular Square Matrix.&quot;</span></span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;&gt; Extend Matrix into a Square Matrix filled by zero.&quot;</span></span><br><span class="line">            Size = <span class="built_in">max</span>(rSize, cSize)</span><br><span class="line">            Zero = np.zeros([Size,Size])</span><br><span class="line">            Zero[:rSize,:cSize] = np.copy(A)</span><br><span class="line">            A, (rSize, cSize) = np.copy(Zero), (Size, Size)</span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;&gt; Current Matrix_A = \n&quot;</span>, A</span><br><span class="line">        P = np.arange(rSize) + <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(rSize):</span><br><span class="line">            <span class="comment"># Swap MaxLine(current_Colomn&#x27;s Max abs_Value) to the top</span></span><br><span class="line">            idxML = self.MaxLine(A[:,r], r)</span><br><span class="line">            A = self.Row_Swap(A, idxML, r)</span><br><span class="line">            P = self.Col_Swap(P, idxML, r)</span><br><span class="line">            A = self.LU_Operation(A, r)</span><br><span class="line">            <span class="keyword">if</span> self.Show_Process:</span><br><span class="line">                <span class="built_in">print</span> <span class="string">&#x27;Calculation[%d]:\nP = &#x27;</span> % r, P, <span class="string">&#x27;^T\nA = \n&#x27;</span>, A</span><br><span class="line">        <span class="keyword">return</span> self.LU_GetAns(P,A)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">GS_Decomp</span>(<span class="params">self, A</span>):</span> <span class="comment"># A = QR</span></span><br><span class="line">        (rSize, cSize) = A.shape</span><br><span class="line">        Q, R = np.copy(A), np.zeros([rSize, cSize])</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">range</span>(cSize):</span><br><span class="line">            <span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(c):</span><br><span class="line">                <span class="keyword">if</span> r &lt; c:</span><br><span class="line">                    <span class="comment"># R_rc = qr^T * Ac</span></span><br><span class="line">                    R[r][c] = np.dot(np.transpose(Q[:,r]), A[:,c])</span><br><span class="line">                    Q[:,c] = Q[:,c] - R[r][c] * Q[:,r]</span><br><span class="line">            R[c][c] = La.norm(Q[:,c])</span><br><span class="line">            Q[:,c] = Q[:,c] / R[c][c]</span><br><span class="line">            <span class="keyword">if</span> self.Show_Process:</span><br><span class="line">                <span class="built_in">print</span> <span class="string">&#x27;Calculation[%d]:\nQ = \n&#x27;</span> % c, Q, <span class="string">&#x27;\nR = \n&#x27;</span>, R</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;Q&#x27;</span>:Q, <span class="string">&#x27;R&#x27;</span>:R&#125;</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">HH_Decomp</span>(<span class="params">self, A</span>):</span> <span class="comment"># A = QR / PA = T</span></span><br><span class="line">        (rSize, cSize) = A.shape</span><br><span class="line">        P = np.eye(rSize, cSize)</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">range</span>(cSize):</span><br><span class="line">            MatA, MatU = np.copy(A[c:,c:]), np.copy(A[c:,c]) <span class="comment"># MatU = MatA[:,0]</span></span><br><span class="line">            MatU[<span class="number">0</span>] = MatU[<span class="number">0</span>]+La.norm(MatU) <span class="keyword">if</span> MatU[<span class="number">0</span>]&lt;<span class="number">0</span> <span class="keyword">else</span> MatU[<span class="number">0</span>]-La.norm(MatU)</span><br><span class="line">            MatU.shape = (<span class="number">1</span>, MatU.shape[<span class="number">0</span>])</span><br><span class="line">            MatU = np.transpose(MatU)</span><br><span class="line">            MatR = np.eye(MatU.shape[<span class="number">0</span>])</span><br><span class="line">            <span class="comment"># Transposing a 1-D array returns an unchanged view of the original array / Note for np.transpose</span></span><br><span class="line">            UTU = np.dot(np.transpose(MatU), MatU)</span><br><span class="line">            MatR = MatR - <span class="number">2.0</span> * (</span><br><span class="line">                (np.dot(MatU, np.transpose(MatU)) / UTU) <span class="keyword">if</span> UTU!=<span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">            )</span><br><span class="line">            MatA = np.dot(MatR, MatA)</span><br><span class="line">            R = np.eye(rSize, cSize)</span><br><span class="line">            R[c:,c:] = np.copy(MatR)</span><br><span class="line">            P = np.dot(R, P)</span><br><span class="line">            A[c:,c:] = np.copy(MatA)</span><br><span class="line">            <span class="keyword">if</span> self.Show_Process:</span><br><span class="line">                <span class="built_in">print</span> <span class="string">&#x27;Calculation[%d]:\nR%d = \n&#x27;</span> % (c+<span class="number">1</span>,c+<span class="number">1</span>), MatR, <span class="string">&#x27;\nR%dA%d = \n&#x27;</span> % (c+<span class="number">1</span>,c+<span class="number">1</span>), MatA, <span class="string">&#x27;\nCurrent P = \n&#x27;</span>, P</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;Q&#x27;</span>:np.transpose(P), <span class="string">&#x27;R&#x27;</span>:A &#125;<span class="comment">#, &#x27;T&#x27;:A&#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">GV_Rotate</span>(<span class="params">self, A, i, j</span>):</span></span><br><span class="line">        (rSize, cSize) = A.shape</span><br><span class="line">        ret = np.eye(rSize, cSize)</span><br><span class="line">        upValue = <span class="built_in">sum</span>(item**<span class="number">2</span> <span class="keyword">for</span> item <span class="keyword">in</span> A[j:i,j])</span><br><span class="line">        c = upValue**<span class="number">0.5</span> / (upValue + A[i][j]**<span class="number">2</span>)**<span class="number">0.5</span></span><br><span class="line">        s = A[i][j] / (upValue + A[i][j]**<span class="number">2</span>)**<span class="number">0.5</span></span><br><span class="line">        ret[i][i], ret[j][j] = c, c</span><br><span class="line">        ret[i][j], ret[j][i] = -s, s</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">GV_Decomp</span>(<span class="params">self, A</span>):</span> <span class="comment"># A = QR</span></span><br><span class="line">        (rSize, cSize) = A.shape</span><br><span class="line">        U = np.eye(rSize, cSize)</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">range</span>(cSize):</span><br><span class="line">            <span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(c+<span class="number">1</span>, rSize):</span><br><span class="line">                <span class="keyword">if</span> A[r,c] != <span class="number">0</span>:</span><br><span class="line">                    rot = self.GV_Rotate(A,r,c)</span><br><span class="line">                    U = np.dot(rot, U)</span><br><span class="line">                    A = np.dot(rot, A)</span><br><span class="line">                <span class="keyword">if</span> self.Show_Process:</span><br><span class="line">                    <span class="built_in">print</span> <span class="string">&#x27;Calculation[%d,%d]:\nU%d%d = \n&#x27;</span> % (r+<span class="number">1</span>,c+<span class="number">1</span>,r+<span class="number">1</span>,c+<span class="number">1</span>,), rot, <span class="string">&#x27;\nCurrent U = \n&#x27;</span>, U, <span class="string">&#x27;\nCurrent A = \n&#x27;</span>, A</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;Q&#x27;</span>:np.transpose(U), <span class="string">&#x27;R&#x27;</span>:A &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">readFile</span>(<span class="params">self, filename</span>):</span></span><br><span class="line">        <span class="comment"># The Matrix File needs to be splited</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filename,<span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            ret = []</span><br><span class="line">            lines = [ line <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines() ]</span><br><span class="line">            <span class="keyword">for</span> each <span class="keyword">in</span> lines :</span><br><span class="line">                line = [ <span class="built_in">float</span>(num) <span class="keyword">for</span> num <span class="keyword">in</span> each.split() ]</span><br><span class="line">                ret.append(line)</span><br><span class="line">            <span class="keyword">return</span> ret      </span><br><span class="line">            </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getInput</span>(<span class="params">self, inp=<span class="string">&#x27;Default&#x27;</span></span>):</span></span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;&gt; Current Selection is: &lt;%s&gt;&quot;</span> % inp</span><br><span class="line">        <span class="comment"># Get varName or filePath from console for Original Matrix</span></span><br><span class="line">        <span class="keyword">if</span> inp.upper() == <span class="string">&#x27;DEFAULT&#x27;</span>:</span><br><span class="line">            <span class="comment"># print &quot;MatrixDecomp 1.0.7 (v1.0.7, Nov 27 2016, 22:54:40) Type \&quot;help\&quot; for more information.&quot;</span></span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;&gt; Please show me the Matrix for Decomposition&quot;</span></span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;&gt; It can be a list or path to a Matrix_File&quot;</span></span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;&gt; Example: [[1,0],[0,1]] or \&quot;A.txt\&quot;, \&quot;LU\&quot; etc.&quot;</span></span><br><span class="line">            ret = <span class="built_in">input</span>(<span class="string">&quot;The Matrix is: &quot;</span>)</span><br><span class="line">        <span class="keyword">elif</span> inp.upper() == <span class="string">&#x27;RANDOM&#x27;</span>:</span><br><span class="line">            <span class="comment"># Define constants</span></span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;&gt; Please show me the Matrix&#x27;s Size, split by \&#x27;,\&#x27; &quot;</span></span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;&gt; Example: 5,3 or 7,7&quot;</span></span><br><span class="line">            sz = raw_input(<span class="string">&quot;The Matrix&#x27;s Size: &quot;</span>).split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">            r,c = <span class="built_in">int</span>(sz[<span class="number">0</span>]), <span class="built_in">int</span>(sz[<span class="number">1</span>])</span><br><span class="line">            <span class="comment"># Generate a target Matrix</span></span><br><span class="line">            ret = random.randint(<span class="number">0</span>,<span class="number">9</span>, size=(r,c))</span><br><span class="line">        <span class="keyword">elif</span> inp.upper() == <span class="string">&#x27;MODE&#x27;</span>:</span><br><span class="line">            <span class="comment"># Define constants</span></span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;&gt; Please Select Decomposition Type&quot;</span></span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;&gt; Example: LU GS HH or GV&quot;</span></span><br><span class="line">            ret = raw_input(<span class="string">&quot;Type of the Matrix Decomposition is: &quot;</span>)</span><br><span class="line">        <span class="keyword">elif</span> inp.upper() == <span class="string">&#x27;HELP&#x27;</span>:</span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">                &gt; Help v1.0.0 Authured by Chendian / okcd00</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                &gt; mdp.Show_Process</span></span><br><span class="line"><span class="string">                &gt; 该参数控制是否输出中间计算过程, 默认为False, 可在Main函数中改为True</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                &gt; mdp.setMatA(mdp.getInput(&#x27;xxx&#x27;))</span></span><br><span class="line"><span class="string">                &gt; 目前已经编码的合法参数为default, random, mode, help</span></span><br><span class="line"><span class="string">                &quot;&quot;&quot;</span> </span><br><span class="line">            mdp.setMatA(mdp.getInput(<span class="string">&#x27;Default&#x27;</span>))</span><br><span class="line">        <span class="comment"># Can also be used for passing vars,</span></span><br><span class="line">        <span class="comment"># i.e. list or numpyArray</span></span><br><span class="line">        <span class="keyword">else</span>: ret = inp </span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    np.set_printoptions(suppress=<span class="literal">True</span>)</span><br><span class="line">    mdp = MatrixDecomp()</span><br><span class="line">    mdp.Show_Process = <span class="literal">False</span> <span class="comment"># True, show mid-calculation</span></span><br><span class="line">    mdp.setMatA(mdp.getInput(<span class="string">&#x27;Default&#x27;</span>))</span><br><span class="line">    <span class="comment"># mdp.setMatA(mdp.getInput(&#x27;RANDOM&#x27;))</span></span><br><span class="line">    <span class="built_in">print</span> mdp.MatA</span><br><span class="line">    Ans = mdp.MatDecomp(mdp.getInput(<span class="string">&#x27;Mode&#x27;</span>))</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&#x27;==========Answer Sheet==========&#x27;</span></span><br><span class="line">        <span class="keyword">for</span> (k,v) <span class="keyword">in</span> Ans.items():</span><br><span class="line">            <span class="built_in">print</span> <span class="string">&#x27;&gt; Matrix&#x27;</span>, k, <span class="string">&#x27;=\n&#x27;</span>, v</span><br><span class="line">    <span class="keyword">except</span> Exception,e:</span><br><span class="line">        <span class="built_in">print</span> e, <span class="string">&#x27;\n&#x27;</span>, Ans   </span><br><span class="line">        </span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">E:\UCAS\矩阵分析与应用\BigHomework&gt;python MatrixDecomp.py</span></span><br><span class="line"><span class="string">&gt; Current Selection is: &lt;Default&gt;</span></span><br><span class="line"><span class="string">&gt; Please show me the Matrix for Decomposition</span></span><br><span class="line"><span class="string">&gt; It can be a list or path to a Matrix_File</span></span><br><span class="line"><span class="string">&gt; Example: [[1,0],[0,1]] or &quot;A.txt&quot;, &quot;LU&quot; etc.</span></span><br><span class="line"><span class="string">The Matrix is: &quot;A.txt&quot;</span></span><br><span class="line"><span class="string">[[  0. -20. -14.]</span></span><br><span class="line"><span class="string"> [  3.  27.  -4.]</span></span><br><span class="line"><span class="string"> [  4.  11.  -2.]]</span></span><br><span class="line"><span class="string">&gt; Current Selection is: &lt;Mode&gt;</span></span><br><span class="line"><span class="string">&gt; Please Select Decomposition Type</span></span><br><span class="line"><span class="string">&gt; Example: LU GS HH or GV</span></span><br><span class="line"><span class="string">Type of the Matrix Decomposition is: GS</span></span><br><span class="line"><span class="string">==========Answer Sheet==========</span></span><br><span class="line"><span class="string">&gt; Matrix Q =</span></span><br><span class="line"><span class="string">[[ 0.   -0.8  -0.6 ]</span></span><br><span class="line"><span class="string"> [ 0.6   0.48 -0.64]</span></span><br><span class="line"><span class="string"> [ 0.8  -0.36  0.48]]</span></span><br><span class="line"><span class="string">&gt; Matrix R =</span></span><br><span class="line"><span class="string">[[  5.  25.  -4.]</span></span><br><span class="line"><span class="string"> [  0.  25.  10.]</span></span><br><span class="line"><span class="string"> [  0.   0.  10.]]</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="0xFF-测试数据"><a href="#0xFF-测试数据" class="headerlink" title="0xFF 测试数据"></a>0xFF 测试数据</h3><p>LU.txt</p>
+<blockquote>
+<p>1 2 -3 4<br>4 8 12 -8<br>2 3 2 1<br>-3 -1 1 -4</p>
+</blockquote>
+<p>QR.txt</p>
+<blockquote>
+<p>0 -20 -14<br>3 27 -4<br>4 11 -2</p>
+</blockquote>
+<p>LU.txt for non-square</p>
+<blockquote>
+<p>1 2 -3 4<br>4 8 12 -8<br>2 3 2 1</p>
+</blockquote>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Numpy/">#Numpy</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Coding the world, try to fetch more.
+                </p>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">【Grpc】使用grpc配置通过端口访问的python服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-02/%E3%80%90HNS%E3%80%91%E8%AF%95%E7%9D%80%E9%A2%86%E4%B8%80%E4%B8%8B%20HandShake%20%E4%B8%BA%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E5%8F%91%E6%94%BE%E7%9A%84%20HNS%20Coin.html">【HNS】试着领一下 HandShake 发给开源社区的 HNS Coin</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://okcd00.oschina.io/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:okcd00@vip.qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @<a target="_blank" rel="noopener" href="https://github.com/okcd00/">Dian Chen</a>. 2017-2022 All right reserved | Re-design & Deploy: <a href="blog.csdn.net/okcd00">okcd00</a> | Hexo Theme: <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'okcd00';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- "//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" -->
+<script type="text/javascript" color="0,255,255" opacity='0.75' zIndex="-2" count="75" src='/js/canvas.js'></script>
+
+</body>
+</html>

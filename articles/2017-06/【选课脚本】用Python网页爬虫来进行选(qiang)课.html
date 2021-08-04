@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="o4pXUBsPyW" />
+	
+    <!--Description-->
+    
+        <meta name="description" content="To be more curious and less lazy.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chen Dian">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【选课脚本】用Python网页爬虫来进行选(qiang)课"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="To be more curious and less lazy." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="CDPlayer&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>【选课脚本】用Python网页爬虫来进行选(qiang)课 - CDPlayer&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+	
+	<!-- Baidu Analytics -->
+    
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?{{ theme.baidu_analytics }}";
+		  var s = document.getElementsByTagName("script")[0];
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+	
+	<!-- star map -->
+	<script type="text/javascript" color="255,255,255" opacity='0.75' zIndex="-2" count="88" src="js/canvas.js"></script>
+	
+	<!-- Earth -->
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/articles/2017-06/%E3%80%90%E9%80%89%E8%AF%BE%E8%84%9A%E6%9C%AC%E3%80%91%E7%94%A8Python%E7%BD%91%E9%A1%B5%E7%88%AC%E8%99%AB%E6%9D%A5%E8%BF%9B%E8%A1%8C%E9%80%89(qiang)%E8%AF%BE.html">
+                【选课脚本】用Python网页爬虫来进行选(qiang)课
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017-06-01</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/功能脚本/">功能脚本</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+		<!-- MathJax support -->
+		
+
+		
+        <!-- Post Content -->
+        <h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><p>每当选课的时候，都如同打仗一般<br>都有自己想要的课，但是名额就那么一点<br>于是各显神通，有人用js，有人用chrome的console<br>人生苦短，我用Python</p>
+<span id="more"></span>
+
+<h2 id="0x01-环境依赖"><a href="#0x01-环境依赖" class="headerlink" title="0x01 环境依赖"></a>0x01 环境依赖</h2><ul>
+<li>Python 2.7.12</li>
+<li>(NEW) Python 3.3 &amp; Python 3.6</li>
+<li>pip freeze &gt; Requirement.txt</li>
+</ul>
+<p><strong>Requirement.txt</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">beautifulsoup4==4.6.0</span><br><span class="line">bs4==0.0.1</span><br><span class="line">configparser==3.5.0</span><br><span class="line">lxml==3.7.3</span><br><span class="line">requests==2.13.0</span><br><span class="line">tqdm==4.11.2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="0x02-使用方法"><a href="#0x02-使用方法" class="headerlink" title="0x02 使用方法"></a>0x02 使用方法</h2><h3 id="获取程序"><a href="#获取程序" class="headerlink" title="获取程序"></a>获取程序</h3><p>你可以直接<code>git clone</code>最新版本的程序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/okcd00/CDSelector.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> CDSelector</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim config 修改登陆信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim courseid 修改选课信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> python CDSelector</span></span><br></pre></td></tr></table></figure>
+
+<p>你也可以去<code>release</code>下载当前最新的稳定版Release<br><a target="_blank" rel="noopener" href="https://github.com/okcd00/CDSelector/releases">https://github.com/okcd00/CDSelector/releases</a></p>
+<h3 id="修改文件-config"><a href="#修改文件-config" class="headerlink" title="修改文件 config"></a>修改文件 <strong>config</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[info]</span><br><span class="line">username = [你的帐户名邮箱]</span><br><span class="line">password = [你的密码]</span><br><span class="line">runtime  = [每隔多少秒尝试选课一次]</span><br><span class="line"></span><br><span class="line">[action]</span><br><span class="line">debug = true [debug模式输出中间变量，为节省资源可设置为false]</span><br><span class="line">enroll = true [轮询模式下无限循环尝试，没想过什么情况下需要设为false]</span><br><span class="line">evaluate = true [验证选课成功与否，建议开启]</span><br><span class="line">select_bat = false [批选课，应用于类似英语B这种不让单独选，必须同时选俩才给提交表单的特殊情况]</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改文件-courseid"><a href="#修改文件-courseid" class="headerlink" title="修改文件 courseid"></a>修改文件 <strong>courseid</strong></h3><p>类似如下的每行一门课的课程编号即可，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">091M7014H</span><br><span class="line">091M7021H</span><br></pre></td></tr></table></figure>
+<p>特别的，如果这门课要选成学位课的话，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">091M7014H</span><br><span class="line">091M7021H on</span><br></pre></td></tr></table></figure>
+<p>形似第二行加个空格加个<code>on</code>即可</p>
+<h3 id="然后运行-CDSelector-py"><a href="#然后运行-CDSelector-py" class="headerlink" title="然后运行 CDSelector.py"></a>然后运行 <strong>CDSelector.py</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python CDSelector.py</span><br><span class="line">Debug Mode: True</span><br><span class="line">Login success</span><br><span class="line">Enrolling start</span><br><span class="line">&gt; Course Selection is unreachable or not started. &lt;1134&gt; Thu Jun 01 08:43:42 2017</span><br></pre></td></tr></table></figure>
+<p>如果显示ImportError，就是说缺少了某些python包，在这里提供了<code>requirement.txt</code><br>可以在当前目录下直接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install -r requirement.txt</span><br></pre></td></tr></table></figure>
+<p>一次性安装所有依赖项</p>
+<h2 id="0x03-Source-Code"><a href="#0x03-Source-Code" class="headerlink" title="0x03 Source Code"></a>0x03 Source Code</h2><p>由于时不时还更新一下，所以这里只是v1.0.0首发版本<br>web端访问部分参考了scusjs，功能强化参考了zoecur</p>
+<p>(Updated 2017-09-07) 现在更新一波，v1.0.7版本。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf8</span></span><br><span class="line"><span class="comment"># =====================================================</span></span><br><span class="line"><span class="comment">#   Copyright (C) 2016 All rights reserved.</span></span><br><span class="line"><span class="comment">#   </span></span><br><span class="line"><span class="comment">#   filename : CDSelector.py</span></span><br><span class="line"><span class="comment">#   author   : okcd00 / okcd00@qq.com</span></span><br><span class="line"><span class="comment">#   refer    : scusjs@foxmail.com</span></span><br><span class="line"><span class="comment">#   date     : 2017-01-06</span></span><br><span class="line"><span class="comment">#   desc     : UCAS Course_Selection Program</span></span><br><span class="line"><span class="comment"># =====================================================</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> configparser <span class="keyword">import</span> RawConfigParser</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UCASEvaluate</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.__readCoursesId(<span class="string">&#x27;./courseid&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        cf = RawConfigParser()</span><br><span class="line">        cf.read(<span class="string">&#x27;config&#x27;</span>)</span><br><span class="line">        </span><br><span class="line">        self.username = cf.get(<span class="string">&#x27;info&#x27;</span>, <span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">        self.password = cf.get(<span class="string">&#x27;info&#x27;</span>, <span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">        self.runtime = cf.getint(<span class="string">&#x27;info&#x27;</span>, <span class="string">&#x27;runtime&#x27;</span>)</span><br><span class="line">        self.debug = cf.getboolean(<span class="string">&#x27;action&#x27;</span>, <span class="string">&#x27;debug&#x27;</span>)</span><br><span class="line">        self.enroll = cf.getboolean(<span class="string">&#x27;action&#x27;</span>, <span class="string">&#x27;enroll&#x27;</span>)</span><br><span class="line">        self.evaluate = cf.getboolean(<span class="string">&#x27;action&#x27;</span>, <span class="string">&#x27;evaluate&#x27;</span>)</span><br><span class="line">        self.select_bat = cf.getboolean(<span class="string">&#x27;action&#x27;</span>, <span class="string">&#x27;select_bat&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        self.loginPage = <span class="string">&#x27;http://sep.ucas.ac.cn&#x27;</span></span><br><span class="line">        self.loginUrl = self.loginPage + <span class="string">&#x27;/slogin&#x27;</span></span><br><span class="line">        self.courseSystem = self.loginPage + <span class="string">&#x27;/portal/site/226/821&#x27;</span></span><br><span class="line">        self.courseBase = <span class="string">&#x27;http://jwxk.ucas.ac.cn&#x27;</span></span><br><span class="line">        self.courseIdentify = self.courseBase + <span class="string">&#x27;/login?Identity=&#x27;</span></span><br><span class="line">        self.courseSelected = self.courseBase + <span class="string">&#x27;/courseManage/selectedCourse&#x27;</span></span><br><span class="line">        self.courseSelectionBase = self.courseBase + <span class="string">&#x27;/courseManage/main&#x27;</span></span><br><span class="line">        self.courseCategory = self.courseBase + <span class="string">&#x27;/courseManage/selectCourse?s=&#x27;</span></span><br><span class="line">        self.courseSave = self.courseBase + <span class="string">&#x27;/courseManage/saveCourse?s=&#x27;</span></span><br><span class="line"></span><br><span class="line">        self.studentCourseEvaluateUrl = <span class="string">&#x27;http://jwjz.ucas.ac.cn/Student/DeskTopModules/&#x27;</span></span><br><span class="line">        self.selectCourseUrl = <span class="string">&#x27;http://jwjz.ucas.ac.cn/Student/DesktopModules/Course/SelectCourse.aspx&#x27;</span></span><br><span class="line"></span><br><span class="line">        self.enrollCount = &#123;&#125;</span><br><span class="line">        self.headers = &#123;</span><br><span class="line">            <span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;sep.ucas.ac.cn&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;keep-alive&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;Pragma&#x27;</span>: <span class="string">&#x27;no-cache&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;Cache-Control&#x27;</span>: <span class="string">&#x27;no-cache&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;Upgrade-Insecure-Requests&#x27;</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate, sdch&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q=0.8,en;q=0.6&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        self.s = requests.Session()</span><br><span class="line">        loginPage = self.s.get(self.loginPage, headers=self.headers)</span><br><span class="line">        self.cookies = loginPage.cookies</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">login</span>(<span class="params">self</span>):</span></span><br><span class="line">        postdata = &#123;</span><br><span class="line">            <span class="string">&#x27;userName&#x27;</span>: self.username,</span><br><span class="line">            <span class="string">&#x27;pwd&#x27;</span>: self.password,</span><br><span class="line">            <span class="string">&#x27;sb&#x27;</span>: <span class="string">&#x27;sb&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        self.s.post(self.loginUrl, data=postdata, headers=self.headers)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;sepuser&#x27;</span> <span class="keyword">in</span> self.s.cookies.get_dict(): <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getMessage</span>(<span class="params">self, restext</span>):</span></span><br><span class="line">        css_soup = BeautifulSoup(restext, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line">        text = css_soup.select(<span class="string">&#x27;#main-content &gt; div &gt; div.m-cbox.m-lgray &gt; div.mc-body &gt; div&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join(line.strip() <span class="keyword">for</span> line <span class="keyword">in</span> text.split(<span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__readCoursesId</span>(<span class="params">self, filename</span>):</span></span><br><span class="line">        coursesFile = <span class="built_in">open</span>(filename, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">        self.coursesId = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> coursesFile.readlines():</span><br><span class="line">            line = line.strip().replace(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>).split(<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line">            courseId = line[<span class="number">0</span>]</span><br><span class="line">            isDegree = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(line) == <span class="number">2</span> <span class="keyword">and</span> line[<span class="number">1</span>] == <span class="string">&#x27;on&#x27;</span>:</span><br><span class="line">                isDegree = <span class="literal">True</span></span><br><span class="line">            self.coursesId[courseId] = isDegree</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enrollCourses</span>(<span class="params">self</span>):</span></span><br><span class="line">        response = self.s.get(self.courseSystem, headers=self.headers)</span><br><span class="line">        soup = BeautifulSoup(response.text, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            identity = <span class="built_in">str</span>(soup).split(<span class="string">&#x27;Identity=&#x27;</span>)[<span class="number">1</span>].split(<span class="string">&#x27;&quot;&#x27;</span>[<span class="number">0</span>])[<span class="number">0</span>]</span><br><span class="line">            coursePage = self.courseIdentify + identity</span><br><span class="line">            response = self.s.get(coursePage)</span><br><span class="line">            response = self.s.get(self.courseSelected)</span><br><span class="line">                </span><br><span class="line">            idx, lastMsg = <span class="number">0</span>, <span class="string">&quot;&quot;</span></span><br><span class="line">            <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">                msg = <span class="string">&quot;&quot;</span></span><br><span class="line">                <span class="keyword">if</span> self.select_bat: </span><br><span class="line">                    result, msg = self.__enrollCourses(self.coursesId)</span><br><span class="line">                    <span class="keyword">if</span> result: </span><br><span class="line">                        self.coursesId.clear()</span><br><span class="line">                <span class="keyword">else</span>:   </span><br><span class="line">                    <span class="keyword">for</span> eachCourse <span class="keyword">in</span> self.coursesId:</span><br><span class="line">                        <span class="keyword">if</span> eachCourse <span class="keyword">in</span> response.text:</span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">&quot;Course &quot;</span> + eachCourse + <span class="string">&quot; has been selected.&quot;</span>)</span><br><span class="line">                            <span class="keyword">continue</span></span><br><span class="line">                        <span class="keyword">if</span> (eachCourse <span class="keyword">in</span> self.enrollCount <span class="keyword">and</span></span><br><span class="line">                                self.enrollCount[eachCourse] == <span class="number">0</span>):</span><br><span class="line">                            <span class="keyword">continue</span></span><br><span class="line">                        self.enrollCount[eachCourse] = <span class="number">1</span></span><br><span class="line">                        result, msg = self.__enrollCourse(eachCourse, self.coursesId[eachCourse])</span><br><span class="line">                        <span class="keyword">if</span> result:</span><br><span class="line">                            self.enrollCount[eachCourse] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> enroll <span class="keyword">in</span> self.enrollCount:</span><br><span class="line">                    <span class="keyword">if</span> self.enrollCount[enroll] == <span class="number">0</span>:</span><br><span class="line">                        self.coursesId.pop(enroll)</span><br><span class="line">                self.enrollCount.clear()</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> self.coursesId: <span class="keyword">return</span> <span class="string">&#x27;INVALID COURSES_ID&#x27;</span></span><br><span class="line">                idx += <span class="number">1</span></span><br><span class="line">                time.sleep(self.runtime)</span><br><span class="line">                showText = <span class="string">&quot;\r&gt; &quot;</span> + <span class="string">&quot;%s &lt;%d&gt; %s&quot;</span> % (</span><br><span class="line">                        msg, idx,</span><br><span class="line">                        time.asctime( time.localtime(time.time()) )</span><br><span class="line">                    )</span><br><span class="line">                lastMsg = msg</span><br><span class="line">                sys.stdout.write(showText)</span><br><span class="line">                sys.stdout.flush()</span><br><span class="line">        <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;\nKeyboardInterrupt Detected, bye!&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;STOP&quot;</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> exception:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Course_Selection_Port is not open, waiting...&quot;</span></span><br><span class="line">             </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__enrollCourse</span>(<span class="params">self, courseId, isDegree</span>):</span></span><br><span class="line">        response = self.s.get(self.courseSelectionBase)</span><br><span class="line">        <span class="keyword">if</span> self.debug:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./check.html&#x27;</span>, <span class="string">&#x27;wb+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(response.text.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"></span><br><span class="line">        soup = BeautifulSoup(response.text, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line">        categories = <span class="built_in">dict</span>([(label.contents[<span class="number">0</span>][:<span class="number">2</span>], label[<span class="string">&#x27;for&#x27;</span>][<span class="number">3</span>:])</span><br><span class="line">                          <span class="keyword">for</span> label <span class="keyword">in</span> soup.find_all(<span class="string">&#x27;label&#x27;</span>)[<span class="number">2</span>:]])</span><br><span class="line">        categoryId = categories[courseId[:<span class="number">2</span>]]</span><br><span class="line">        identity = soup.form[<span class="string">&#x27;action&#x27;</span>].split(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        postdata = &#123;</span><br><span class="line">            <span class="string">&#x27;deptIds&#x27;</span>: categoryId,</span><br><span class="line">            <span class="string">&#x27;sb&#x27;</span>: <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        categoryUrl = self.courseCategory + identity</span><br><span class="line">        response = self.s.post(categoryUrl, data=postdata)</span><br><span class="line">        <span class="keyword">if</span> self.debug:</span><br><span class="line">            <span class="built_in">print</span> (<span class="string">&quot;Now Posting, save snapshot in check2.html.&quot;</span>)</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./check2.html&#x27;</span>, <span class="string">&#x27;wb+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(response.text.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        soup = BeautifulSoup(response.text, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line">        courseTable = soup.body.form.table</span><br><span class="line">        <span class="keyword">if</span> courseTable:</span><br><span class="line">            courseTable = courseTable.find_all(<span class="string">&#x27;tr&#x27;</span>)[<span class="number">1</span>:]</span><br><span class="line">        <span class="keyword">else</span>: <span class="keyword">return</span> <span class="literal">False</span>, <span class="string">&quot;Course Selection is unreachable or not started.&quot;</span></span><br><span class="line">        courseDict = <span class="built_in">dict</span>([(c.span.contents[<span class="number">0</span>], c.span[<span class="string">&#x27;id&#x27;</span>].split(<span class="string">&#x27;_&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line">                           <span class="keyword">for</span> c <span class="keyword">in</span> courseTable])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> courseId <span class="keyword">in</span> courseDict:</span><br><span class="line">            postdata = &#123;</span><br><span class="line">                <span class="string">&#x27;deptIds&#x27;</span>: categoryId,</span><br><span class="line">                <span class="string">&#x27;sids&#x27;</span>: courseDict[courseId]</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> isDegree:</span><br><span class="line">                postdata[<span class="string">&#x27;did_&#x27;</span> + courseDict[courseId]] = courseDict[courseId]</span><br><span class="line"></span><br><span class="line">            courseSaveUrl = self.courseSave + identity</span><br><span class="line">            response = self.s.post(courseSaveUrl, data=postdata)</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">print</span> (<span class="string">&quot;Now Checking, save snapshot in result.html.&quot;</span>)</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;result.html&#x27;</span>,<span class="string">&#x27;wb+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(response.text.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&#x27;class=&quot;error&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> response.text:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span>, <span class="string">&#x27;[Success] &#x27;</span> + courseId</span><br><span class="line">            <span class="keyword">else</span>: <span class="keyword">return</span> <span class="literal">False</span>, self.getMessage(response.text).strip()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span>, <span class="string">&quot;No such course&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__enrollCourses</span>(<span class="params">self, courseIds</span>):</span>  <span class="comment"># For English</span></span><br><span class="line">        response = self.s.get(self.courseSelectionBase)</span><br><span class="line">        <span class="keyword">if</span> self.debug: </span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./check.html&#x27;</span>, <span class="string">&#x27;wb+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(response.text.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"></span><br><span class="line">        soup = BeautifulSoup(response.text, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line">        categories = <span class="built_in">dict</span>([(label.contents[<span class="number">0</span>][:<span class="number">2</span>], label[<span class="string">&#x27;for&#x27;</span>][<span class="number">3</span>:])</span><br><span class="line">                          <span class="keyword">for</span> label <span class="keyword">in</span> soup.find_all(<span class="string">&#x27;label&#x27;</span>)[<span class="number">2</span>:]])</span><br><span class="line">        identity = soup.form[<span class="string">&#x27;action&#x27;</span>].split(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>]</span><br><span class="line">        </span><br><span class="line">        categoryIds = []</span><br><span class="line">        <span class="keyword">for</span> courseId <span class="keyword">in</span> courseIds:</span><br><span class="line">            categoryIds.append(categories[courseId[:<span class="number">2</span>]])</span><br><span class="line">        </span><br><span class="line">        postdata = &#123;</span><br><span class="line">            <span class="string">&#x27;deptIds&#x27;</span>: categoryIds,</span><br><span class="line">            <span class="string">&#x27;sb&#x27;</span>: <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        categoryUrl = self.courseCategory + identity</span><br><span class="line">        response = self.s.post(categoryUrl, data=postdata)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.debug: </span><br><span class="line">            <span class="built_in">print</span> (<span class="string">&quot;Now Posting, save snapshot in check2.html.&quot;</span>)</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./check2.html&#x27;</span>, <span class="string">&#x27;wb+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(response.text.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        </span><br><span class="line">        soup = BeautifulSoup(response.text, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line">        courseTable = soup.body.form.table</span><br><span class="line">        <span class="keyword">if</span> courseTable:</span><br><span class="line">            courseTable = courseTable.find_all(<span class="string">&#x27;tr&#x27;</span>)[<span class="number">1</span>:]</span><br><span class="line">        <span class="keyword">else</span>: <span class="keyword">return</span> <span class="literal">False</span>, <span class="string">&quot;Course Selection is unreachable or not started.&quot;</span></span><br><span class="line">        courseDict = <span class="built_in">dict</span>([(c.span.contents[<span class="number">0</span>], c.span[<span class="string">&#x27;id&#x27;</span>].split(<span class="string">&#x27;_&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line">                           <span class="keyword">for</span> c <span class="keyword">in</span> courseTable])</span><br><span class="line"></span><br><span class="line">        postdata = &#123;</span><br><span class="line">            <span class="string">&#x27;deptIds&#x27;</span>: categoryIds,</span><br><span class="line">            <span class="string">&#x27;sids&#x27;</span>: [courseDict[courseId] <span class="keyword">for</span> courseId <span class="keyword">in</span> courseIds]</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        courseSaveUrl = self.courseSave + identity</span><br><span class="line">        response = self.s.post(courseSaveUrl, data=postdata)</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span> (<span class="string">&quot;Now Checking, save snapshot in result.html.&quot;</span>)</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;result.html&#x27;</span>,<span class="string">&#x27;wb+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(response.text.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;class=&quot;error&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> response.text:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>, <span class="string">&#x27;[Success] &#x27;</span> + courseId</span><br><span class="line">        <span class="keyword">else</span>: <span class="keyword">return</span> <span class="literal">False</span>, self.getMessage(response.text).strip()</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;starting...&quot;</span>)</span><br><span class="line">    os.system(<span class="string">&#x27;MODE con: COLS=128 LINES=32 &amp; TITLE Welcome to CDSelector&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">from</span> logo <span class="keyword">import</span> show_logo</span><br><span class="line">    show_logo() <span class="comment"># delete this for faster start 23333</span></span><br><span class="line">    os.system(<span class="string">&#x27;cls&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    os.system(<span class="string">&quot;color 0A&quot;</span>)</span><br><span class="line">    os.system(<span class="string">&#x27;MODE con: COLS=80 LINES=10 &amp; TITLE CD_Course_Selecting is working&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            ucasEvaluate = UCASEvaluate()</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="keyword">if</span> e[<span class="number">0</span>]==<span class="string">&quot;Connection aborted.&quot;</span>:</span><br><span class="line">                ucasEvaluate = UCASEvaluate()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ucasEvaluate.debug:</span><br><span class="line">        <span class="built_in">print</span> (<span class="string">&quot;Debug Mode: %s&quot;</span> % <span class="built_in">str</span>(ucasEvaluate.debug) )</span><br><span class="line">        <span class="built_in">print</span> (<span class="string">&quot;In debug mode, you can check snapshot with html files.&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span> (<span class="string">&quot;By the way, Ctrl+C to stop.&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> ucasEvaluate.login():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Login error. Please check your username and password.&#x27;</span>)</span><br><span class="line">        exit()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Login success: &#x27;</span> + ucasEvaluate.username)</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Enrolling starts&#x27;</span>)</span><br><span class="line">    <span class="keyword">while</span> ucasEvaluate.enroll:</span><br><span class="line">        status = ucasEvaluate.enrollCourses()</span><br><span class="line">        <span class="keyword">if</span> status == <span class="string">&#x27;STOP&#x27;</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>: </span><br><span class="line">            status += time.asctime( time.localtime(time.time()) )</span><br><span class="line">            sys.stdout.write(<span class="string">&quot;%s\r&quot;</span> % status)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Enrolling finished&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="0xFF-获取途径"><a href="#0xFF-获取途径" class="headerlink" title="0xFF 获取途径"></a>0xFF 获取途径</h2><ul>
+<li>Github： <a target="_blank" rel="noopener" href="https://github.com/okcd00/CDSelector">https://github.com/okcd00/CDSelector</a></li>
+<li>Release： <a target="_blank" rel="noopener" href="https://github.com/okcd00/CDSelector/releases">https://github.com/okcd00/CDSelector/releases</a></li>
+<li>说明文档： <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00/article/details/72827861">http://blog.csdn.net/okcd00/article/details/72827861</a></li>
+</ul>
+<p>鸣谢：<br>Mailto: <a href="mailto:&#x7a;&#111;&#101;&#99;&#x75;&#114;&#64;&#x69;&#99;&#108;&#x6f;&#x75;&#100;&#x2e;&#99;&#111;&#x6d;">&#x7a;&#111;&#101;&#99;&#x75;&#114;&#64;&#x69;&#99;&#108;&#x6f;&#x75;&#100;&#x2e;&#99;&#111;&#x6d;</a><br>Mailto: <a href="mailto:&#x73;&#99;&#117;&#x73;&#106;&#x73;&#64;&#102;&#111;&#120;&#109;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;">&#x73;&#99;&#117;&#x73;&#106;&#x73;&#64;&#102;&#111;&#120;&#109;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;</a></p>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Coding the world, try to fetch more.
+                </p>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">【Grpc】使用grpc配置通过端口访问的python服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-02/%E3%80%90HNS%E3%80%91%E8%AF%95%E7%9D%80%E9%A2%86%E4%B8%80%E4%B8%8B%20HandShake%20%E4%B8%BA%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E5%8F%91%E6%94%BE%E7%9A%84%20HNS%20Coin.html">【HNS】试着领一下 HandShake 发给开源社区的 HNS Coin</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://okcd00.oschina.io/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:okcd00@vip.qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @<a target="_blank" rel="noopener" href="https://github.com/okcd00/">Dian Chen</a>. 2017-2022 All right reserved | Re-design & Deploy: <a href="blog.csdn.net/okcd00">okcd00</a> | Hexo Theme: <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'okcd00';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- "//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" -->
+<script type="text/javascript" color="0,255,255" opacity='0.75' zIndex="-2" count="75" src='/js/canvas.js'></script>
+
+</body>
+</html>

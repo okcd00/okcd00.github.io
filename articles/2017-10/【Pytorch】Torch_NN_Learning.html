@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="o4pXUBsPyW" />
+	
+    <!--Description-->
+    
+        <meta name="description" content="To be more curious and less lazy.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chen Dian">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【Pytorch】Torch_NN_Learning"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="To be more curious and less lazy." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="CDPlayer&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>【Pytorch】Torch_NN_Learning - CDPlayer&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+	
+	<!-- Baidu Analytics -->
+    
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?{{ theme.baidu_analytics }}";
+		  var s = document.getElementsByTagName("script")[0];
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+	
+	<!-- star map -->
+	<script type="text/javascript" color="255,255,255" opacity='0.75' zIndex="-2" count="88" src="js/canvas.js"></script>
+	
+	<!-- Earth -->
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/articles/2017-10/%E3%80%90Pytorch%E3%80%91Torch_NN_Learning.html">
+                【Pytorch】Torch_NN_Learning
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017-10-06</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/机器学习/">机器学习</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+		<!-- MathJax support -->
+		
+
+		
+        <!-- Post Content -->
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> torch.autograd <span class="keyword">as</span> autograd</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Import success.\nTorch Version:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(torch.__version__))</span><br></pre></td></tr></table></figure>
+
+<pre><code>Import success.
+Torch Version:0.2.1+a4fc05a
+</code></pre>
+<span id="more"></span>
+<h3 id="LSTM-Parameters"><a href="#LSTM-Parameters" class="headerlink" title="LSTM - Parameters"></a>LSTM - Parameters</h3><p>input_size – The number of expected features in the input x<br>hidden_size – The number of features in the hidden state h<br>num_layers – Number of recurrent layers.    </p>
+<p>bias – If False, then the layer does not use bias weights b_ih and b_hh. Default: True<br>batch_first – If True, then the input and output tensors are provided as (batch, seq, feature)<br>dropout – If non-zero, introduces a dropout layer on the outputs of each RNN layer except the last layer<br>bidirectional – If True, becomes a bidirectional RNN. Default: False   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">input</span> = Variable(torch.randn(<span class="number">4</span>,<span class="number">3</span>,<span class="number">5</span>)) <span class="comment">#  (seq_len, batch, input_size)</span></span><br><span class="line">h0 = Variable(torch.randn(<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>)) <span class="comment"># (num_layers * num_directions, batch, hidden_size)</span></span><br><span class="line">c0 = Variable(torch.randn(<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>)) <span class="comment"># (num_layers * num_directions, batch, hidden_size)</span></span><br><span class="line"></span><br><span class="line">lstm = nn.LSTM(input_size=<span class="number">5</span>, hidden_size=<span class="number">7</span>, num_layers=<span class="number">2</span>)</span><br><span class="line">output, (hn, cn) = lstm(<span class="built_in">input</span>, (h0, c0))</span><br><span class="line"><span class="built_in">print</span>(</span><br><span class="line">    <span class="string">&#x27;\nOutput&#x27;</span>, output, <span class="comment"># (seq_len, batch, hidden_size * num_directions)</span></span><br><span class="line">    <span class="string">&#x27;\nh_n   &#x27;</span>, hn, <span class="comment"># (num_layers * num_directions, batch, hidden_size)</span></span><br><span class="line">    <span class="string">&#x27;\nc_n   &#x27;</span>, cn, <span class="comment"># (num_layers * num_directions, batch, hidden_size)</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Output Variable containing:
+(0 ,.,.) = 
+  0.0798 -0.3524 -0.0318 -0.2497  0.1932 -0.0912  0.0585
+  0.0715  0.1636  0.2120  0.2547 -0.3115  0.4829  0.0978
+  0.1510 -0.4919 -0.0118  0.1087 -0.2944 -0.0191  0.4525
+
+(1 ,.,.) = 
+  0.0460 -0.1349  0.1419 -0.1101  0.0451 -0.1520 -0.0424
+  0.0307  0.0099  0.1939  0.1564 -0.2541  0.1459 -0.0038
+  0.1022 -0.2297  0.1253  0.0450 -0.1736 -0.0761  0.1345
+
+(2 ,.,.) = 
+  0.0382 -0.1091  0.1898 -0.0535 -0.0493 -0.1513 -0.1140
+  0.0181 -0.0784  0.1801  0.0833 -0.2366  0.0152 -0.1006
+  0.0564 -0.1635  0.1952 -0.0127 -0.1812 -0.0981 -0.0383
+
+(3 ,.,.) = 
+  0.0269 -0.1075  0.2085 -0.0134 -0.1187 -0.1357 -0.1500
+  0.0225 -0.1104  0.2012  0.0484 -0.2287 -0.0512 -0.1547
+  0.0267 -0.1547  0.1928 -0.0397 -0.1941 -0.0921 -0.1526
+[torch.FloatTensor of size 4x3x7]
+ 
+h_n    Variable containing:
+(0 ,.,.) = 
+  0.1074 -0.0985  0.0460  0.0892  0.0026 -0.0203  0.0786
+  0.0937 -0.0193 -0.0566  0.1505  0.0223  0.1503  0.0570
+ -0.0040  0.1010 -0.2472 -0.0768 -0.0267  0.3387  0.0787
+
+(1 ,.,.) = 
+  0.0269 -0.1075  0.2085 -0.0134 -0.1187 -0.1357 -0.1500
+  0.0225 -0.1104  0.2012  0.0484 -0.2287 -0.0512 -0.1547
+  0.0267 -0.1547  0.1928 -0.0397 -0.1941 -0.0921 -0.1526
+[torch.FloatTensor of size 2x3x7]
+ 
+c_n    Variable containing:
+(0 ,.,.) = 
+  0.2615 -0.3211  0.0973  0.2190  0.0056 -0.0338  0.1595
+  0.3154 -0.0683 -0.1427  0.2748  0.0584  0.3398  0.1123
+ -0.0157  0.3064 -0.3791 -0.1399 -0.0585  0.8162  0.1604
+
+(1 ,.,.) = 
+  0.0552 -0.2677  0.4853 -0.0205 -0.2206 -0.2210 -0.2661
+  0.0474 -0.2559  0.5212  0.0737 -0.4361 -0.0798 -0.2621
+  0.0541 -0.3830  0.5064 -0.0609 -0.3632 -0.1520 -0.2786
+[torch.FloatTensor of size 2x3x7]
+</code></pre>
+<h3 id="Bi-LSTM"><a href="#Bi-LSTM" class="headerlink" title="Bi-LSTM"></a>Bi-LSTM</h3><blockquote>
+<p>Add parameter <code>bidirectional</code>=True<br>and take care of <code>num_directions</code> is double<br>other parameters are the same as <a href="#LSTM---Parameters"><code>LSTM</code></a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">h0 = Variable(torch.randn(<span class="number">2</span>*<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>)) <span class="comment"># (num_layers * num_directions, batch, hidden_size)</span></span><br><span class="line">c0 = Variable(torch.randn(<span class="number">2</span>*<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>)) <span class="comment"># (num_layers * num_directions, batch, hidden_size)</span></span><br><span class="line"></span><br><span class="line">bilstm = nn.LSTM(input_size=<span class="number">5</span>, hidden_size=<span class="number">7</span>, num_layers=<span class="number">2</span>, bidirectional=<span class="literal">True</span>)</span><br><span class="line">output, (hn, cn) = bilstm(<span class="built_in">input</span>, (h0, c0))</span><br><span class="line"><span class="built_in">print</span>(</span><br><span class="line">    <span class="string">&#x27;\nOutput&#x27;</span>, output, <span class="comment"># (seq_len, batch, hidden_size * num_directions)</span></span><br><span class="line">    <span class="string">&#x27;\nh_n   &#x27;</span>, hn, <span class="comment"># (num_layers * num_directions, batch, hidden_size)</span></span><br><span class="line">    <span class="string">&#x27;\nc_n   &#x27;</span>, cn, <span class="comment"># (num_layers * num_directions, batch, hidden_size)</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Output Variable containing:
+(0 ,.,.) = 
+
+Columns 0 to 8 
+  -0.0328  0.1329 -0.1598  0.0962 -0.2130  0.2678 -0.0482  0.0515 -0.0290
+ -0.4693 -0.1502 -0.0117  0.0687  0.6282 -0.1565  0.7240  0.0644 -0.0035
+ -0.1117  0.3106 -0.0701 -0.0226 -0.5075  0.1602 -0.1437  0.0071  0.1246
+
+Columns 9 to 13 
+   0.0238  0.0820 -0.1239 -0.0197  0.0165
+ -0.2156  0.0808  0.0332  0.1923 -0.0358
+ -0.1882 -0.1621  0.0670  0.0959  0.0796
+
+(1 ,.,.) = 
+
+Columns 0 to 8 
+  -0.0134  0.0914 -0.1416  0.1550 -0.0034  0.1058 -0.0382  0.0279 -0.0681
+ -0.3385 -0.0606 -0.1338 -0.0166  0.3892 -0.1016  0.3074  0.1098 -0.0233
+ -0.1066  0.1902 -0.1043  0.0515 -0.2649  0.0779 -0.1027  0.0279  0.0465
+
+Columns 9 to 13 
+   0.0358  0.1217 -0.1425 -0.0235  0.0493
+ -0.2052  0.0850  0.0339  0.1756 -0.0640
+ -0.1521 -0.2092  0.0313  0.0631  0.0642
+
+(2 ,.,.) = 
+
+Columns 0 to 8 
+   0.0486  0.0285 -0.1354  0.1621  0.1405  0.0095 -0.0334  0.0275 -0.1737
+ -0.2761 -0.0289 -0.1539 -0.0745  0.3068 -0.1381  0.1749  0.1334  0.0352
+ -0.0790  0.1042 -0.1282  0.1465 -0.0645 -0.0118 -0.0119  0.0132 -0.0647
+
+Columns 9 to 13 
+   0.0710  0.2234 -0.1106 -0.0286  0.1901
+ -0.1466  0.1494  0.0337  0.2215 -0.1346
+ -0.1716 -0.2517  0.0648  0.0666  0.0637
+
+(3 ,.,.) = 
+
+Columns 0 to 8 
+   0.1408 -0.0332 -0.1137  0.1926  0.2436 -0.0803 -0.0155  0.0165 -0.3842
+ -0.2130  0.0105 -0.1439 -0.1528  0.2133 -0.1947  0.0306  0.3092  0.1739
+ -0.0390  0.0827 -0.1251  0.2153  0.0422 -0.0405 -0.0032 -0.0257 -0.0834
+
+Columns 9 to 13 
+   0.2120  0.5565  0.0042 -0.0354  0.4640
+ -0.0739  0.2532 -0.0068  0.3069 -0.2176
+ -0.1889 -0.3534 -0.0101  0.1968 -0.0465
+[torch.FloatTensor of size 4x3x14]
+ 
+h_n    Variable containing:
+(0 ,.,.) = 
+ -0.0627  0.2550  0.3279  0.0315 -0.1899 -0.0517 -0.1582
+ -0.1523  0.0896  0.2832 -0.0463 -0.0302  0.0724 -0.0680
+  0.1372  0.2027  0.2818  0.0424 -0.2472 -0.0850 -0.2549
+
+(1 ,.,.) = 
+ -0.1606 -0.1595 -0.1187  0.0032 -0.0036  0.0083 -0.1326
+  0.1111 -0.1617  0.1805 -0.0115 -0.1544  0.0465 -0.1717
+  0.0162  0.1585  0.2094 -0.1939 -0.0532  0.0590 -0.1576
+
+(2 ,.,.) = 
+  0.1408 -0.0332 -0.1137  0.1926  0.2436 -0.0803 -0.0155
+ -0.2130  0.0105 -0.1439 -0.1528  0.2133 -0.1947  0.0306
+ -0.0390  0.0827 -0.1251  0.2153  0.0422 -0.0405 -0.0032
+
+(3 ,.,.) = 
+  0.0515 -0.0290  0.0238  0.0820 -0.1239 -0.0197  0.0165
+  0.0644 -0.0035 -0.2156  0.0808  0.0332  0.1923 -0.0358
+  0.0071  0.1246 -0.1882 -0.1621  0.0670  0.0959  0.0796
+[torch.FloatTensor of size 4x3x7]
+ 
+c_n    Variable containing:
+(0 ,.,.) = 
+ -0.1302  0.6549  0.6786  0.3079 -0.5095 -0.1389 -0.4543
+ -0.2786  0.1790  0.5202 -0.1162 -0.0607  0.1905 -0.1051
+  0.3220  0.5443  0.7510  0.1576 -0.5975 -0.2758 -0.3876
+
+(1 ,.,.) = 
+ -0.3360 -0.2363 -0.2426  0.0050 -0.0094  0.0226 -0.4114
+  0.2075 -0.2975  0.3651 -0.0201 -0.4975  0.0950 -0.2769
+  0.0260  0.2856  0.3388 -0.3938 -0.2133  0.1107 -0.1942
+
+(2 ,.,.) = 
+  0.2412 -0.0912 -0.2701  0.4474  0.3928 -0.1122 -0.0346
+ -0.5209  0.0326 -0.2324 -0.2867  0.4848 -0.3340  0.0575
+ -0.0617  0.2354 -0.2384  0.4614  0.0843 -0.0706 -0.0074
+
+(3 ,.,.) = 
+  0.1120 -0.0555  0.0582  0.1377 -0.2276 -0.0279  0.0292
+  0.1428 -0.0056 -0.5134  0.1684  0.0564  0.3211 -0.0665
+  0.0190  0.2116 -0.4337 -0.3472  0.1136  0.1530  0.1594
+[torch.FloatTensor of size 4x3x7]
+</code></pre>
+<h3 id="LSTMCell"><a href="#LSTMCell" class="headerlink" title="LSTMCell"></a>LSTMCell</h3><blockquote>
+<p>show how does one single cell work</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">rnn = nn.LSTMCell(<span class="number">5</span>, <span class="number">8</span>)</span><br><span class="line">inp = Variable(torch.randn(<span class="number">4</span>, <span class="number">3</span>, <span class="number">5</span>))</span><br><span class="line">hx = Variable(torch.randn(<span class="number">3</span>, <span class="number">8</span>))</span><br><span class="line">cx = Variable(torch.randn(<span class="number">3</span>, <span class="number">8</span>))</span><br><span class="line">output = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    hx, cx = rnn(inp[i], (hx, cx))</span><br><span class="line">    output.append(hx)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;H_&#123;&#125;&#x27;s &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i, hx))</span><br></pre></td></tr></table></figure>
+
+<pre><code>H_0&#39;s Variable containing:
+ 0.0161  0.0820  0.1264  0.5698  0.1555  0.1019 -0.6331  0.4666
+-0.0466 -0.3108 -0.3889 -0.0909  0.0535 -0.0389 -0.0661 -0.1533
+-0.0957  0.4769 -0.5832  0.2228  0.0177 -0.1251 -0.1822 -0.5942
+[torch.FloatTensor of size 3x8]
+
+H_1&#39;s Variable containing:
+-0.0217  0.0698  0.1196  0.3380  0.1997  0.0103 -0.3124  0.1821
+-0.0285 -0.1948 -0.2075  0.0533 -0.1547  0.2410 -0.1686 -0.1814
+-0.0989  0.1679 -0.5986  0.3037 -0.0145  0.1371 -0.1285 -0.3058
+[torch.FloatTensor of size 3x8]
+
+H_2&#39;s Variable containing:
+-0.1365  0.1022  0.0917  0.3858  0.1318  0.0406 -0.2220  0.1262
+ 0.0806 -0.0453 -0.1894  0.1336 -0.0463  0.2549 -0.1588 -0.4024
+ 0.0784  0.0149 -0.3712  0.2240  0.0573 -0.0053 -0.2268 -0.2647
+[torch.FloatTensor of size 3x8]
+
+H_3&#39;s Variable containing:
+ 0.0085  0.0597  0.0405  0.2158  0.0499  0.0835 -0.3906 -0.0203
+ 0.0866  0.0170 -0.1895  0.1637 -0.1015  0.3329 -0.2589 -0.3394
+ 0.0964 -0.0598 -0.2832  0.2294  0.0313  0.1325 -0.1107 -0.3527
+[torch.FloatTensor of size 3x8]
+</code></pre>
+<h3 id="Dropout-Layers"><a href="#Dropout-Layers" class="headerlink" title="Dropout Layers"></a>Dropout Layers</h3><ul>
+<li>Input: Any. Input can be of any shape</li>
+<li>Output: Same. Output is of the same shape as input</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">m = nn.Dropout(p=<span class="number">0.3</span>)</span><br><span class="line"><span class="built_in">input</span> = Variable(torch.randn(<span class="number">5</span>, <span class="number">4</span>))</span><br><span class="line">output = m(<span class="built_in">input</span>)</span><br><span class="line"><span class="built_in">print</span>(torch.cat((<span class="built_in">input</span>, output), <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Alpha Dropout is a type of Dropout that maintains the self-normalizing property. </span></span><br><span class="line">m = nn.AlphaDropout(p=<span class="number">0.3</span>)</span><br><span class="line"><span class="built_in">input</span> = Variable(torch.randn(<span class="number">5</span>, <span class="number">4</span>))</span><br><span class="line">output = m(<span class="built_in">input</span>)</span><br><span class="line"><span class="built_in">print</span>(torch.cat((<span class="built_in">input</span>, output), <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>Variable containing:
+ 1.3842 -0.1793  1.5022 -1.2981  1.9774 -0.0000  2.1460 -0.0000
+-2.2350  0.9031 -0.2413  0.0366 -3.1928  1.2902 -0.0000  0.0522
+-0.0988  0.6401  0.8262 -0.4700 -0.0000  0.9144  0.0000 -0.6714
+ 0.4723  0.0987 -0.1887  1.6187  0.6748  0.0000 -0.2696  2.3124
+ 1.6831  0.1688  0.8709  1.0857  2.4044  0.0000  0.0000  1.5510
+[torch.FloatTensor of size 5x8]
+
+Variable containing:
+ 0.7550  0.9882 -0.9701 -0.1685  1.1041  1.3049 -1.0595  0.3090
+-1.9965  0.8511 -0.0932 -1.7224 -1.2648 -1.0595  0.3738 -1.0288
+-0.3788 -2.1000  1.0952 -0.9518  0.1280 -1.3539 -1.0595 -0.3653
+-1.4031  0.5019 -0.6636 -0.0361 -1.0595  0.8862 -0.1172  0.4230
+-1.3436 -1.0563  1.4147  0.5900 -0.7027 -0.4553  1.6721  0.9620
+[torch.FloatTensor of size 5x8]
+</code></pre>
+<h3 id="Padding-Layers"><a href="#Padding-Layers" class="headerlink" title="Padding Layers"></a>Padding Layers</h3><blockquote>
+<p>N_Batches x Channels x Height x Width</p>
+</blockquote>
+<ul>
+<li>$ (N, C, H, W) \rightarrow (N, C, H_{out}, W_{out}) $</li>
+<li>$ H_{out} = H_{in} + paddingTop + paddingBottom $</li>
+<li>$ W_{out} = W_{in} + paddingLeft + paddingRight $</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Only 4D and 5D padding is supported for now</span></span><br><span class="line"><span class="built_in">input</span> = autograd.Variable(torch.randn(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># uses the same padding in all boundaries</span></span><br><span class="line"><span class="comment"># m = nn.ZeroPad2d(1)</span></span><br><span class="line">m = nn.ConstantPad2d(<span class="number">1</span>, <span class="number">2.3333</span>)</span><br><span class="line">output = m(<span class="built_in">input</span>)</span><br><span class="line"><span class="built_in">print</span>(output)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n=======================\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># using different paddings</span></span><br><span class="line">m = nn.ZeroPad2d((<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line"><span class="comment"># m = nn.ConstantPad2d((1, 1, 2, 2), 2.3333)</span></span><br><span class="line">output = m(<span class="built_in">input</span>)</span><br><span class="line"><span class="built_in">print</span>(output)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Variable containing:
+(0 ,0 ,.,.) = 
+  2.3333  2.3333  2.3333  2.3333  2.3333  2.3333
+  2.3333  2.0598  0.5779  0.7410 -0.2043  2.3333
+  2.3333  2.0359 -1.6858  0.4359  0.3211  2.3333
+  2.3333  0.3481  0.5727  0.5786 -0.7968  2.3333
+  2.3333  2.3333  2.3333  2.3333  2.3333  2.3333
+
+(0 ,1 ,.,.) = 
+  2.3333  2.3333  2.3333  2.3333  2.3333  2.3333
+  2.3333  1.1789 -0.4450  0.4749  0.2136  2.3333
+  2.3333  1.2923  0.8678  1.6216 -0.1105  2.3333
+  2.3333  2.1250  0.8989 -0.2381  1.7026  2.3333
+  2.3333  2.3333  2.3333  2.3333  2.3333  2.3333
+[torch.FloatTensor of size 1x2x5x6]
+
+
+=======================
+
+Variable containing:
+(0 ,0 ,.,.) = 
+  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+  0.0000  2.0598  0.5779  0.7410 -0.2043  0.0000
+  0.0000  2.0359 -1.6858  0.4359  0.3211  0.0000
+  0.0000  0.3481  0.5727  0.5786 -0.7968  0.0000
+  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+
+(0 ,1 ,.,.) = 
+  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+  0.0000  1.1789 -0.4450  0.4749  0.2136  0.0000
+  0.0000  1.2923  0.8678  1.6216 -0.1105  0.0000
+  0.0000  2.1250  0.8989 -0.2381  1.7026  0.0000
+  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+[torch.FloatTensor of size 1x2x7x6]
+</code></pre>
+<h3 id="Non-linear-Activations"><a href="#Non-linear-Activations" class="headerlink" title="Non-linear Activations"></a>Non-linear Activations</h3><ul>
+<li>nn.ReLu(inplace=False)<ul>
+<li>${ReLU}(x)= max(0, x)$</li>
+</ul>
+</li>
+<li>nn.Softmax() <ul>
+<li>$f_i(x) = exp(x_i) / sum_j exp(x_j)$</li>
+</ul>
+</li>
+<li>nn.Sigmoid()<ul>
+<li>$f(x) = 1 / ( 1 + exp(-x))$</li>
+</ul>
+</li>
+<li>nn.Tanh() <ul>
+<li>$f(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x))$</li>
+</ul>
+</li>
+<li>nn.Threshold(threshold, value, inplace=False)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">input</span> = autograd.Variable(torch.randn(<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">input</span>)</span><br><span class="line"></span><br><span class="line">relu = nn.ReLU()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\nReLU    &#x27;</span>, relu(<span class="built_in">input</span>))</span><br><span class="line"></span><br><span class="line">sm = nn.Softmax() <span class="comment"># The same as Sigmoid &amp; Tanh</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\nSoftMax &#x27;</span>, sm(<span class="built_in">input</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>Variable containing:
+ 0.2629 -0.5756 -0.4757
+-0.2046 -0.1826  0.5311
+[torch.FloatTensor of size 2x3]
+
+
+ReLU     Variable containing:
+ 0.2629  0.0000  0.0000
+ 0.0000  0.0000  0.5311
+[torch.FloatTensor of size 2x3]
+
+
+SoftMax  Variable containing:
+ 0.5235  0.2264  0.2501
+ 0.2434  0.2488  0.5079
+[torch.FloatTensor of size 2x3]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch </span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"></span><br><span class="line"><span class="comment"># define an inputs</span></span><br><span class="line">x_tensor = torch.randn(<span class="number">10</span>, <span class="number">20</span>)</span><br><span class="line">y_tensor = torch.randn(<span class="number">10</span>, <span class="number">5</span>)</span><br><span class="line">x = Variable(x_tensor, requires_grad=<span class="literal">False</span>)</span><br><span class="line">y = Variable(y_tensor, requires_grad=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># define some weights</span></span><br><span class="line">w = Variable(torch.randn(<span class="number">20</span>, <span class="number">5</span>), requires_grad=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get variable tensor</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(w.data))  <span class="comment"># torch.FloatTensor</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># get variable gradient</span></span><br><span class="line"><span class="built_in">print</span>(w.grad)  <span class="comment"># None</span></span><br><span class="line"></span><br><span class="line">loss = torch.mean((y - x @ w) ** <span class="number">2</span>)</span><br><span class="line"><span class="comment"># calculate the gradients</span></span><br><span class="line">loss.backward()</span><br><span class="line"><span class="built_in">print</span>(w.grad)  <span class="comment"># some gradients</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># manually apply gradients</span></span><br><span class="line">w.data -= <span class="number">0.01</span> * w.grad.data</span><br><span class="line"></span><br><span class="line"><span class="comment"># manually zero gradients after update</span></span><br><span class="line">w.grad.data.zero_()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;torch.FloatTensor&#39;&gt;
+None
+Variable containing:
+-1.3514 -0.1052  1.0056  0.2811 -0.3309
+ 0.5037  0.9949 -1.6392 -0.4351  1.2254
+ 0.2477 -0.0502  0.4510  0.7238  0.1114
+ 0.4799  0.3167 -0.6135 -0.4998  0.2620
+ 1.0254  0.7146 -0.5500  0.3868  0.1841
+ 0.1149 -0.0351 -0.3343 -0.4571  0.3408
+-0.2435 -0.3256 -0.8101 -1.4030  0.4093
+ 0.8297 -0.1577 -1.8171 -0.7431  1.0062
+ 0.0229  0.1829 -0.4641 -0.4319  0.2729
+-1.2153 -1.2480  0.6714 -0.4719 -0.4976
+-0.7302 -0.0150  0.6535  0.0073 -0.0176
+ 0.1842 -0.8359 -0.1110 -0.3290 -0.2575
+ 1.0419  1.0069 -2.1212 -1.4792  1.2291
+ 1.1946  1.1317  0.0296  1.1031  0.2735
+ 0.4553  0.2371  0.4601  0.9679  0.0660
+-1.1472 -0.2064  1.0872 -0.3853 -0.5404
+ 0.7875  0.4278 -0.1380  0.7322  0.0687
+ 1.9909  1.2813 -1.6926 -0.0396  1.0175
+ 0.8311  0.6657 -0.8842 -0.3210  0.5822
+-0.1637 -0.3244  0.3780  0.1150 -0.2662
+[torch.FloatTensor of size 20x5]
+
+
+
+
+
+
+
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+    0     0     0     0     0
+[torch.FloatTensor of size 20x5]
+</code></pre>
+<h3 id="Combine-layers-with-senquential"><a href="#Combine-layers-with-senquential" class="headerlink" title="Combine layers with senquential"></a>Combine layers with senquential</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Example of using Sequential</span></span><br><span class="line">model = nn.Sequential(</span><br><span class="line">          nn.Conv2d(<span class="number">1</span>,<span class="number">20</span>,<span class="number">5</span>),</span><br><span class="line">          nn.ReLU(),</span><br><span class="line">          nn.Conv2d(<span class="number">20</span>,<span class="number">64</span>,<span class="number">5</span>),</span><br><span class="line">          nn.ReLU()</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"><span class="comment"># Example of using Sequential with OrderedDict</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line">model = nn.Sequential(OrderedDict([</span><br><span class="line">          (<span class="string">&#x27;conv1&#x27;</span>, nn.Conv2d(<span class="number">1</span>,<span class="number">20</span>,<span class="number">5</span>)),</span><br><span class="line">          (<span class="string">&#x27;relu1&#x27;</span>, nn.ReLU()),</span><br><span class="line">          (<span class="string">&#x27;conv2&#x27;</span>, nn.Conv2d(<span class="number">20</span>,<span class="number">64</span>,<span class="number">5</span>)),</span><br><span class="line">          (<span class="string">&#x27;relu2&#x27;</span>, nn.ReLU())</span><br><span class="line">        ]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="How-to-train-a-model-with-GPU"><a href="#How-to-train-a-model-with-GPU" class="headerlink" title="How to train a model with GPU"></a>How to train a model with GPU</h3><p>Example for training LR model with GPU</p>
+<ul>
+<li><p>batch_cpu = Variable(torch.from_numpy(x[idx])).float()</p>
+</li>
+<li><p>batch = batch_cpu.cuda() # 很重要</p>
+</li>
+<li><p>target_cpu = Variable(torch.from_numpy(y[idx])).float()</p>
+</li>
+<li><p>target = target_cpu.cuda() # 很重要</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># GPU Example from http://blog.csdn.net/wuichuan</span></span><br><span class="line"></span><br><span class="line">x = np.random.randn(<span class="number">1000</span>, <span class="number">1</span>) * <span class="number">4</span></span><br><span class="line">w = np.array([<span class="number">0.5</span>,])</span><br><span class="line">bias = -<span class="number">1.68</span></span><br><span class="line"></span><br><span class="line">y_true = np.dot(x, w) + bias  <span class="comment">#真实数据</span></span><br><span class="line">y = y_true + np.random.randn(x.shape[<span class="number">0</span>]) <span class="comment">#加噪声的数据</span></span><br><span class="line"><span class="comment"># 使用x和y，以及y_true回归出w和bias</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义回归网络</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinearRression</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, input_size, out_size</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(LinearRression, self).__init__()</span><br><span class="line">        self.x2o = nn.Linear(input_size, out_size)</span><br><span class="line">    <span class="comment">#初始化</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, x</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.x2o(x)</span><br><span class="line">    <span class="comment">#前向传递</span></span><br><span class="line">    </span><br><span class="line">batch_size = <span class="number">10</span></span><br><span class="line">model = LinearRression(<span class="number">1</span>, <span class="number">1</span>) <span class="comment">#回归模型</span></span><br><span class="line">criterion = nn.MSELoss()  <span class="comment">#损失函数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(model.parameters())</span><br><span class="line"></span><br><span class="line"><span class="comment">#调用cuda</span></span><br><span class="line">model.cuda()</span><br><span class="line">criterion.cuda()</span><br><span class="line"></span><br><span class="line">optimizer = torch.optim.SGD(model.parameters(), lr=<span class="number">0.001</span>, momentum=<span class="number">0.9</span>)</span><br><span class="line">losses = []</span><br><span class="line">epoches = <span class="number">101</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(epoches):</span><br><span class="line">    loss = <span class="number">0</span></span><br><span class="line">    optimizer.zero_grad() <span class="comment"># 清空上一步的梯度</span></span><br><span class="line">    idx = np.random.randint(x.shape[<span class="number">0</span>], size=batch_size)</span><br><span class="line">    </span><br><span class="line">    batch_cpu = Variable(torch.from_numpy(x[idx])).<span class="built_in">float</span>()</span><br><span class="line">    batch = batch_cpu.cuda() <span class="comment"># 很重要</span></span><br><span class="line"></span><br><span class="line">    target_cpu = Variable(torch.from_numpy(y[idx])).<span class="built_in">float</span>()</span><br><span class="line">    target = target_cpu.cuda() <span class="comment"># 很重要</span></span><br><span class="line">    </span><br><span class="line">    output = model.forward(batch)</span><br><span class="line">    loss += criterion(output, target)</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">10</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Loss at epoch[%s]: %.3f&#x27;</span> % (i, loss.data[<span class="number">0</span>]))</span><br><span class="line">    losses.append(loss.data[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(losses, <span class="string">&#x27;-ob&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Epoch&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Loss&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;generator object Module.parameters at 0x000000A21BAEB830&gt;
+Loss at epoch[0]: 3.325
+Loss at epoch[10]: 2.538
+Loss at epoch[20]: 2.621
+Loss at epoch[30]: 2.538
+Loss at epoch[40]: 2.584
+Loss at epoch[50]: 1.451
+Loss at epoch[60]: 0.588
+Loss at epoch[70]: 3.073
+Loss at epoch[80]: 2.032
+Loss at epoch[90]: 0.864
+Loss at epoch[100]: 0.594
+</code></pre>
+<p><img src="/assets/output_17_1.png" alt="png"></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/PyTorch/">#PyTorch</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Coding the world, try to fetch more.
+                </p>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">【Grpc】使用grpc配置通过端口访问的python服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-02/%E3%80%90HNS%E3%80%91%E8%AF%95%E7%9D%80%E9%A2%86%E4%B8%80%E4%B8%8B%20HandShake%20%E4%B8%BA%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E5%8F%91%E6%94%BE%E7%9A%84%20HNS%20Coin.html">【HNS】试着领一下 HandShake 发给开源社区的 HNS Coin</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://okcd00.oschina.io/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:okcd00@vip.qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @<a target="_blank" rel="noopener" href="https://github.com/okcd00/">Dian Chen</a>. 2017-2022 All right reserved | Re-design & Deploy: <a href="blog.csdn.net/okcd00">okcd00</a> | Hexo Theme: <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'okcd00';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- "//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" -->
+<script type="text/javascript" color="0,255,255" opacity='0.75' zIndex="-2" count="75" src='/js/canvas.js'></script>
+
+</body>
+</html>
