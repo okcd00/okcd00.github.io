@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="baidu-site-verification" content="o4pXUBsPyW" />
+	
+    <!--Description-->
+    
+        <meta name="description" content="To be more curious and less lazy.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chen Dian">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【SQLite3】使用 SQLite 为模型训练中的并行 dataloader 节省内存"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="To be more curious and less lazy." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="CDPlayer&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>【SQLite3】使用 SQLite 为模型训练中的并行 dataloader 节省内存 - CDPlayer&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+	
+	<!-- Baidu Analytics -->
+    
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?{{ theme.baidu_analytics }}";
+		  var s = document.getElementsByTagName("script")[0];
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+	
+	<!-- star map -->
+	<script type="text/javascript" color="255,255,255" opacity='0.75' zIndex="-2" count="88" src="js/canvas.js"></script>
+	
+	<!-- Earth -->
+	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/articles/2022-08/%E3%80%90SQLite3%E3%80%91%E4%BD%BF%E7%94%A8%20SQLite%20%E4%B8%BA%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E4%B8%AD%E7%9A%84%E5%B9%B6%E8%A1%8C%20dataloader%20%E8%8A%82%E7%9C%81%E5%86%85%E5%AD%98.html">
+                【SQLite3】使用 SQLite 为模型训练中的并行 dataloader 节省内存
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2022-08-22</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/categories/编程记忆/">编程记忆</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+		<!-- MathJax support -->
+		
+
+		
+        <!-- Post Content -->
+        <h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><blockquote>
+<p>我的训练数据读到内存里就有好几个 G 那么大了，<br>多进程 dataloader 跑并行训练的时候内存都被打满了怎么办啊？！<br><strong>解决方案：</strong> 基于 SQLite 无限数量的并行读取做一个 dataset 呗</p>
+</blockquote>
+<span id="more"></span>
+
+<p>在做模型并行化训练的时候，我们通常会做多个 dataloader 为 一张卡提供数据预处理，如果数据处理速度是瓶颈时，单张卡所需的 dataloader 也会更多。<br>当卡数再提升起来，一次训练所需要的 dataloader 数量将呈线性增长。<br>这里就会有个问题：<br>—— 内存不够用了<br>比如 dataloader 有 128 个，那比起单卡单 dataloader 而言内存消耗就是 128 倍。<br>—— 他们用的数据不能放同一块内存一起读嘛？<br>多个进程读同台机器上同一块内存，要用我之前实现过的 <a target="_blank" rel="noopener" href="https://blog.csdn.net/okcd00/article/details/82901347?spm=1001.2014.3001.5502">SMQueue</a> 倒是可以解决，但都要基于C语言来定制化了，不觉得麻烦嘛？<br>唉？数据恒定，无限读取。让他们读数据库不就完事了吗？</p>
+<h2 id="0x01-原理介绍"><a href="#0x01-原理介绍" class="headerlink" title="0x01 原理介绍"></a>0x01 原理介绍</h2><p>我们知道，多进程的时候相当于每个进程会 fork 一下主要函数，<br>并且 <strong>复制</strong> 一份里面的资源和计算流程去开一个新进程来计算。</p>
+<p>dataloader 们在训练时其实是这样的流程：</p>
+<ol>
+<li>主进程 main 从文件中读取完整数据 N 条</li>
+<li>子进程们 sub1, sub2, sub3, … 把这 N 条都复制了之后带走</li>
+<li>每个子进程，例如 sub1 可以根据任意下标获取所需 id 对应的样本</li>
+<li>为 GPU0 工作的 $sub_1, sub_2, … sub_k$ 会从这 N 条中选择 M 条；为 GPU1 工作的 $sub_{k+1}, sub_{k+2}, … sub_{2k}$ 从这 $N$ 条中选择 $M$ 条，所有的子进程加在一起把 $N$ 条样本遍历完 (ddp mode，K 为每个 GPU 需要由多少 dataloader 供应)。</li>
+<li>内存占用为 N 条数据 $\times$ GPU 数量 $\times$ K</li>
+</ol>
+<p>简而言之，第一个 dataset 被读入内存后，所有的 dataloader 实际复制了 K 份去了。<br>先说说其它方法把，比如目前一个常用的解法是 <strong>分割数据</strong> </p>
+<blockquote>
+<p><strong>分割数据的方法</strong>：将数据根据 GPU 数量均分为几份，每个 GPU 的 dataloaders 读对应 GPU 编号的那份数据<br>这样在上述流程中的第 2 步中，每一份被复制的基本单元从完整数据的 N 条，变成了原来的几分之一。</p>
+</blockquote>
+<p>这样好吗？这样不好，为什么，因为我们的场景是模型训练，每轮训练的时候要 shuffle 的嘛。<br>一旦提前对数据做分割，那么每轮训练的过程中的每个 dataloader 看到的数据就一样了，泛化性要受影响。<br>那我们怎么做呢？<br>最好还是所有 dataloader 一起看同一组数据，就像是本来人手一本书，现在都给我看大屏幕。<br>这个大屏幕用什么合适呢，能单进程写、无限进程读的 <strong>数据库</strong> 就不错。</p>
+<blockquote>
+<p><strong>借助数据库的方法</strong>：将数据写入数据库中，为每个数据设定编号key，dataloader 读数据的时候根据下标读取</p>
+</blockquote>
+<p>这么一来，数据从内存块变成了数据库。<br>每个 dataloader 的取第 i 个样本的操作从在内存里取下标 <code>datasets[i]</code> 变成了<br><code>select data from samples where sid = &#39;&#123;&#125;&#39;.format(i)</code> </p>
+<p>看到这里，有聪明的就要问了，我内存取值不比你数据库查询快？<br>哎？还真不一定噢，比单个速度不行，但胜在人多取胜，<br>实际上，4 worker 的内存取值速度是不如 16 worker 的数据库取值速度。<br>于此同时，对于一个 50M samples 的数据集：<br>带有 6 GPU x 4 memory worker 的模型需要 <strong>200G</strong> 内存<br>而带有 6 GPU x 32 sqlite worker 的同模型只需要 <strong>4G</strong> 内存</p>
+<p>高下立判。<br>本文中我们选用的是 Python 中比较好操作的 SQLite3 库来操作 SQLite。</p>
+<h2 id="0x02-难点介绍"><a href="#0x02-难点介绍" class="headerlink" title="0x02 难点介绍"></a>0x02 难点介绍</h2><p>我们简单实现了一个版本（旧版本就不放出了防止误导），发现存在一个问题：<br>当进程数过多的时候，会出现 <code>database dist image is malformed</code> 的报错</p>
+<p>当时多番尝试无果，四处求援的我：<br><img src="/assets/996131882fcc400fadf7d454b54edf4b.png" alt="求助.JPG"></p>
+<p>感谢 @caoyixuan1993  帮忙提供了建设性的意见：</p>
+<blockquote>
+<p> Problem was due to connection to database was opened before fork().<br> Many processes used one connection. Now it’s opened after fork() and everything is ok.<br> —— <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/30596633/multiple-threads-and-sqlite-database-disk-image-is-malformed">StackOverflow</a></p>
+</blockquote>
+<p>考虑到 fork 的特殊性，我们在初始化数据集的时候不能提前预设好数据库连接 conn 和数据库游标 cursor。<br>dataloader 在 fork 后的操作通常是 <code>__get_item__</code>，我们将 fork 后的第一次取值作为触发点，<br>此时为 fork 后的每个 dataloader 实例才建立起和数据库之间的连接 conn 和游标 cursor。<br>大功告成~ </p>
+<h2 id="0x03-单文件源码实现"><a href="#0x03-单文件源码实现" class="headerlink" title="0x03 单文件源码实现"></a>0x03 单文件源码实现</h2><blockquote>
+<p>为了便于以后直接开箱可用，做一个单文件无依赖版的实现吧 =w=<br>性能：55M samples，db 大小是纯文本存储的样本文件大小的 1.2 倍，内存消耗减低为 2% 左右，速度提升约为 33%。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> unicode_literals</span><br><span class="line"><span class="keyword">from</span> six <span class="keyword">import</span> iteritems</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">PY2 = <span class="built_in">int</span>(sys.version[<span class="number">0</span>]) == <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> PY2:</span><br><span class="line">    text_type = unicode  <span class="comment"># noqa</span></span><br><span class="line">    binary_type = <span class="built_in">str</span></span><br><span class="line">    string_types = (<span class="built_in">str</span>, unicode)  <span class="comment"># noqa</span></span><br><span class="line">    unicode = unicode  <span class="comment"># noqa</span></span><br><span class="line">    basestring = basestring  <span class="comment"># noqa</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    text_type = <span class="built_in">str</span></span><br><span class="line">    binary_type = <span class="built_in">bytes</span></span><br><span class="line">    string_types = (<span class="built_in">str</span>,)</span><br><span class="line">    unicode = <span class="built_in">str</span></span><br><span class="line">    basestring = (<span class="built_in">str</span>, <span class="built_in">bytes</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">random_ints</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;return n random ints that are distinct&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> n &lt; <span class="number">10</span>**<span class="number">9</span>, <span class="string">&#x27;Too many distinct numbers asked.&#x27;</span></span><br><span class="line">    row_randoms = np.random.randint(<span class="number">0</span>, np.iinfo(np.int64).<span class="built_in">max</span>, <span class="number">2</span>*n)</span><br><span class="line">    uniques = np.unique(row_randoms)</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(uniques) &lt; n:</span><br><span class="line">        r = np.random.randint(<span class="number">0</span>, np.iinfo(np.int64).<span class="built_in">max</span>, <span class="number">2</span>*n)</span><br><span class="line">        uniques = np.unique(np.stack([uniques, r]))</span><br><span class="line">    <span class="keyword">return</span> uniques[:n]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrainDBBase</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    An immutable dataset once write.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_sindex</span>(<span class="params">self, labels</span>):</span></span><br><span class="line">        indexes = random_ints(<span class="built_in">len</span>(labels))</span><br><span class="line">        <span class="keyword">for</span> i, l <span class="keyword">in</span> <span class="built_in">enumerate</span>(labels):</span><br><span class="line">            l[<span class="string">&#x27;info&#x27;</span>][<span class="string">&#x27;sindex&#x27;</span>] = indexes[i]</span><br><span class="line">        self.sindex_to_sid_dict = &#123;s[<span class="string">&#x27;info&#x27;</span>][<span class="string">&#x27;sindex&#x27;</span>]: s[<span class="string">&#x27;info&#x27;</span>][<span class="string">&#x27;sid&#x27;</span>] <span class="keyword">for</span> s <span class="keyword">in</span> labels&#125;</span><br><span class="line">        <span class="keyword">return</span> labels</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write</span>(<span class="params">self, samples</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;save samples&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_by_sid</span>(<span class="params">self, sid</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;get sample by sid&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sindex_to_sid</span>(<span class="params">self, sindex</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot; return sid given sindex&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot; get sample by index in dataset&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;return the number of samples in this dataset&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.n = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">if</span> self.n == self.__len__():</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">        n = self.n</span><br><span class="line">        self.n += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self[n]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.<span class="built_in">next</span>()</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">all_samples</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;return all samples in this dataset&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> [self[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(self))]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SQLiteDB</span>(<span class="params">TrainDBBase</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, db_path, n_samples=<span class="literal">None</span>, read_only=<span class="literal">True</span>, load_now=<span class="literal">False</span></span>):</span></span><br><span class="line">        self.samples = <span class="literal">None</span></span><br><span class="line">        self.n_samples = n_samples</span><br><span class="line">        self.sids = <span class="literal">None</span></span><br><span class="line">        self.sid_to_sample = <span class="literal">None</span></span><br><span class="line">        self.db_path = db_path</span><br><span class="line">        self.sindexes = <span class="literal">None</span></span><br><span class="line">        self.sindex_to_sid_dict =<span class="literal">None</span></span><br><span class="line">        self.sid_to_sindex_dict =<span class="literal">None</span></span><br><span class="line">        self.conn = <span class="literal">None</span></span><br><span class="line">        self.cursor = <span class="literal">None</span></span><br><span class="line">        self.saved_length = <span class="literal">None</span></span><br><span class="line">        self.pure_text_samples = <span class="literal">True</span>  <span class="comment"># True for CSC tasks.</span></span><br><span class="line">        <span class="keyword">if</span> load_now:</span><br><span class="line">            self.get_cursor()</span><br><span class="line">            self.load_sid_sindex()</span><br><span class="line">            self.cursor.close()</span><br><span class="line">            self.conn = <span class="literal">None</span></span><br><span class="line">            self.cursor = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_cursor</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">if</span> self.cursor <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        conn = sqlite3.connect(  <span class="comment"># WAL mode for multi-processing</span></span><br><span class="line">            self.db_path, </span><br><span class="line">            isolation_level=<span class="literal">None</span>,  <span class="comment"># https://www.cnblogs.com/Gaimo/p/16098045.html</span></span><br><span class="line">            check_same_thread=<span class="literal">False</span>,  <span class="comment"># https://codeantenna.com/a/VNKPkxjiFx</span></span><br><span class="line">            timeout=<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">        conn.row_factory = sqlite3.Row</span><br><span class="line">        self.conn = conn</span><br><span class="line">        self.cursor = conn.cursor()</span><br><span class="line">        <span class="comment"># WAL mode for multi-processing</span></span><br><span class="line">        self.cursor.execute(<span class="string">&#x27;PRAGMA journal_mode=wal&#x27;</span>)  <span class="comment"># https://www.coder.work/article/2441365</span></span><br><span class="line">        self.cursor.execute(<span class="string">&#x27;PRAGMA synchronous=OFF&#x27;</span>)  <span class="comment"># </span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove_file</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">import</span> os</span><br><span class="line">        os.remove(self.db_path)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write</span>(<span class="params">self, samples</span>):</span></span><br><span class="line">        self.get_cursor()</span><br><span class="line">        <span class="comment"># if os.path.exists(self.db_path):</span></span><br><span class="line">        <span class="comment">#     logging.warn(&#x27;removing the existing dataset&#x27;)</span></span><br><span class="line">        <span class="comment">#     os.remove(self.db_path)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># create table</span></span><br><span class="line">        self.cursor.execute(</span><br><span class="line">            <span class="string">&#x27;CREATE TABLE samples (sid TEXT PRIMARY KEY NOT NULL, data TEXT, sindex INT)&#x27;</span>)</span><br><span class="line">        self.conn.commit()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># execute</span></span><br><span class="line">        <span class="keyword">if</span> self.pure_text_samples:</span><br><span class="line">            <span class="keyword">for</span> i, s <span class="keyword">in</span> tqdm(<span class="built_in">enumerate</span>(samples)):</span><br><span class="line">                sid = unicode(<span class="string">f&#x27;<span class="subst">&#123;i&#125;</span>&#x27;</span>)</span><br><span class="line">                s = unicode(s.strip().replace(<span class="string">&quot;&#x27;&quot;</span>, <span class="string">&quot;&#x27;&#x27;&quot;</span>))</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    self.cursor.execute(</span><br><span class="line">                        <span class="string">&quot;insert into samples(sid, data, sindex) values (&#x27;&#123;&#125;&#x27;, &#x27;&#123;&#125;&#x27;, &#123;&#125;)&quot;</span>.<span class="built_in">format</span>(sid, s, i))</span><br><span class="line">                    <span class="comment"># error:</span></span><br><span class="line">                    <span class="comment"># sqlite3.DatabaseError: database disk image is malformed</span></span><br><span class="line">                    <span class="comment"># https://blog.csdn.net/The_Time_Runner/article/details/106590571</span></span><br><span class="line">                <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                    <span class="built_in">print</span>(e)</span><br><span class="line">                    <span class="built_in">print</span>(sid)</span><br><span class="line">                    <span class="built_in">print</span>(s)</span><br><span class="line">                    <span class="built_in">print</span>(i)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># pre-processing</span></span><br><span class="line">            <span class="keyword">for</span> s <span class="keyword">in</span> tqdm(samples):</span><br><span class="line">                s[<span class="string">&#x27;info&#x27;</span>][<span class="string">&#x27;sid&#x27;</span>] = unicode(s[<span class="string">&#x27;info&#x27;</span>][<span class="string">&#x27;sid&#x27;</span>])</span><br><span class="line">                sample_dict = &#123;s[<span class="string">&#x27;info&#x27;</span>][<span class="string">&#x27;sid&#x27;</span>]: json.dumps(s) <span class="keyword">for</span> s <span class="keyword">in</span> samples&#125;</span><br><span class="line"></span><br><span class="line">            i = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> sid, s <span class="keyword">in</span> tqdm(iteritems(sample_dict)):</span><br><span class="line">                self.cursor.execute(</span><br><span class="line">                    <span class="string">&quot;insert into samples(sid, data, sindex) values (&#x27;&#123;&#125;&#x27;, &#x27;&#123;&#125;&#x27;, &#123;&#125;)&quot;</span>.<span class="built_in">format</span>(sid, s, i))</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        self.conn.commit()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_by_sid</span>(<span class="params">self, sid</span>):</span></span><br><span class="line">        self.load_sid_sindex()</span><br><span class="line">        sql = <span class="string">&quot;select data from samples where sid = &#x27;&#123;&#125;&#x27; &quot;</span>.<span class="built_in">format</span>(sid)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            ret = self.cursor.execute(sql).fetchone()[<span class="number">0</span>]</span><br><span class="line">            <span class="comment"># ret = self.cursor.execute(sql).fetchall()[0][0]</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;e&#125;</span>\nError at:&quot;</span>, sql)</span><br><span class="line">            <span class="keyword">raise</span> ValueError()</span><br><span class="line">        <span class="keyword">if</span> self.pure_text_samples:</span><br><span class="line">            sample = ret</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            sample = json.loads(ret)</span><br><span class="line">            sample[<span class="string">&#x27;info&#x27;</span>][<span class="string">&#x27;sindex&#x27;</span>] = self.sid_to_sindex_dict[sid]</span><br><span class="line">        <span class="comment"># time.sleep(0.05)</span></span><br><span class="line">        <span class="keyword">return</span> sample</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">load_sid_sindex</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">if</span> self.sids <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.get_cursor()</span><br><span class="line">        sid_sindex = self.cursor.execute(</span><br><span class="line">            <span class="string">&quot;select sid, sindex from samples&quot;</span>).fetchall()</span><br><span class="line">        <span class="keyword">if</span> self.n_samples:</span><br><span class="line">            sid_sindex = sid_sindex[: self.n_samples]</span><br><span class="line">        self.sids, self.sindexes = <span class="built_in">zip</span>(*sid_sindex)</span><br><span class="line">        <span class="keyword">assert</span> <span class="built_in">len</span>(<span class="built_in">set</span>(self.sids)) == <span class="built_in">len</span>(self.sids)</span><br><span class="line">        <span class="keyword">assert</span> <span class="built_in">len</span>(<span class="built_in">set</span>(self.sindexes)) == <span class="built_in">len</span>(self.sindexes)</span><br><span class="line">        <span class="comment"># logging.warn(json.dumps(self.sindexes))</span></span><br><span class="line">        <span class="comment"># logging.warn(json.dumps(self.sids))</span></span><br><span class="line"></span><br><span class="line">        self.sid_to_sindex_dict = &#123;sid: sindex <span class="keyword">for</span> sid, sindex <span class="keyword">in</span> sid_sindex&#125;</span><br><span class="line">        self.sindex_to_sid_dict = &#123;sindex: sid <span class="keyword">for</span> sid, sindex <span class="keyword">in</span> sid_sindex&#125;</span><br><span class="line">        <span class="comment"># logging.warning(f&quot;loaded &#123;len(self.sids)&#125; samples.&quot;)</span></span><br><span class="line">        self.saved_length = <span class="built_in">len</span>(self.sids)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sindex_to_sid</span>(<span class="params">self, sindex</span>):</span></span><br><span class="line">        self.get_cursor()</span><br><span class="line">        self.load_sid_sindex()</span><br><span class="line">        <span class="keyword">return</span> self.sindex_to_sid_dict[sindex]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        self.get_cursor()</span><br><span class="line">        self.load_sid_sindex()</span><br><span class="line"></span><br><span class="line">        sid = self.sids[item]</span><br><span class="line">        <span class="keyword">return</span> self.get_by_sid(sid)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.saved_length</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_existed_samples</span>(<span class="params">txt_path, db_path</span>):</span></span><br><span class="line">    db = SQLiteDB(db_path, load_now=<span class="literal">False</span>)</span><br><span class="line">    db.remove_file()</span><br><span class="line">    samples = <span class="built_in">open</span>(txt_path, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">    db.write(samples)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">single_thread_load_samples</span>(<span class="params">_id, dataset</span>):</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;init <span class="subst">&#123;_id&#125;</span>-th subprocess.&quot;</span>)</span><br><span class="line">    total_length = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">        res = dataset[i]</span><br><span class="line">        total_length += res.__len__()</span><br><span class="line">    <span class="comment"># print(&quot;Loaded &#123;&#125; charaters.&quot;.format(total_length))</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_multiprocessing</span>(<span class="params">dataset</span>):</span></span><br><span class="line">    <span class="keyword">import</span> multiprocessing</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Run the main process (%s).&#x27;</span> % (os.getpid()))</span><br><span class="line"></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    n_cores = <span class="number">32</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n_cores):</span><br><span class="line">        p = multiprocessing.Process(</span><br><span class="line">            target=single_thread_load_samples,</span><br><span class="line">            args=(i, dataset))</span><br><span class="line">        p.start()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Waiting for all subprocesses done ...&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">import</span> time</span><br><span class="line">    start_time = time.time()</span><br><span class="line"></span><br><span class="line">    test_path = <span class="string">&#x27;/data/chendian/cleaned_findoc_samples/autodoc_test.220424.txt&#x27;</span></span><br><span class="line">    test_db_path = <span class="string">&#x27;/data/chendian/cleaned_findoc_samples/autodoc_test.220424.db&#x27;</span></span><br><span class="line">    <span class="comment"># write_existed_samples(test_path, test_db_path)</span></span><br><span class="line"></span><br><span class="line">    dataset = SQLiteDB(</span><br><span class="line">        test_db_path, </span><br><span class="line">        load_now=<span class="literal">True</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Init SQLite Ends.&quot;</span>, time.time() - start_time)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;The first sample is:&quot;</span>, dataset[<span class="number">0</span>])</span><br><span class="line">    <span class="comment"># test_multiprocessing(dataset)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Coding the world, try to fetch more.
+                </p>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&amp;m=7&amp;c=66ccff&amp;cr1=ff0000&amp;f=arial&amp;l=0&amp;lx=200&amp;ly=-20&amp;hi=10" async="async"></script>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/articles/2022-08/%E3%80%90SQLite3%E3%80%91%E4%BD%BF%E7%94%A8%20SQLite%20%E4%B8%BA%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E4%B8%AD%E7%9A%84%E5%B9%B6%E8%A1%8C%20dataloader%20%E8%8A%82%E7%9C%81%E5%86%85%E5%AD%98.html">【SQLite3】使用 SQLite 为模型训练中的并行 dataloader </a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2022-08/%E3%80%90SymbolicLink%E3%80%91%E5%88%A9%E7%94%A8%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%B0%86%E5%B7%B2%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E6%90%AC%E8%BF%81%E5%88%B0%E5%85%B6%E4%BB%96%E7%9B%98%E7%AC%A6.html">【SymbolicLink】利用软连接将已安装程序搬迁到其他盘符.md</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/okcd00/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://okcd00.oschina.io/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:okcd00@vip.qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="http://blog.csdn.net/okcd00">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @<a target="_blank" rel="noopener" href="https://github.com/okcd00/">Dian Chen</a>. 2017-2022 All right reserved | Re-design & Deploy: <a href="blog.csdn.net/okcd00">okcd00</a> | Hexo Theme: <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'okcd00';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- "//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" -->
+<script type="text/javascript" color="0,255,255" opacity='0.75' zIndex="-2" count="75" src='/js/canvas.js'></script>
+
+</body>
+</html>

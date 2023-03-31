@@ -21,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="My Work - Glazer"/>
+        <meta property="og:title" content="【SymbolicLink】利用软连接将已安装程序搬迁到其他盘符.md"/>
     
 
     <!--Open Graph Description-->
@@ -45,7 +45,7 @@
 
     <!-- Title -->
     
-    <title>My Work - Glazer - CDPlayer&#39;s Blog</title>
+    <title>【SymbolicLink】利用软连接将已安装程序搬迁到其他盘符.md - CDPlayer&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -154,30 +154,32 @@
         <!--Title and Logo-->
         <header>
     <div class="logo">
-        <a href="/"><i class="logo-icon fa fa fa-tags" aria-hidden="true"></i></a>
-        
-            <h1 id="main-title" class="title">My Work - Glazer</h1>
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
     </div>
 </header>
-        
-            <section class="main">
-                
+
+        <section class="main">
+            
 <div class="post">
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/about/cd_glazer.html">
-                My Work - Glazer
+            <a href="/articles/2022-08/%E3%80%90SymbolicLink%E3%80%91%E5%88%A9%E7%94%A8%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%B0%86%E5%B7%B2%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E6%90%AC%E8%BF%81%E5%88%B0%E5%85%B6%E4%BB%96%E7%9B%98%E7%AC%A6.html">
+                【SymbolicLink】利用软连接将已安装程序搬迁到其他盘符.md
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2022-05-28</span>
+                <span class="date">2022-08-05</span>
             
             
                 <a href="#disqus_thread" class="comments">留言</a>
             
+            
+                <span class="category">
+                    <a href="/categories/功能脚本/">功能脚本</a>
+                </span>
             
         </div>
     </div>
@@ -192,7 +194,52 @@
 
 		
         <!-- Post Content -->
-        
+        <h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><blockquote>
+<p>一个基于 Sybmolic Link 的很有意思的解决方案：<br><code>mklink /D &lt;产生一个不占空间的等价目录位置&gt; &lt;占空间的目录位置&gt;</code><br>可用于将安装好的程序目录剪切到其他位置，在原位置生成一个标志链接，以达到腾出硬盘空间的同时不影响使用。<br>例如，把游戏已经安装到 C 盘了，之后想挪到 D 盘去，但担心剪切过去游戏就玩不了了。<br>假如直接剪切，会带来复杂的文件依赖问题，这样可以给C盘腾出来了还不用考虑各种文件依赖问题。</p>
+</blockquote>
+<p>简单来说，陪伴我快 7 年了的笔记本，它的磁盘空间不怎么够。<br>C 盘有个模拟器，连程序带数据一起 17.9G，我给他剪切到 D 盘去。<br>现在几个盘均衡负载啦，看起来都还不错 ~<br>但是，无论是点桌面上的模拟器快捷方式、或是在 D 盘找到模拟器的 exe 文件打开，<br>都会报错 —— “有文件找不到”。<br><img src="/assets/4e5679607b8d4ee4a425effbdda7ca06.png" alt="disk_storage"></p>
+<span id="more"></span>
+
+<h2 id="0x01-原理解释"><a href="#0x01-原理解释" class="headerlink" title="0x01 原理解释"></a>0x01 原理解释</h2><p>我们会有这样一种经验：<br>很多程序，我们把整个文件夹剪切到其他地方之后，虽然一个文件都没少，就是没法用了。<br>这其实是因为，很多通过安装包安装的程序，通常使用绝对路径来定义每个资源应该去哪个位置获取。<br>例如 <code>C:/abc/Emulator.exe</code>，我们把 <code>abc</code> 文件夹挪到 D 盘，但这个路径却不会跟着我们的剪切而变化。<br>这样一来，程序执行中需要找资源的时候，路径所对应的位置却什么都找不到。</p>
+<p>我们平日里见到的“绿色版”的程序其实就是这些路径由相对路径来定义。<br>例如 <code>当前目录/bin/emulator.exe</code>，所以文件夹在哪，不影响程序在这个 <code>当前目录</code> 找到对应的资源。</p>
+<h2 id="0x02-解决方案"><a href="#0x02-解决方案" class="headerlink" title="0x02 解决方案"></a>0x02 解决方案</h2><p>在 Linux 里，有一个特别好用的办法叫做 soft link。<br>可以理解为呼叫转移，我们把手机号 DEST 呼叫转移给 SRC，这样我们给这两个号码打电话的时候其实都是在给 SRC 打，我需要 <code>DEST/abc.txt</code> 的时候，机器会自动把 <code>SRC/abc.txt</code> 给我。<br>这个操作在 linux 里可以写为 <code>ln -s &lt;dest_path&gt; &lt;src_path&gt;</code> ，<br>例如 <code>ln -s /home/chendian /home/chend</code>，可以解决在不同机器上名字不同，但又不想改 path 的问题。</p>
+<p>但在 Windows 里，用 git bash 来这样操作，却是不行的。<br>我们可以发现，SRC 和 DEST 虽然连接起来了，但他们俩都占用了 17.9G 的空间，<br>看来 Windows 的事，还是得交给命令行，去查阅了一些资料，这种方案是完美而有效的：<br><code>mklink /D &lt;dest_path&gt; &lt;src_path&gt;</code>，例如 <code>mklink /D &quot;C:\Program Files\MuMu&quot; &quot;D:\MuMu&quot;</code>。</p>
+<blockquote>
+<p>完整的操作过程如下所示：</p>
+</blockquote>
+<ul>
+<li>C 盘的原有一个目录 <code>MuMu</code> 占用空间 17.9G，</li>
+<li><code>MuMu</code> 被剪切到 D 盘，C 盘没有 <code>MuMu</code> 文件夹了，桌面上 MuMu.exe 的快捷方式用不了了</li>
+<li><code>mklink /D &quot;C:\Program Files\MuMu&quot; &quot;D:\MuMu&quot;</code></li>
+<li>C 盘出现一个 <code>MuMu</code> 占用空间 0 </li>
+<li>D 盘的 <code>MuMu</code> 占用空间 17.9G</li>
+<li>桌面、开始菜单里的快捷方式都可以无知觉地继续正常工作</li>
+</ul>
+<h2 id="0x03-延伸阅读"><a href="#0x03-延伸阅读" class="headerlink" title="0x03 延伸阅读"></a>0x03 延伸阅读</h2><blockquote>
+<p>关于 symlink 的介绍，这篇我觉得写的很好，摘抄一下。<br>reference: <a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15449929/4764192">https://blog.51cto.com/u_15449929/4764192</a> </p>
+</blockquote>
+<p><strong>符号链接（Symlink，Softlink）</strong><br>是对文件或目录的引用，实际上符号链接本身是一个“记录着所引用文件或目录的绝对或相对路径”的特殊文件，通过符号链接的操作都会被重定向到目标文件或目录。对符号链接和快捷方式的“读、写、遍历”等操作都会被重定向到目标文件或目录，但对它们的“复制、删除、移动、配置 ACL”等操作只针对自身。</p>
+<p>同时适用于文件、目录。这是一种超级shortcut，文件大小为0字节和不占用空间。</p>
+<p>可以使用相对、绝对路径。假设创建symbolic link时使用了相对路径，保存到NTFS中的就是相对路径，不会隐式转换成绝对路径。</p>
+<p>可以跨盘符，可以跨主机，可以使用UNC路径、网络驱动器。</p>
+<p>在Explorer中删除symboliclink，不影响target。</p>
+<p>删除target，symboliclink仍将存在，但失效了，变得不可用。</p>
+<p>文件类型是.SYMLINK</p>
+<p>它们可以像普通文件一样操作，但所有对符号链接的操作都实际作用于目标对象。符号链接对用户而言是透明的，符号链接看上去和普通的文件和文件夹没有区别，操作方法也一模一样。</p>
+<p>对符号链接和快捷方式的“读、写、遍历”等操作都会被重定向到目标文件或目录，但对它们的“复制、删除、移动、配置 ACL”等操作只针对自身，符号链接不但可以应用于本地系统，还可以应用 UNC 路径。</p>
+<p>创建符号链接不仅可以当作快捷方式使用，最重要的是重定向链接符可以被程序读取然后重定向真正的位置，这是快捷方式无法做到的。</p>
+<h2 id="0xFF-实际效果演示"><a href="#0xFF-实际效果演示" class="headerlink" title="0xFF 实际效果演示"></a>0xFF 实际效果演示</h2><p>这个指令是在命令行中使用的，<br>所以我们需要先使用管理员权限打开 CMD：</p>
+<p><img src="/assets/a88e313bcb9a4195b9aa0bc7c0bdd2c4.png" alt="cmd"></p>
+<blockquote>
+<p>本例中：<br>“D:\MuMu” 是 17.9G 的目录，是源文件夹<br>“C:\Program Files\MuMu” 是 0B 大小的 SymLink，是生成的链接文件夹</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files&gt;mklink /D <span class="string">&quot;C:\Program Files\MuMu&quot;</span> <span class="string">&quot;D:\MuMu&quot;</span></span><br><span class="line">为 C:\Program Files\MuMu &lt;&lt;===&gt;&gt; D:\MuMu 创建的符号链接</span><br><span class="line"></span><br><span class="line">C:\Program Files&gt;dir</span><br><span class="line"> 驱动器 C 中的卷是 System</span><br><span class="line"> 卷的序列号是 787D-CF6D</span><br><span class="line"></span><br><span class="line"> C:\Program Files 的目录</span><br><span class="line"></span><br><span class="line">2022/08/05  13:16    &lt;DIR&gt;          .</span><br><span class="line">2022/08/05  13:16    &lt;DIR&gt;          ..</span><br><span class="line">2022/05/24  15:56    &lt;DIR&gt;          Lenovo</span><br><span class="line">2022/03/06  15:09    &lt;DIR&gt;          Mendeley Reference Manager</span><br><span class="line">2022/08/05  13:16    &lt;SYMLINKD&gt;     MuMu [D:\MuMu]</span><br><span class="line">2022/06/03  23:31    &lt;DIR&gt;          NVIDIA Corporation</span><br><span class="line">2021/04/11  22:41    &lt;DIR&gt;          TENCENT</span><br><span class="line">2016/04/02  09:48    &lt;DIR&gt;          ThinkPad</span><br><span class="line">               0 个文件              0 字节</span><br><span class="line">              61 个目录 25,995,014,144 可用字节</span><br><span class="line"></span><br><span class="line">C:\Program Files&gt;<span class="built_in">cd</span> MuMu</span><br><span class="line"></span><br><span class="line">C:\Program Files\MuMu&gt;dir</span><br><span class="line"> 驱动器 C 中的卷是 System</span><br><span class="line"> 卷的序列号是 787D-CF6D</span><br><span class="line"></span><br><span class="line"> C:\Program Files\MuMu 的目录</span><br><span class="line"></span><br><span class="line">2022/08/05  12:41    &lt;DIR&gt;          .</span><br><span class="line">2022/08/05  12:41    &lt;DIR&gt;          ..</span><br><span class="line">2022/08/05  12:41    &lt;DIR&gt;          emulator</span><br><span class="line">               0 个文件              0 字节</span><br><span class="line">               3 个目录 46,871,433,216 可用字节</span><br><span class="line"></span><br><span class="line">C:\Program Files\MuMu&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>资源管理器里看起来依然是一个快捷方式的样子<br>但在上文中我们知道，这并不是快捷方式的 <code>MuMu.lnk</code> 文件，而是 SYMLINKD 格式的。<br><code>2022/08/05  13:16    &lt;SYMLINKD&gt;     MuMu [D:\MuMu]</code></p>
+</blockquote>
+<p><img src="/assets/70640f3746a74987ab55555fb5e50e27.png" alt="dir_shortcut"></p>
+
     </div>
 
     
@@ -213,8 +260,8 @@
     
 
 </div>
-            </section>
-        
+        </section>
+
     </div>
 </div>
 
