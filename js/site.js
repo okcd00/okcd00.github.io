@@ -39,8 +39,8 @@ if (globe) {
   globe.append(script);
 }
 
-// Connected particles, inspired by the original hustcc canvas-nest (MIT).
-// One instance; no overwritten global handlers; pause when hidden/reduced motion.
+// Galaxy stars: gently gather near a mouse, then drift back to their orbit.
+// One canvas; bounded density and pixel ratio; no animation with reduced motion.
 (() => {
   if (document.querySelector('#connected-background')) return;
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -50,48 +50,64 @@ if (globe) {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
   document.body.prepend(canvas);
-  let width = 0, height = 0, frame = 0, previous = 0, points = [];
-  const mouse = {x: null, y: null};
+  let width=0, height=0, frame=0, previous=0, stars=[];
+  const mouse = {x:null,y:null};
   function resize() {
-    width = document.documentElement.clientWidth; height = innerHeight;
-    const ratio = Math.min(devicePixelRatio || 1, 2);
-    canvas.width = width * ratio; canvas.height = height * ratio;
-    canvas.style.width = width + 'px'; canvas.style.height = height + 'px';
-    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    const count = coarse.matches || width < 680 ? 22 : 65;
-    points = Array.from({length: count}, () => ({x: Math.random()*width, y: Math.random()*height, vx: Math.random()-.5, vy: Math.random()-.5}));
-  }
-  function draw(now) {
-    frame = 0;
-    if (motion.matches || document.hidden) return;
-    const step = Math.min((now-previous)/16.7 || 1, 2); previous = now;
-    ctx.clearRect(0, 0, width, height);
-    points.forEach((p, i) => {
-      p.x += p.vx * step; p.y += p.vy * step;
-      if(p.x < 0 || p.x > width) p.vx *= -1;
-      if(p.y < 0 || p.y > height) p.vy *= -1;
-      ctx.fillStyle = 'rgba(18,107,90,.35)'; ctx.fillRect(p.x,p.y,1.5,1.5);
-      const near = points.slice(i+1);
-      if (mouse.x !== null) near.push(mouse);
-      near.forEach(q => {
-        const distance = Math.hypot(p.x-q.x, p.y-q.y), limit = q === mouse ? 170 : 125;
-        if (distance >= limit) return;
-        ctx.strokeStyle = `rgba(18,107,90,${.35*(1-distance/limit)})`;
-        ctx.lineWidth = .8; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke();
-      });
+    width=document.documentElement.clientWidth; height=innerHeight;
+    const ratio=Math.min(devicePixelRatio || 1,2);
+    canvas.width=width*ratio; canvas.height=height*ratio;
+    canvas.style.width=width+'px'; canvas.style.height=height+'px';
+    ctx.setTransform(ratio,0,0,ratio,0,0);
+    const count=coarse.matches || width<680 ? 60 : Math.min(180,Math.round(width*height/5500));
+    stars=Array.from({length:count},()=>{
+      const x=Math.random()*width,y=Math.random()*height;
+      return {x,y,homeX:x,homeY:y,vx:0,vy:0,r:.45+Math.random()*1.2,phase:Math.random()*Math.PI*2,depth:.5+Math.random()*.5};
     });
-    frame = requestAnimationFrame(draw);
+    sync();
   }
-  function sync() {
-    if (frame) cancelAnimationFrame(frame);
-    frame = 0; previous = 0;
+  function paint(now,animated) {
     ctx.clearRect(0,0,width,height);
-    if (!motion.matches && !document.hidden) frame = requestAnimationFrame(draw);
+    const step=Math.min((now-previous)/16.7 || 1,2); previous=now;
+    stars.forEach(star=>{
+      let targetX=star.homeX,targetY=star.homeY;
+      if(animated && mouse.x!==null && !coarse.matches){
+        const dx=mouse.x-star.homeX,dy=mouse.y-star.homeY;
+        const influence=Math.max(0,1-Math.hypot(dx,dy)/380)*.68*star.depth;
+        targetX+=dx*influence; targetY+=dy*influence;
+      }
+      if(animated){
+        star.vx=(star.vx+(targetX-star.x)*.008*step)*Math.pow(.91,step);
+        star.vy=(star.vy+(targetY-star.y)*.008*step)*Math.pow(.91,step);
+        star.x+=star.vx*step; star.y+=star.vy*step;
+      }
+      const alpha=animated ? .48+.26*Math.sin(now*.00045+star.phase) : .65;
+      if(star.r>1.15){
+        const glow=ctx.createRadialGradient(star.x,star.y,0,star.x,star.y,star.r*5);
+        glow.addColorStop(0,`rgba(153,197,255,${alpha*.35})`);glow.addColorStop(1,'rgba(153,197,255,0)');
+        ctx.fillStyle=glow;ctx.beginPath();ctx.arc(star.x,star.y,star.r*5,0,Math.PI*2);ctx.fill();
+      }
+      ctx.fillStyle=`rgba(220,234,255,${alpha})`;
+      ctx.beginPath();ctx.arc(star.x,star.y,star.r,0,Math.PI*2);ctx.fill();
+    });
+    // A few quiet threads gather near the pointer, rather than a full mesh.
+    if(animated && mouse.x!==null && !coarse.matches){
+      const near=stars.filter(s=>Math.hypot(s.x-mouse.x,s.y-mouse.y)<150).slice(0,14);
+      near.forEach((s,i)=>near.slice(i+1).forEach(t=>{
+        const d=Math.hypot(s.x-t.x,s.y-t.y);
+        if(d<85){ctx.strokeStyle=`rgba(146,179,255,${.13*(1-d/85)})`;ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(t.x,t.y);ctx.stroke();}
+      }));
+    }
   }
-  addEventListener('resize', resize, {passive:true});
-  addEventListener('pointermove', e => { if(e.pointerType !== 'touch') { mouse.x=e.clientX; mouse.y=e.clientY; } }, {passive:true});
-  document.addEventListener('pointerleave', () => { mouse.x=null; mouse.y=null; });
-  document.addEventListener('visibilitychange', sync);
-  motion.addEventListener('change', sync);
-  resize(); sync();
+  function draw(now){frame=0;if(motion.matches || document.hidden)return;paint(now,true);frame=requestAnimationFrame(draw);}
+  function sync(){
+    if(frame)cancelAnimationFrame(frame);frame=0;previous=0;
+    if(document.hidden)return;
+    if(motion.matches)paint(0,false);else frame=requestAnimationFrame(draw);
+  }
+  addEventListener('resize',resize,{passive:true});
+  addEventListener('pointermove',e=>{if(e.pointerType!=='touch'){mouse.x=e.clientX;mouse.y=e.clientY;}},{passive:true});
+  function release(){mouse.x=null;mouse.y=null;}
+  document.addEventListener('pointerleave',release);addEventListener('blur',release);
+  document.addEventListener('visibilitychange',sync);motion.addEventListener('change',sync);
+  resize();
 })();
