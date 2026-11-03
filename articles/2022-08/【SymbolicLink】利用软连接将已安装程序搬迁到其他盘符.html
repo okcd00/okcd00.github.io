@@ -43,7 +43,7 @@
 <h2 id="0x00-前言"><a class="headerlink" href="#0x00-前言" title="0x00 前言"></a>0x00 前言</h2><blockquote>
 <p>一个基于 Sybmolic Link 的很有意思的解决方案：<br/><code>mklink /D &lt;产生一个不占空间的等价目录位置&gt; &lt;占空间的目录位置&gt;</code><br/>可用于将安装好的程序目录剪切到其他位置，在原位置生成一个标志链接，以达到腾出硬盘空间的同时不影响使用。<br/>例如，把游戏已经安装到 C 盘了，之后想挪到 D 盘去，但担心剪切过去游戏就玩不了了。<br/>假如直接剪切，会带来复杂的文件依赖问题，这样可以给C盘腾出来了还不用考虑各种文件依赖问题。</p>
 </blockquote>
-<p>简单来说，陪伴我快 7 年了的笔记本，它的磁盘空间不怎么够。<br/>C 盘有个模拟器，连程序带数据一起 17.9G，我给他剪切到 D 盘去。<br/>现在几个盘均衡负载啦，看起来都还不错 ~<br/>但是，无论是点桌面上的模拟器快捷方式、或是在 D 盘找到模拟器的 exe 文件打开，<br/>都会报错 —— “有文件找不到”。<br/><img alt="disk_storage" decoding="async" loading="lazy" src="/assets/4e5679607b8d4ee4a425effbdda7ca06.png"/></p>
+<p>简单来说，陪伴我快 7 年了的笔记本，它的磁盘空间不怎么够。<br/>C 盘有个模拟器，连程序带数据一起 17.9G，我给他剪切到 D 盘去。<br/>现在几个盘均衡负载啦，看起来都还不错 ~<br/>但是，无论是点桌面上的模拟器快捷方式、或是在 D 盘找到模拟器的 exe 文件打开，<br/>都会报错 —— “有文件找不到”。<br/><a class="image-original" href="/assets/4e5679607b8d4ee4a425effbdda7ca06.png" aria-label="disk_storage · 点击查看原图"><img alt="disk_storage" decoding="async" loading="lazy" src="/assets/4e5679607b8d4ee4a425effbdda7ca06.png"/></a></p>
 <span id="more"></span>
 <h2 id="0x01-原理解释"><a class="headerlink" href="#0x01-原理解释" title="0x01 原理解释"></a>0x01 原理解释</h2><p>我们会有这样一种经验：<br/>很多程序，我们把整个文件夹剪切到其他地方之后，虽然一个文件都没少，就是没法用了。<br/>这其实是因为，很多通过安装包安装的程序，通常使用绝对路径来定义每个资源应该去哪个位置获取。<br/>例如 <code>C:/abc/Emulator.exe</code>，我们把 <code>abc</code> 文件夹挪到 D 盘，但这个路径却不会跟着我们的剪切而变化。<br/>这样一来，程序执行中需要找资源的时候，路径所对应的位置却什么都找不到。</p>
 <p>我们平日里见到的“绿色版”的程序其实就是这些路径由相对路径来定义。<br/>例如 <code>当前目录/bin/emulator.exe</code>，所以文件夹在哪，不影响程序在这个 <code>当前目录</code> 找到对应的资源。</p>
@@ -74,7 +74,7 @@
 <p>对符号链接和快捷方式的“读、写、遍历”等操作都会被重定向到目标文件或目录，但对它们的“复制、删除、移动、配置 ACL”等操作只针对自身，符号链接不但可以应用于本地系统，还可以应用 UNC 路径。</p>
 <p>创建符号链接不仅可以当作快捷方式使用，最重要的是重定向链接符可以被程序读取然后重定向真正的位置，这是快捷方式无法做到的。</p>
 <h2 id="0xFF-实际效果演示"><a class="headerlink" href="#0xFF-实际效果演示" title="0xFF 实际效果演示"></a>0xFF 实际效果演示</h2><p>这个指令是在命令行中使用的，<br/>所以我们需要先使用管理员权限打开 CMD：</p>
-<p><img alt="cmd" decoding="async" loading="lazy" src="/assets/a88e313bcb9a4195b9aa0bc7c0bdd2c4.png"/></p>
+<p><a class="image-original" href="/assets/a88e313bcb9a4195b9aa0bc7c0bdd2c4.png" aria-label="cmd · 点击查看原图"><img alt="cmd" decoding="async" loading="lazy" src="/assets/a88e313bcb9a4195b9aa0bc7c0bdd2c4.png"/></a></p>
 <blockquote>
 <p>本例中：<br/>“D:\MuMu” 是 17.9G 的目录，是源文件夹<br/>“C:\Program Files\MuMu” 是 0B 大小的 SymLink，是生成的链接文件夹</p>
 </blockquote>
@@ -82,7 +82,7 @@
 <blockquote>
 <p>资源管理器里看起来依然是一个快捷方式的样子<br/>但在上文中我们知道，这并不是快捷方式的 <code>MuMu.lnk</code> 文件，而是 SYMLINKD 格式的。<br/><code>2022/08/05  13:16    &lt;SYMLINKD&gt;     MuMu [D:\MuMu]</code></p>
 </blockquote>
-<p><img alt="dir_shortcut" decoding="async" loading="lazy" src="/assets/70640f3746a74987ab55555fb5e50e27.png"/></p>
+<p><a class="image-original" href="/assets/70640f3746a74987ab55555fb5e50e27.png" aria-label="dir_shortcut · 点击查看原图"><img alt="dir_shortcut" decoding="async" loading="lazy" src="/assets/70640f3746a74987ab55555fb5e50e27.png"/></a></p>
 </div>
 <!-- Comments -->
 <div class="comments">
@@ -91,5 +91,5 @@
 </div>
 </section>
 </main>
-<footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><p class="credits">© Dian Chen · Original blog theme by <a href="https://www.codeblocq.com/">Jonathan Klughertz</a><br><a href="#main">Back to top</a></p></footer>
+<footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><section class="visitor-globe" aria-label="访客地球仪"><h2>访客足迹</h2><p class="globe-status" role="status">正在连接 RevolverMaps 访客地球仪…</p><noscript>启用 JavaScript 后可显示原 RevolverMaps 访客地球仪。</noscript></section><p class="credits">© Dian Chen · Original blog theme by <a href="https://www.codeblocq.com/">Jonathan Klughertz</a><br><a href="#main">Back to top</a></p></footer>
 </body></html>

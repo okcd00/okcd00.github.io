@@ -51,12 +51,12 @@
 <p>《Deep Learning》 Chap 6.5.5</p>
 </blockquote>
 <p>代数表达式和计算图都对符号(symbol) 或不具有特定值的变量进行操作。这些代数或者基于图的表达式被称为符号表示(symbolic representation)。<br/>当我们实际使用或者训练神经网络时，我们必须给这些符号赋值。我们用一个特定的数值(numeric value) 来替代网络的符号输入x，例如 $[1.2, 3, 765, -1.8]^T$。</p>
-<p><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508315592269.png"/></p>
+<p><a class="image-original" href="/assets/1508315592269.png" aria-label="Alt text · 点击查看原图"><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508315592269.png"/></a></p>
 <p><strong>符号到数值</strong>的微分<br/>一些反向传播的方法采用计算图和一组用于图的输入的数值，然后返回在这些输入值处梯度的一组数值。我们将这种方法称为‘‘符号到数值’’ 的微分。这种方法用在诸如<strong>Torch</strong>(Collobert et al., 2011b)和<strong>Caffe</strong>(Jia, 2013)之类的库中。  </p>
 <p><strong>符号到符号</strong>的微分<br/>另一种方法是采用计算图以及添加一些额外的节点到计算图中，这些额外的节点提供了我们所需导数的符号描述。这是<strong>Theano</strong>(Bergstra et al., 2010b; Bastien et al., 2012b) 和<strong>TensorFlow</strong>(Abadi et al., 2015) 采用的方法。图6.10 中给出了该方法如何工作的一个例子。这种方法的主要优点是导数可以使用与原始表达式相同的语言来描述。</p>
-<p><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508315628313.png"/></p>
+<p><a class="image-original" href="/assets/1508315628313.png" aria-label="Alt text · 点击查看原图"><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508315628313.png"/></a></p>
 <p><strong>TensorFlow</strong>中实现的自动求导（automatic gradient / Automatic Differentiation）：<br/>实现的方式是利用<strong>反向传递</strong>与<strong>链式法则</strong>建立一张对应原计算图的梯度图。因为导数只是另外一张计算图，可以再次运行反向传播，对导数再进行求导以得到更高阶的导数。（这里我们重点讲这一种，所以下面几个小节会对反向传递算法与链式法则作简要概述）</p>
-<p><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508394713356.png"/></p>
+<p><a class="image-original" href="/assets/1508394713356.png" aria-label="Alt text · 点击查看原图"><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508394713356.png"/></a></p>
 <h3 id="Backpropagation-algorithm"><a class="headerlink" href="#Backpropagation-algorithm" title="Backpropagation algorithm"></a>Backpropagation algorithm</h3><blockquote>
 <p>【<strong>Reference</strong>】 <a href="http://neuralnetworksanddeeplearning.com/chap2.html" rel="noopener" target="_blank">http://neuralnetworksanddeeplearning.com/chap2.html</a></p>
 <ul>
@@ -111,7 +111,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508406083327.png"/></p>
+<p><a class="image-original" href="/assets/1508406083327.png" aria-label="Alt text · 点击查看原图"><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508406083327.png"/></a></p>
 <h3 id="Backpropagation-vs-AutoDiff-reverse"><a class="headerlink" href="#Backpropagation-vs-AutoDiff-reverse" title="Backpropagation vs AutoDiff (reverse)"></a>Backpropagation vs AutoDiff (reverse)</h3><blockquote>
 <p>CSE599G1 DeepLearning System Lecture4 —— [Slides View](/assets/CSE599G1 DeepLearning System Lecture4.pdf)</p>
 </blockquote>
@@ -130,7 +130,7 @@
 <p>通常我们不将反向传播算法仅用于向量，而是应用于任意维度的张量。从概念上讲，这与使用向量的反向传播完全相同。唯一的区别是如何将数字排列成网格以形成张量。<br/>我们可以想象，在我们运行反向传播之前，将每个张量变平为一个向量，计算一个向量值梯度，然后将该梯度重新构造成一个张量。从这种重新排列的观点上看，反向传播仍然只是将 $Jacobi$ 矩阵乘以梯度。</p>
 <p>如果 $Y=g(X)$ 并且 $z=f(Y)$，那么<br/>$$\nabla_X z = \sum_j (\nabla_X Y_j)\frac{\partial z}{\partial Y_j}. $$</p>
 <p>于是，反向传播算法就变得非常简单：<br/>为了计算某个标量 $z$ 关于图中它的一个祖先 $x$ 的梯度，我们首先观察到它关于 $z$ 的梯度由 $\frac{dz}{dz}=1$ 给出。 然后，我们可以计算对图中 $z$ 的每个父节点的梯度，通过现有的梯度乘以产生$z$的操作的 $Jacobian$。 我们继续乘以 $Jacobian$，以这种方式向后穿过图，直到我们到达 $x$。 对于从 $z$ 出发可以经过两个或更多路径向后行进而到达的任意节点，我们简单地对该节点来自不同路径上的梯度进行求和。</p>
-<p><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508318743867.png"/></p>
+<p><a class="image-original" href="/assets/1508318743867.png" aria-label="Alt text · 点击查看原图"><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508318743867.png"/></a></p>
 <h3 id="Tensorflow的自动求导实现"><a class="headerlink" href="#Tensorflow的自动求导实现" title="Tensorflow的自动求导实现"></a>Tensorflow的自动求导实现</h3><blockquote>
 <p><strong>Tensorflow</strong> 中的符号求导见项目下的 tensorflow/python/ops/gradients_impl.py<br/>“Constructs symbolic derivatives of sum of <code>ys</code> w.r.t. x in <code>xs</code>”<br/><code>[db, dW, dx] = tf.gradients(C, [b,W,x])</code></p>
 </blockquote>
@@ -138,7 +138,7 @@
 <blockquote>
 <p>If a tensor $C$ in a TensorFlow graph depends, perhaps through a complex subgraph of operations, on some set of tensors $X_k$, then there is a built-in function that will return the tensors ${dC/dX_k}$.</p>
 </blockquote>
-<p><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508319803477.png"/></p>
+<p><a class="image-original" href="/assets/1508319803477.png" aria-label="Alt text · 点击查看原图"><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508319803477.png"/></a></p>
 <p>每个操作 $op$ 也与 $bprop$ 操作相关联。该 $bprop$ 操作可以计算如上述公式所描述的 $Jacobi$ 向量积。这是反向传播算法能够实现很大通用性的原因。每个操作负责了解如何通过它参与的图中的边来反向传播。反向传播算法本身并<strong>不需要</strong>知道任何微分法则。它只需要使用正确的参数调用每个操作的 $bprop$ 方法即可。正式地，$op.bprop(inputs,X,G)$ 必须返回</p>
 <p>$$ \sum_i (\nabla_{X} \verb|op.f(inputs|)_i) \textsf{G}_i, $$</p>
 <p>这里，$inputs$ 是提供给操作的一组输入，$op.f$ 是操作实现的数学函数，$X$ 是输入，我们想要计算关于它的梯度，$G$ 是操作对于输出的梯度。</p>
@@ -152,7 +152,7 @@
 <p>由于重复子表达式的存在，简单的算法可能具有指数运行时间。现在我们已经详细说明了反向传播算法，我们可以去理解它的计算成本：<br/>对于与 $Theano$ 与 $Tensorflow$ 类似的平台，反向传播算法在原始图的每条边添加一个 $Jacobi$ 向量积，可以用 $O(1)$ 个节点来表达。因为计算图是有向无环图，它至多有 $O(n^2)$ 条边。<br/>而对于实践中常用的图的类型，情况会更好：大多数神经网络的代价函数大致是链式结构的，使得反向传播只有 $O(n)$ 的成本。这远远胜过简单的方法，简单方法可能需要执行指数级的节点。这种潜在的指数级代价可以通过非递归地扩展和重写递归链式法则看出：</p>
 <p>$$  \frac{\partial u^{(n)}}{\partial u^{(j)}} =<br/>  \sum_{\substack{\text{path}(u^{(\pi_1)}, u^{(\pi_2)}, \ldots, u^{(\pi_t)}  ),\ \text{from } \pi_1=j \text{ to }\pi_t = n}}<br/>  \prod_{k=2}^t \frac{\partial u^{(\pi_k)}}{\partial u^{(\pi_{k-1})}}. $$</p>
 <p>由于节点 $j$ 到节点 $n$ 的路径数目可以关于这些路径的长度上指数地增长，所以上述求和符号中的项数（这些路径的数目），可能以前向传播图的深度的指数级增长。 会产生如此大的成本是因为对于 $\frac{\partial u^{(i)}}{\partial u^{(j)}}$ ，相同的计算会重复进行很多次。为了避免这种重新计算，我们可以将反向传播看作一种表填充算法，利用存储的中间结果 $\frac{\partial u^{(n)}}{\partial u^{(i)}}$ 来对表进行填充。 图中的每个节点对应着表中的一个位置，这个位置存储对该节点的梯度。 通过顺序填充这些表的条目，反向传播算法避免了重复计算许多公共子表达式——这种表填充策略有时被称为<strong>动态规划</strong>。</p>
-<p><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508418991710.png"/></p>
+<p><a class="image-original" href="/assets/1508418991710.png" aria-label="Alt text · 点击查看原图"><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1508418991710.png"/></a></p>
 <p>上述AutoDiff的图片来自于：<a href="http://dlsys.cs.washington.edu/pdf/lecture4.pdf" rel="noopener" target="_blank">http://dlsys.cs.washington.edu/pdf/lecture4.pdf</a></p>
 <h3 id="高阶导数"><a class="headerlink" href="#高阶导数" title="高阶导数"></a>高阶导数</h3><p>一些软件框架支持使用高阶导数。在深度学习软件框架中，这至少包括Theano和TensorFlow。这些库使用一种数据结构来描述要被微分的原始函数，它们使用相同类型的数据结构来描述这个函数的导数表达式。这意味着符号微分机制可以应用于导数（从而产生高阶导数）。</p>
 <blockquote>
@@ -195,5 +195,5 @@ Tags
 </div>
 </section>
 </main>
-<footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><p class="credits">© Dian Chen · Original blog theme by <a href="https://www.codeblocq.com/">Jonathan Klughertz</a><br><a href="#main">Back to top</a></p></footer>
+<footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><section class="visitor-globe" aria-label="访客地球仪"><h2>访客足迹</h2><p class="globe-status" role="status">正在连接 RevolverMaps 访客地球仪…</p><noscript>启用 JavaScript 后可显示原 RevolverMaps 访客地球仪。</noscript></section><p class="credits">© Dian Chen · Original blog theme by <a href="https://www.codeblocq.com/">Jonathan Klughertz</a><br><a href="#main">Back to top</a></p></footer>
 </body></html>

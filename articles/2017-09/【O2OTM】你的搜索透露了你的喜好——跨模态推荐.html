@@ -44,7 +44,7 @@
 
 <!-- Post Content -->
 <p>@(关键词)[跨模态，推荐系统，O2OTM，可解释性，机器学习]</p>
-<p><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1499226349278.png"/></p>
+<p><a class="image-original" href="/assets/1499226349278.png" aria-label="Alt text · 点击查看原图"><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1499226349278.png"/></a></p>
 <p>论文地址：<a href="http://mldm.ict.ac.cn/platform/pweb/academicDetail.htm?id=94" rel="noopener" target="_blank">http://mldm.ict.ac.cn/platform/pweb/academicDetail.htm?id=94</a></p>
 <p>论文翻译：<a href="http://blog.csdn.net/okcd00/article/details/51814745" rel="noopener" target="_blank">http://blog.csdn.net/okcd00/article/details/51814745</a></p>
 <span id="more"></span>
@@ -53,7 +53,7 @@
 <p>♢ <strong>作者</strong> || <strong>陈点</strong> (201618013229031) \ <strong>许佳丽</strong> (201628013229041)</p>
 </blockquote>
 <h2 id="Abstract"><a class="headerlink" href="#Abstract" title="Abstract"></a>Abstract</h2><p>如今在家穿着睡衣就能安逸地在线购物，为了与之相抗衡，线下商场的经营者们越来越关注于确认顾客的偏好，来提升顾客的满意度和回头率。但是，当今这方面的研究大多数都只是建立在线下消费的历史记录之上。</p>
-<p><img alt="Figure 1|center" decoding="async" loading="lazy" src="/assets/1499321603995.png"/></p>
+<p><a class="image-original" href="/assets/1499321603995.png" aria-label="Figure 1|center · 点击查看原图"><img alt="Figure 1|center" decoding="async" loading="lazy" src="/assets/1499321603995.png"/></a></p>
 <p>我们也可以得益于互联网来获得顾客的在线行为，像是搜索记录、网页浏览记录或是在线购物记录，如上图中，购买青少年服饰品牌 <strong>EVISU</strong> 的客户进行了游戏、动漫类型的搜索。是否会存在某种可能，这些从不同的方式（即在线和离线）中看似毫不相干的信息，是存在某种相互关联的？倘若存在关联的话，我们要怎样才能利用在线的行为和离线的行动，组合起来以找到可以促进线下零售的方法呢？</p>
 <p>在本次研究中，我们将这项任务构想为一个<strong>跨模态</strong>的推荐问题，并且通过制定一个<strong>概率图模型</strong>来展示其解决方案，这个模型称之为 <strong>O2OTM</strong>，即 <strong>Online to Offline Topic Model</strong>。</p>
 <p>具体而言，这种方法明确地在线上线下的主题间建模，使在线和离线行为两者的似然性最大化。并且，作出的推荐仅基于在线与离线主题而定，记作 $(t, l)$ ，如果一个在线主题 $t$ ，与不包含此主题的平均响应数量相比，可以大大提高其相对应的离线主题 $l$ 的响应，我们认作其具有较高的 $lift$ 值。</p>
@@ -62,12 +62,12 @@
 <blockquote>
 <p>概率图模型是图灵奖获得者 $Pearl$ 开发出用图来表示变量概率依赖关系的理论。<br/>在概率论、统计学及机器学习中，概率图模型是用图论方法以表现数个独立随机变量之关系的一种建模法。其图中的任一节点为随机变量，若两节点间无边相接则意味此二变量彼此条件独立。</p>
 </blockquote>
-<p>$$p(x_1,x_2,…,x_n)=p(x_1)\cdot p(x_2|x_1)…p(x_n|x_{n-1})$$<br/><img alt="@如上图所示，则代表一个马尔可夫链|center" decoding="async" loading="lazy" src="/assets/1499328214585.png"/></p>
+<p>$$p(x_1,x_2,…,x_n)=p(x_1)\cdot p(x_2|x_1)…p(x_n|x_{n-1})$$<br/><a class="image-original" href="/assets/1499328214585.png" aria-label="@如上图所示，则代表一个马尔可夫链|center · 点击查看原图"><img alt="@如上图所示，则代表一个马尔可夫链|center" decoding="async" loading="lazy" src="/assets/1499328214585.png"/></a></p>
 <ul>
 <li>贝叶斯网络采用有向无环图(Directed Acyclic Graph)来表达因果关系</li>
 <li>贝叶斯网络中每一个节点都对应于一个先验概率分布或者条件概率分布，因此整体的联合分布可以直接分解为所有单个节点所对应的分布的乘积</li>
 </ul>
-<h3 id="Model-explanation"><a class="headerlink" href="#Model-explanation" title="Model explanation"></a>Model explanation</h3><p><img alt="Figure 2|center" decoding="async" loading="lazy" src="/assets/1499321874319.png"/><br/>在 $O2OTM$ 模型中，每个用户 $u$ 采取如下的概率过程来生成在线与离线行为，表示为 $(W_u, B_u)$ ，这个过程可以分为两个部分（其中每个部分参照主题模型(Topic Model)思想）</p>
+<h3 id="Model-explanation"><a class="headerlink" href="#Model-explanation" title="Model explanation"></a>Model explanation</h3><p><a class="image-original" href="/assets/1499321874319.png" aria-label="Figure 2|center · 点击查看原图"><img alt="Figure 2|center" decoding="async" loading="lazy" src="/assets/1499321874319.png"/></a><br/>在 $O2OTM$ 模型中，每个用户 $u$ 采取如下的概率过程来生成在线与离线行为，表示为 $(W_u, B_u)$ ，这个过程可以分为两个部分（其中每个部分参照主题模型(Topic Model)思想）</p>
 <ul>
 <li>第一步，对于每个搜索词 $w \in W_u$ ，从在线话题特征 $u$ 的分布（表示为 $\theta_u$ ) ）中选出一个在线话题 $x$ ，然后从这个选定的在线话题中生成单词。</li>
 <li>第二步，对于每个品牌 $b \in B_u$ ，再次从 $\theta_u$ 中选择一个在线话题 $y$。</li>
@@ -89,19 +89,19 @@
 <p>$$\theta_{ut}=\frac{O_u^t+\alpha_t}{\sum_{t=1}^TO_u^t+\alpha_t} \tag{4}$$<br/>$$\phi_{tv}=\frac{O_t^v+\beta_v}{\sum_{v=1}^VO_t^v+\beta_v} \tag{5}$$<br/>$$\pi_{tl}=\frac{O_t^l+\eta_l}{\sum_{l=1}^LO_t^l+\eta_l} \tag{6}$$<br/>$$\varphi_{lk}=\frac{O_l^k+\lambda_k}{\sum_{k=1}^BO_l^k+\lambda_k} \tag{7}$$</p>
 <p>在这里，$T,L$ 分别是在线与离线话题的数量。$V,B$ 是词库和品牌库的大小。<br/>在这项研究中，我们不估计超变量 $α, β, η, λ$ 的值，而是直接分别设定平滑参数，固定为 $α=0.05, β=0.01, η=0.01, λ=0.01$ 。该算法开始需要随机为在线主题分配搜索词，并为离线品牌随机分配在线和离线主题。该算法的每次迭代包括为语料库中每个词标记和品牌标记运用算式 $(1),(2),(3)$ 。这种采样过程至少需要执行2000轮直至收敛。</p>
 <h3 id="Model-Inference"><a class="headerlink" href="#Model-Inference" title="Model Inference"></a>Model Inference</h3><p>当我们使用学习到的所有变量，就可以推断一个品牌和在线主题间的关系了，对于一个在线话题 $y=t$ 和一个离线品牌 $b=k$，我们有：<br/>$$ p(y=t|b=k)=\sum_{l=1}^Lp(y=t|z=l)p(z=l|b=k)\propto \sum_{l=1}^Lp(y=t)\pi_{tl}\varphi_{lk} $$</p>
-<p><img alt="Alt text|center" decoding="async" loading="lazy" src="/assets/1499346128617.png"/><br/>如上图所示，为品牌 $Teenie Weenie$ 相关性最强的三类在线主题</p>
-<p><img alt="Alt text|center" decoding="async" loading="lazy" src="/assets/1499346148024.png"/><br/>如上图所示，为品牌 $Teenie Weenie$ 的一份店内海报，可以看出，主打青春学生风的服饰品牌相关的在线主题，确实可以一定程度上反映出“学生”、“占卜”、“妆扮”等特性。</p>
+<p><a class="image-original" href="/assets/1499346128617.png" aria-label="Alt text|center · 点击查看原图"><img alt="Alt text|center" decoding="async" loading="lazy" src="/assets/1499346128617.png"/></a><br/>如上图所示，为品牌 $Teenie Weenie$ 相关性最强的三类在线主题</p>
+<p><a class="image-original" href="/assets/1499346148024.png" aria-label="Alt text|center · 点击查看原图"><img alt="Alt text|center" decoding="async" loading="lazy" src="/assets/1499346148024.png"/></a><br/>如上图所示，为品牌 $Teenie Weenie$ 的一份店内海报，可以看出，主打青春学生风的服饰品牌相关的在线主题，确实可以一定程度上反映出“学生”、“占卜”、“妆扮”等特性。</p>
 <p>除此之外，我们也可以为用户提供推荐了，第 $i$ 个用户购买第 $k$ 个品牌的概率可以使用如下方法计算：<br/>$$p(b=k|u=i,\theta,\pi,\varphi)\<br/>=\sum_{t=1}^T \sum_{l=1}^Lp(b=k|z=l,\varphi)p(z=l|y=t,\pi)p(y=t|u=i,\theta)\<br/>=\sum_{t=1}^T \sum_{l=1}^L\varphi_{lj}\pi_{tl}\theta_{it}<br/>$$</p>
 <h3 id="Lift"><a class="headerlink" href="#Lift" title="Lift"></a>Lift</h3><p>在文中，定义了一个参量——提升值。<br/>顾名思义，给定线上话题 $t$ 时线下话题 $l$的概率，通过 $π_{tl} = p(z = l|y = t)$ 分配使得所有数据的似然性最大。<br/>基于 $π$ 我们也可以计算出 $π_{\neg tl} =p(z = l|y = \neg t) $，给定 $t$ 以外其他所有在线话题，度量离线话题 $l$ 的可能性。那么，$lift$ 可以如下定义:<br/>$$lift_{tl}=\frac{p(z=l|y=t)}{p(z=l|y=\neg tl)}=\frac{\pi_{tl}}{\pi_{\neg tl}}$$</p>
 <p>实际上就是包含 $t$ 的目标 $l$ 的响应与不包含 $t$ 的目标响应的比值，这个提升值越大，代表在线话题 $t$ 与离线话题 $l$ 之间的关联性越强。</p>
 <p>于是，我们就可以运用这个参量来做一些有意思的挖掘：在挖掘中，我们有着令人惊喜的收获：区别于绝大多数类似LDA的推荐算法，这种算法具有珍贵的可解释性，这种可解释性，往往在与商家交流时是最有效的证明手段与促进合作的途径。下面我们来看一看这种可解释性的表现：</p>
-<p><img alt="Alt text|center" decoding="async" loading="lazy" src="/assets/1499346566678.png"/><br/>如上图，展示了高lift值的一些例子，作者从数据中选出的一些在线与离线的话题对。这些例子是通过筛选得到的，以便于覆盖不同群体的顾客。</p>
+<p><a class="image-original" href="/assets/1499346566678.png" aria-label="Alt text|center · 点击查看原图"><img alt="Alt text|center" decoding="async" loading="lazy" src="/assets/1499346566678.png"/></a><br/>如上图，展示了高lift值的一些例子，作者从数据中选出的一些在线与离线的话题对。这些例子是通过筛选得到的，以便于覆盖不同群体的顾客。</p>
 <ul>
 <li>对于第 $I$ 组，搜索词和宠物医疗相关，并且这个在线话题到对应着为年轻女孩设计的时尚品牌具有<strong>11.5</strong>的提升值。由于这些品牌大多是从日韩紧扣的，他们比起常规的要更加昂贵，表明了这些女孩为了养宠物可以负担得起这些。</li>
 <li>对于第 $II$ 组，它对应着喜欢日漫和电脑游戏的年轻人的群体（大多是男孩）他们大多喜欢穿一些休闲品牌，比如VANS，ADIDAS ORIGINAL等等。</li>
 <li>对于第 $III$ 组，它对应着孕妇和年轻妈妈们的群体。他们会搜索关于孕期护理、新生儿护理和产后恢复的知识。同时，他们也对应着两种提升度较高的线下话题。第一个品牌群面向新生儿，第二个品牌群面向年轻女孩的一些品牌，这表明新妈妈们依旧不会停止为自己而买买买。</li>
 </ul>
-<p><img alt="Alt text|center" decoding="async" loading="lazy" src="/assets/1499346644629.png"/></p>
+<p><a class="image-original" href="/assets/1499346644629.png" aria-label="Alt text|center · 点击查看原图"><img alt="Alt text|center" decoding="async" loading="lazy" src="/assets/1499346644629.png"/></a></p>
 <ul>
 <li>对于第 $IV$ 组，对应的是拥有幸福生活的家庭主妇群体。在线上，他们搜索有关减肥和热门电视剧、网络小说等材料。在线下，他们买两种类型的品牌。一种是为了她们的孩子，另一种是为了他们的丈夫选择的户外运动装扮的品牌。</li>
 <li>对于第 $V$ 组，我们认为是高端化妆品与珠宝品牌的消费者。我们惊讶地发现当他们搜索武侠故事、都市恋爱小说和文学的时候，提升值到达了19。并且搜索整容和手机游戏的人们喜欢去购买这些昂贵的商品。</li>
@@ -119,5 +119,5 @@
 </div>
 </section>
 </main>
-<footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><p class="credits">© Dian Chen · Original blog theme by <a href="https://www.codeblocq.com/">Jonathan Klughertz</a><br><a href="#main">Back to top</a></p></footer>
+<footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><section class="visitor-globe" aria-label="访客地球仪"><h2>访客足迹</h2><p class="globe-status" role="status">正在连接 RevolverMaps 访客地球仪…</p><noscript>启用 JavaScript 后可显示原 RevolverMaps 访客地球仪。</noscript></section><p class="credits">© Dian Chen · Original blog theme by <a href="https://www.codeblocq.com/">Jonathan Klughertz</a><br><a href="#main">Back to top</a></p></footer>
 </body></html>

@@ -66,7 +66,7 @@
 <p>看到这里，有聪明的就要问了，我内存取值不比你数据库查询快？<br/>哎？还真不一定噢，比单个速度不行，但胜在人多取胜，<br/>实际上，4 worker 的内存取值速度是不如 16 worker 的数据库取值速度。<br/>于此同时，对于一个 50M samples 的数据集：<br/>带有 6 GPU x 4 memory worker 的模型需要 <strong>200G</strong> 内存<br/>而带有 6 GPU x 32 sqlite worker 的同模型只需要 <strong>4G</strong> 内存</p>
 <p>高下立判。<br/>本文中我们选用的是 Python 中比较好操作的 SQLite3 库来操作 SQLite。</p>
 <h2 id="0x02-难点介绍"><a class="headerlink" href="#0x02-难点介绍" title="0x02 难点介绍"></a>0x02 难点介绍</h2><p>我们简单实现了一个版本（旧版本就不放出了防止误导），发现存在一个问题：<br/>当进程数过多的时候，会出现 <code>database dist image is malformed</code> 的报错</p>
-<p>当时多番尝试无果，四处求援的我：<br/><img alt="求助.JPG" decoding="async" loading="lazy" src="/assets/996131882fcc400fadf7d454b54edf4b.png"/></p>
+<p>当时多番尝试无果，四处求援的我：<br/><a class="image-original" href="/assets/996131882fcc400fadf7d454b54edf4b.png" aria-label="求助.JPG · 点击查看原图"><img alt="求助.JPG" decoding="async" loading="lazy" src="/assets/996131882fcc400fadf7d454b54edf4b.png"/></a></p>
 <p>感谢 @caoyixuan1993  帮忙提供了建设性的意见：</p>
 <blockquote>
 <p> Problem was due to connection to database was opened before fork().<br/> Many processes used one connection. Now it’s opened after fork() and everything is ok.<br/> —— <a href="https://stackoverflow.com/questions/30596633/multiple-threads-and-sqlite-database-disk-image-is-malformed" rel="noopener" target="_blank">StackOverflow</a></p>
@@ -84,5 +84,5 @@
 </div>
 </section>
 </main>
-<footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><p class="credits">© Dian Chen · Original blog theme by <a href="https://www.codeblocq.com/">Jonathan Klughertz</a><br><a href="#main">Back to top</a></p></footer>
+<footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><section class="visitor-globe" aria-label="访客地球仪"><h2>访客足迹</h2><p class="globe-status" role="status">正在连接 RevolverMaps 访客地球仪…</p><noscript>启用 JavaScript 后可显示原 RevolverMaps 访客地球仪。</noscript></section><p class="credits">© Dian Chen · Original blog theme by <a href="https://www.codeblocq.com/">Jonathan Klughertz</a><br><a href="#main">Back to top</a></p></footer>
 </body></html>
