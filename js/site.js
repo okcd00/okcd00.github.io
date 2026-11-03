@@ -1,5 +1,10 @@
 'use strict';
 // Core navigation and reading work without JavaScript or external services.
+document.querySelectorAll('.highlight').forEach(panel => {
+  panel.tabIndex = 0;
+  panel.setAttribute('role', 'region');
+  panel.setAttribute('aria-label', '代码块，可横向或纵向滚动');
+});
 document.querySelectorAll('.site-nav a').forEach(link => {
   if (link.pathname.replace(/index\.html$/, '') === location.pathname.replace(/index\.html$/, '')) link.setAttribute('aria-current', 'page');
 });

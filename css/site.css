@@ -23,3 +23,16 @@ button{background:#142239;color:var(--accent)}.skip-link{background:#172238;colo
 @media(max-width:680px){body{background-attachment:scroll}.post{box-shadow:none}}
 @media print{body{background:white!important;color:black}.hero h1,.hero p,.post,.post a,.content blockquote,.content code{color:black!important;background:white!important;text-shadow:none;box-shadow:none}#connected-background,.visitor-globe{display:none}}
 @media print{:root{color-scheme:light;--bg:#fff;--paper:#fff;--ink:#111;--muted:#444;--line:#aaa;--accent:#222}.site-header{background:white}.brand-mark{background:#eee;color:#111;box-shadow:none}.hero .eyebrow,.highlight .keyword,.highlight .meta,.highlight .string,.highlight .comment,.highlight .number,.highlight .gutter{color:#333}}
+/* Compact mobile code: scroll inside the code panel, never widen the page. */
+@media(max-width:680px){
+ .content .highlight{width:100%;max-width:100%;min-width:0;max-height:55vh;overflow:auto;margin:16px 0;padding:10px 0;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+ .content .highlight table{display:table;width:max-content;min-width:100%;max-width:none;border:0;margin:0;border-collapse:collapse}
+ .content .highlight td{border:0;padding:0 8px;vertical-align:top}
+ .content .highlight .gutter{padding:0 7px;border-right:1px solid #385054;width:1%;min-width:0}
+ .content .highlight pre{font-size:12px;line-height:1.5;white-space:pre;word-break:normal;overflow-wrap:normal;margin:0}
+ .content .highlight .code{min-width:0}
+ .content>pre{font-size:12px;line-height:1.5;max-width:100%;max-height:55vh;overflow:auto;white-space:pre;word-break:normal;overflow-wrap:normal}
+}
+
+.highlight:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(max-width:680px){.content>pre>code{font-size:inherit;line-height:inherit;white-space:inherit;overflow-wrap:normal;word-break:normal}}
