@@ -39,7 +39,8 @@ if (globe) {
   globe.append(script);
 }
 
-// Galaxy stars: gently gather near a mouse, then drift back to their orbit.
+// Galaxy stars: the original free drift and proximity-line interaction.
+// Pointer position only changes connections, never star velocity or position.
 // One canvas; bounded density and pixel ratio; no animation with reduced motion.
 (() => {
   if (document.querySelector('#connected-background')) return;
@@ -58,10 +59,10 @@ if (globe) {
     canvas.width=width*ratio; canvas.height=height*ratio;
     canvas.style.width=width+'px'; canvas.style.height=height+'px';
     ctx.setTransform(ratio,0,0,ratio,0,0);
-    const count=coarse.matches || width<680 ? 60 : Math.min(180,Math.round(width*height/5500));
+    const count=coarse.matches || width<680 ? 30 : 85;
     stars=Array.from({length:count},()=>{
       const x=Math.random()*width,y=Math.random()*height;
-      return {x,y,homeX:x,homeY:y,vx:0,vy:0,r:.45+Math.random()*1.2,phase:Math.random()*Math.PI*2,depth:.5+Math.random()*.5};
+      return {x,y,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6,r:.45+Math.random()*1.2,phase:Math.random()*Math.PI*2,depth:.5+Math.random()*.5};
     });
     sync();
   }
@@ -69,16 +70,10 @@ if (globe) {
     ctx.clearRect(0,0,width,height);
     const step=Math.min((now-previous)/16.7 || 1,2); previous=now;
     stars.forEach(star=>{
-      let targetX=star.homeX,targetY=star.homeY;
-      if(animated && mouse.x!==null && !coarse.matches){
-        const dx=mouse.x-star.homeX,dy=mouse.y-star.homeY;
-        const influence=Math.max(0,1-Math.hypot(dx,dy)/380)*.68*star.depth;
-        targetX+=dx*influence; targetY+=dy*influence;
-      }
       if(animated){
-        star.vx=(star.vx+(targetX-star.x)*.008*step)*Math.pow(.91,step);
-        star.vy=(star.vy+(targetY-star.y)*.008*step)*Math.pow(.91,step);
         star.x+=star.vx*step; star.y+=star.vy*step;
+        if(star.x<0 || star.x>width){star.vx*=-1;star.x=Math.max(0,Math.min(width,star.x));}
+        if(star.y<0 || star.y>height){star.vy*=-1;star.y=Math.max(0,Math.min(height,star.y));}
       }
       const alpha=animated ? .48+.26*Math.sin(now*.00045+star.phase) : .65;
       if(star.r>1.15){
@@ -89,15 +84,23 @@ if (globe) {
       ctx.fillStyle=`rgba(220,234,255,${alpha})`;
       ctx.beginPath();ctx.arc(star.x,star.y,star.r,0,Math.PI*2);ctx.fill();
     });
-    // A few quiet threads gather near the pointer, rather than a full mesh.
-    if(animated && mouse.x!==null && !coarse.matches){
-      const near=stars.filter(s=>Math.hypot(s.x-mouse.x,s.y-mouse.y)<150).slice(0,14);
-      near.forEach((s,i)=>near.slice(i+1).forEach(t=>{
-        const d=Math.hypot(s.x-t.x,s.y-t.y);
-        if(d<85){ctx.strokeStyle=`rgba(146,179,255,${.13*(1-d/85)})`;ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(t.x,t.y);ctx.stroke();}
-      }));
+    // As before: nearby stars connect, and nearby stars connect to the mouse.
+    // No fixed home, restoring force, or mouse-driven displacement.
+    if(animated){
+      stars.forEach((star,i)=>{
+        const neighbors=stars.slice(i+1);
+        if(mouse.x!==null && !coarse.matches)neighbors.push(mouse);
+        neighbors.forEach(other=>{
+          const distance=Math.hypot(star.x-other.x,star.y-other.y);
+          const limit=other===mouse ? 170 : 125;
+          if(distance>=limit)return;
+          ctx.strokeStyle=`rgba(146,179,255,${.24*(1-distance/limit)})`;
+          ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(star.x,star.y);ctx.lineTo(other.x,other.y);ctx.stroke();
+        });
+      });
     }
   }
+
   function draw(now){frame=0;if(motion.matches || document.hidden)return;paint(now,true);frame=requestAnimationFrame(draw);}
   function sync(){
     if(frame)cancelAnimationFrame(frame);frame=0;previous=0;
