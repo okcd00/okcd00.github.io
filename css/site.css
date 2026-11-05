@@ -63,3 +63,19 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 .post-tags{align-items:center}
 @media print{.post-info>a.comments{display:none}}
+
+
+/* All Tags: native links, stable alphabetical order, and frequency-based type.
+   The cloud wraps naturally and remains fully usable without JavaScript. */
+.tag-cloud-container{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#101a30,#151c38);box-shadow:0 16px 50px #00000024;padding:44px 32px 24px}
+.tag-cloud{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;align-content:center;gap:12px 22px;max-width:760px;min-height:240px;margin:0 auto;padding:0}
+.tag-cloud li{display:flex;min-width:0;max-width:100%}
+.tag-cloud-link{display:inline-flex;align-items:baseline;gap:5px;max-width:100%;min-height:44px;padding:6px 3px;color:#b8c9ee;text-decoration:none;font-size:calc(1.125rem + var(--tag-weight) * 1.875rem);font-weight:calc(450 + var(--tag-weight) * 200);line-height:1.35;transition:color .15s ease,text-shadow .15s ease}
+.tag-cloud-link>span{min-width:0;overflow-wrap:anywhere}
+.tag-cloud-link sup{align-self:flex-start;position:relative;top:.3em;color:var(--muted);font-size:11px;font-weight:500;line-height:1.4}
+.tag-cloud-link.tag-tone-1{color:#a6dedb}.tag-cloud-link.tag-tone-2{color:#d2c0f0}
+.tag-cloud-link:hover,.tag-cloud-link:focus-visible{color:#fff;text-decoration:underline;text-shadow:0 0 24px #a6c4ff40}
+.tag-cloud-note{margin:24px 0 0;color:var(--muted);text-align:center;font-size:12px}
+@media(max-width:680px){.tag-cloud-container{padding:28px 18px 22px;border-radius:12px}.tag-cloud{gap:8px 16px;min-height:220px}.tag-cloud-link{font-size:calc(1rem + var(--tag-weight) * 1.25rem)}.tag-cloud-note{margin-top:20px}}
+@media(prefers-reduced-motion:reduce){.tag-cloud-link{transition:none}}
+@media print{.tag-cloud-container{background:white;box-shadow:none}.tag-cloud-link,.tag-cloud-link.tag-tone-1,.tag-cloud-link.tag-tone-2{color:black;text-shadow:none}}
