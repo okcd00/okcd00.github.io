@@ -38,3 +38,44 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 @media print { .record-gallery::details-content, .work-record > details::details-content { content-visibility: visible; } }
 .record-images a { display: block; background: #f4f6fa; border-radius: 8px; }
 .work-record details p + p { margin-top: 12px; }
+
+/* Compact contribution cards keep their full historical records in native disclosures. */
+.involved { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 16px; }
+.contribution-card {
+ --contribution-accent: #9edbd2;
+ padding: 23px 21px 0;
+ border: 1px solid #30465b;
+ border-radius: 13px;
+ background: linear-gradient(135deg, #132337, #0e1a2d);
+ transition: border-color .2s, box-shadow .2s;
+}
+.contribution-card:nth-child(3n + 2) { --contribution-accent: #c5b5ee; }
+.contribution-card:nth-child(3n) { --contribution-accent: #abcaf0; }
+.contribution-card:hover, .contribution-card:focus-within { border-color: #5d7a8e; box-shadow: 0 8px 22px #0002; }
+.contribution-heading { display: flex; align-items: center; gap: 12px; min-width: 0; margin-bottom: 13px; }
+.contribution-mark { display: grid; place-items: center; flex: 0 0 32px; height: 32px; border: 1px solid #4f6d7a; border-radius: 9px; background: #1b3042; color: var(--contribution-accent); font-size: 14px; font-weight: 600; }
+.contribution-card h3 { margin: 0; font-size: 16px; line-height: 1.5; overflow-wrap: anywhere; }
+.contribution-card .contribution-summary { min-height: 42px; color: #a8bdd0; font-size: 12px; line-height: 1.75; }
+.contribution-card > details { margin-top: 18px; border-top: 1px solid #2d4357; }
+.contribution-card > details > summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 49px; padding: 12px 0; list-style: none; color: var(--contribution-accent); font-size: 11px; touch-action: manipulation; }
+.contribution-card > details > summary::-webkit-details-marker { display: none; }
+.contribution-toggle { position: relative; flex: 0 0 18px; width: 18px; height: 18px; border: 1px solid #496478; border-radius: 50%; }
+.contribution-toggle::before, .contribution-toggle::after { content: ""; position: absolute; background: currentColor; }
+.contribution-toggle::before { width: 7px; height: 1px; top: 7px; left: 4px; }
+.contribution-toggle::after { width: 1px; height: 7px; left: 7px; top: 4px; }
+.contribution-card > details[open] .contribution-toggle::after { display: none; }
+.contribution-body { padding: 2px 0 22px; }
+.contribution-card .contribution-body p { font-size: 12px; line-height: 1.9; color: #afc0d2; }
+.contribution-body .resource-links { gap: 10px 15px; margin-top: 15px; }
+.contribution-body .resource-links a { font-size: 12px; }
+.contribution-body .record-gallery { margin-top: 16px; }
+.contribution-body .record-gallery summary { font-size: 12px; min-height: 40px; }
+@media (max-width: 940px) { .involved { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+ .involved { grid-template-columns: minmax(0, 1fr); gap: 13px; }
+ .contribution-card { padding: 20px 20px 0; }
+ .contribution-card .contribution-summary { min-height: 0; }
+ .contribution-card > details { margin-top: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .contribution-card { transition: none; } }
+@media print { .contribution-card { break-inside: avoid; background: white; color: black; } }
