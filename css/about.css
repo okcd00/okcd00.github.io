@@ -36,3 +36,5 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 .work-redirect-links li { margin: 15px 0; }
 @media (max-width: 680px) { .record-images { grid-template-columns: minmax(0, 1fr); } }
 @media print { .record-gallery::details-content, .work-record > details::details-content { content-visibility: visible; } }
+.record-images a { display: block; background: #f4f6fa; border-radius: 8px; }
+.work-record details p + p { margin-top: 12px; }
