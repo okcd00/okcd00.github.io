@@ -79,3 +79,17 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 }
 @media (prefers-reduced-motion: reduce) { .contribution-card { transition: none; } }
 @media print { .contribution-card { break-inside: avoid; background: white; color: black; } }
+
+/* Maintained websites share the contribution-card surface and stay directly accessible. */
+.maintained-sites { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 0; margin: 0; list-style: none; }
+.maintained-sites > li { display: flex; min-width: 0; }
+.maintained-card { display: flex; flex-direction: column; min-width: 0; width: 100%; padding-bottom: 19px; }
+.maintained-sites > li:nth-child(2) .maintained-card { --contribution-accent: #c5b5ee; }
+.maintained-sites > li:nth-child(3) .maintained-card { --contribution-accent: #abcaf0; }
+.maintained-sites > li:nth-child(4) .maintained-card { --contribution-accent: #c5b5ee; }
+.maintained-card:hover { color: inherit; }
+.maintained-card .contribution-summary { margin: 0 0 19px; min-height: 0; overflow-wrap: anywhere; }
+.maintained-cta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 13px; border-top: 1px solid #2d4357; color: var(--contribution-accent); font-size: 11px; }
+.maintained-card:focus-visible { outline: 2px solid var(--mint); outline-offset: 5px; }
+@media (max-width: 600px) { .maintained-sites { grid-template-columns: minmax(0, 1fr); gap: 13px; } }
+@media print { .maintained-card, .maintained-card .contribution-summary, .maintained-cta { color: black; } }
