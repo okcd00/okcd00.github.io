@@ -165,3 +165,30 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
  .flow-text::details-content { content-visibility: visible; }
  .flow-text, .flow-text a, .flow-text li span { color: black; }
 }
+
+/* Icon-first site tabs remain a single, evenly spaced row on phones. */
+.topnav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; flex-wrap: nowrap; }
+.topnav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-width: 0; min-height: 54px; padding: 6px 8px; text-align: center; white-space: nowrap; line-height: 1.25; }
+.nav-icon { display: block; width: 21px; height: 21px; flex: 0 0 auto; }
+.nav-label { white-space: nowrap; }
+@media (max-width: 760px) {
+ .site-header { height: auto; min-height: 0; padding: 12px 18px 8px; flex-direction: column; align-items: stretch; gap: 10px; } .site-header .brand { align-self: flex-start; } html { scroll-padding-top: 132px; }
+ .topnav { width: 100%; max-width: none; gap: 3px; margin: 0; }
+ .topnav a { padding: 6px 0; font-size: 11px; min-height: 51px; }
+}
+
+/* Page categories are grouped pairs, separate from the global icon tabs. */
+.jumpnav { display: grid; grid-template-columns: auto repeat(3, minmax(100px, 1fr)) auto; align-items: stretch; gap: 12px; margin-top: 26px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.jump-group { min-width: 0; padding: 8px 8px 0; background: #132235; border: 1px solid var(--line); border-radius: 9px; text-align: center; }
+.jump-group-title { display: block; white-space: nowrap; color: #c6d4e5; font-size: 12px; font-weight: 600; line-height: 1.5; }
+.jump-group-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.jumpnav a { display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 44px; padding: 6px 4px; white-space: nowrap; border: 0; border-radius: 5px; }
+.jumpnav a:hover { background: #203449; }
+.jumpnav .jump-shortcut { flex-direction: column; gap: 5px; padding: 8px; font-size: 11px; color: var(--mint); }
+@media (max-width: 760px) {
+ .jumpnav { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 8px; margin-top: 18px; padding: 0 0 14px; }
+ .jump-group { grid-row: 1; padding: 8px 3px 0; }
+ .jumpnav .jump-shortcut { flex-direction: row; padding: 4px 8px; min-height: 44px; }
+ .jump-research { grid-row: 2; grid-column: 1 / 3; justify-self: start; }
+ .jump-contact { grid-row: 2; grid-column: 3; justify-self: end; }
+}
