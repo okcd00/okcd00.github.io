@@ -1,0 +1,19 @@
+/* Compact word field; motion is progressive enhancement, never required to browse. */
+.tag-cloud-container{padding:18px 28px 20px;overflow:visible}
+.tag-cloud-header{margin-bottom:12px}
+.tag-cloud-tools{display:flex;align-items:center;gap:8px}
+.tag-motion-toggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:7px 13px;border:1px solid #8bd5dc3d;border-radius:999px;background:#89d9df09;color:#b8d8e1;font:12px/1.4 system-ui;cursor:pointer;white-space:nowrap}
+.tag-motion-toggle[hidden]{display:none}.tag-motion-toggle:hover{background:#8bd5dc18}.tag-motion-toggle:focus-visible{outline:2px solid #99e8dc;outline-offset:3px}
+.tag-cloud{min-height:0;max-width:680px;gap:9px 12px;padding:26px 10px 32px;align-content:center}
+.tag-cloud li{align-items:center;will-change:auto}
+.tag-cloud-link{min-height:46px;padding:4px 7px;font-size:calc(1.125rem + var(--tag-weight)*1.6rem)}
+.tag-cloud-link::before{content:none!important}
+.tag-motion-ready .tag-cloud{animation:tag-current 8s ease-in-out infinite alternate;animation-play-state:paused}
+.tag-motion-ready .tag-cloud>li{animation:tag-bob 5s ease-in-out infinite alternate;animation-play-state:paused}
+.tag-motion-ready .tag-cloud>li:nth-child(2n){animation-direction:alternate-reverse;animation-duration:6s}
+.tag-motion-ready .tag-cloud>li:nth-child(3n){animation-delay:-2s}
+.tag-motion-running .tag-cloud,.tag-motion-running .tag-cloud>li{animation-play-state:running}
+@keyframes tag-current{from{transform:translateX(-10px)}to{transform:translateX(10px)}}
+@keyframes tag-bob{from{transform:translateY(-3px)}to{transform:translateY(3px)}}
+@media(max-width:680px){.tag-cloud-container{padding:12px 20px 16px}.tag-cloud-header{gap:6px}.tag-cloud-tools{gap:1px}.tag-cloud-eyebrow{font-size:8px;letter-spacing:.06em;gap:5px}.tag-motion-toggle{font-size:11px;padding:6px 10px}.tag-cloud-info summary{width:40px}.tag-cloud{gap:8px 8px;padding:20px 0 26px;max-width:420px}.tag-cloud-link{padding:4px 5px;font-size:calc(1rem + var(--tag-weight)*1.2rem)}.tag-motion-ready .tag-cloud{animation-duration:5s}.tag-cloud-tooltip{right:0;width:min(270px,calc(100vw - 80px))}}
+@media print{.tag-cloud-tools{display:none}.tag-motion-ready .tag-cloud,.tag-motion-ready .tag-cloud>li{animation:none;transform:none}}
