@@ -32,16 +32,44 @@ document.querySelector('.load-comments')?.addEventListener('click', function () 
   document.head.append(script);
 });
 
-// Preserve the existing visitor-map account; history remains with RevolverMaps.
+// RevolverMaps2 is loaded only after the visitor chooses to connect.
 const globe = document.querySelector('.visitor-globe');
 if (globe) {
   const status = globe.querySelector('.globe-status');
-  const script = document.createElement('script');
-  script.src = 'https://rf.revolvermaps.com/0/0/6.js?i=5mihyim0z76&m=7&c=66ccff&cr1=ff0000&f=arial&l=0&lx=200&ly=-20&hi=10';
-  script.async = true;
-  script.onerror = () => { status.textContent = '访客地球仪服务暂时无法连接，原访客 ID 已保留。'; };
-  script.onload = () => { status.textContent = '访客记录由 RevolverMaps 提供。'; };
-  globe.append(script);
+  const button = globe.querySelector('.load-globe');
+  const mount = globe.querySelector('.globe-mount');
+  if (button && mount) button.addEventListener('click', () => {
+    if (button.disabled) return;
+    button.disabled = true;
+    status.textContent = '正在连接 RevolverMaps2…';
+    const script = document.createElement('script');
+    script.src = 'https://revolvermaps2.com/embed.js';
+    script.dataset.site = 'ye2i457bak35';
+    script.dataset.size = '300';
+    script.dataset.theme = 'night';
+    script.dataset.color = 'ffb23f';
+    script.async = true;
+    const timeout = setTimeout(() => {
+      status.textContent = '地球仪加载较慢；可稍后刷新重试。';
+    }, 15000);
+    script.onerror = () => {
+      clearTimeout(timeout);
+      status.textContent = '访客地球仪暂时无法连接，请稍后重试。';
+      script.remove(); button.disabled = false;
+    };
+    script.onload = () => {
+      clearTimeout(timeout);
+      const frame = mount.querySelector('iframe');
+      if (!frame) {
+        status.textContent = '地球仪未能初始化，请稍后刷新重试。';
+        return;
+      }
+      frame.title = 'RevolverMaps2 访客地球仪';
+      button.hidden = true;
+      status.textContent = '访客统计由 RevolverMaps2 提供。若图像未显示，请稍后重试。';
+    };
+    mount.append(script);
+  });
 }
 
 // Galaxy stars: the original free drift and proximity-line interaction.
