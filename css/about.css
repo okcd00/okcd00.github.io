@@ -227,3 +227,39 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
  .maintained-card h3 { font-size: 13px; margin-top: 0; }
  .maintained-card .contribution-summary { font-size: 10px; line-height: 1.5; }
 }
+
+/* Direction-first map: colored research lines carry compact, distinct outcomes. */
+.flow-direction-canvas { isolation: auto; }
+.flow-legend svg { width: 18px; height: 18px; color: #b4d4df; }
+.direction-line { stroke-width: 8; stroke-linecap: round; opacity: .8; }
+.topic-branch { fill: none; stroke-width: 3; opacity: .5; }
+.topic-merge { fill: none; stroke-width: 2; stroke-dasharray: 6 7; opacity: .32; }
+.direction-label { position: absolute; font-size: 12px; font-weight: 600; letter-spacing: .2px; }
+.flow-item.flow-result { position: absolute; display: block; width: 96px; height: 72px; padding: 0; border: 0; background: transparent; border-radius: 0; color: var(--track-color); }
+.flow-result:hover { box-shadow: none; }
+.flow-result-trigger { width: 44px; height: 44px; padding: 10px; border-color: var(--track-color); border-radius: 12px; background: #11273b; color: var(--track-color); }
+.flow-result-trigger svg { width: 22px; height: 22px; }
+.flow-result-caption { display: block; width: 106px; padding-top: 4px; color: #a8becf; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none; }
+.flow-result[open] { z-index: 40; }
+.flow-result-panel h3 { margin: 4px 0 9px; font-size: 17px; line-height: 1.5; color: #e4f1f7; }
+.flow-result-kind { color: #9edbd2; font-size: 10px; letter-spacing: 1px; }
+.flow-result-panel .flow-detail-link { display: flex; align-items: center; min-height: 44px; margin-top: 10px; color: #b2e6dc; text-decoration: underline; text-underline-offset: 4px; }
+.flow-item.flow-current { width: 218px; height: auto; min-height: 122px; padding: 14px 17px; border: 1px solid #9edbd2; border-radius: 15px; background: #183745; }
+.flow-current:before { content: ''; position: absolute; left: -7px; top: 25px; width: 12px; height: 12px; background: #b2e6dc; border: 2px solid #183745; border-radius: 50%; }
+.flow-current strong { font-size: 17px; }
+.flow-current small { color: #a9dbd3; font-size: 9px; letter-spacing: 1px; }
+.flow-current p { margin: 7px 0 0; color: #b5cbd7; font-size: 11px; line-height: 1.8; }
+.flow-current a { display: flex; align-items: center; min-height: 44px; color: #c2ebe3; font-size: 11px; }
+.flow-result:not([data-enhanced])[open] { width: 260px; height: auto; z-index: 40; }
+@media (max-width: 760px) {
+ .flow-track-label { width: 112px; padding-left: 12px; }
+ .flow-track-label strong { font-size: 11px; }
+ .flow-item.flow-current { width: 156px; padding: 12px; }
+ .flow-current strong { font-size: 15px; }
+ .flow-viewport { max-height: min(570px, 66svh); }
+}
+/* Specificity keeps result affordances distinct from generic round info icons. */
+.flow-result .flow-result-trigger { width: 44px; height: 44px; border-radius: 12px; background: #11273b; color: var(--track-color); }
+.flow-result .flow-result-trigger.role-main { border: 1px solid var(--track-color); }
+.flow-result .flow-result-trigger.role-contributor { border: 1px dashed var(--track-color); }
+.flow-result .flow-result-trigger.role-owner { border: 3px solid var(--track-color); }

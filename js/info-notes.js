@@ -94,7 +94,7 @@
       const labelWidth = view.querySelector('.flow-track-label')?.offsetWidth || 140;
       const maxLeft = Math.max(0, view.scrollWidth - view.clientWidth);
       // The sticky track label must not cover the latest item on a phone.
-      view.scrollLeft = Math.max(0, Math.min(maxLeft, latest.offsetLeft - labelWidth - 16));
+      view.scrollLeft = Math.max(0, Math.min(maxLeft, latest.id === 'flow-current' ? latest.offsetLeft - (view.clientWidth - latest.offsetWidth) / 2 : latest.offsetLeft - labelWidth - 16));
       const room = Math.max(0, view.clientHeight - axisHeight - latest.offsetHeight);
       view.scrollTop = Math.max(0, Math.min(view.scrollHeight - view.clientHeight,
         latest.offsetTop - axisHeight - room * .45));
