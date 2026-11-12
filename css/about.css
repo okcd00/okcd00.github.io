@@ -369,3 +369,26 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
  .flow-item.flow-current { padding: 11px 12px; }
  .flow-help { font-size: 10px; }
 }
+
+/* Compact Git-flow lanes: ongoing nodes align to their branch centerline. */
+.flow-viewport { max-height: min(550px, 65svh); }
+.flow-item.flow-current { min-height: 88px; height: 88px; padding: 9px 13px; width: 218px; gap: 0; border-radius: 9px; justify-content: center; }
+.flow-current small { margin-bottom: 3px; font-size: 8px; line-height: 1.4; }
+.flow-current strong { font-size: 13px; line-height: 1.4; }
+.flow-current p { margin-top: 3px; font-size: 9px; line-height: 1.4; padding-right: 20px; }
+.flow-current a { position: absolute; right: 0; top: 22px; width: 44px; height: 44px; min-height: 44px; justify-content: center; overflow: hidden; font-size: 0; }
+.flow-current a:after { content: none; }
+.flow-current a svg { width: 16px; height: 16px; }
+.flow-current:before { top: 51px; }
+.flow-current:after { top: 39px; }
+.flow-ongoing-track { height: 56px; border-radius: 8px 0 0 8px; }
+.topic-branch, .direction-merge, .direction-transition { stroke-width: 1.6; }
+.direction-bar { box-shadow: inset 0 1px 0 #ffffff08; }
+.flow-result .flow-result-trigger:before { box-shadow: 0 1px 5px #0004; }
+@media (max-width: 760px) {
+ .flow-viewport { max-height: min(470px, 60svh); }
+ .flow-item.flow-current { width: 218px; padding: 9px 13px; }
+ .flow-current strong { font-size: 13px; }
+}
+
+.author-self { font-weight: 750; color: #d7f1e9; }
