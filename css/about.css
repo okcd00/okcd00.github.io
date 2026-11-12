@@ -206,3 +206,24 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
  #profiles .profile small { font-size: 10px; line-height: 1.4; }
  #profiles .profile:before { width: 80px; height: 80px; right: -35px; top: -36px; }
 }
+
+/* Small website cards echo Contact, without truncating historical descriptions. */
+.maintained-sites { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.maintained-card { padding: 15px; border-radius: 11px; }
+.maintained-card .contribution-heading { gap: 8px; align-items: flex-start; margin-bottom: 10px; }
+.maintained-card .contribution-mark { flex-basis: 28px; height: 28px; border-radius: 8px; font-size: 12px; }
+.maintained-card h3 { font-size: 14px; line-height: 1.35; margin: 3px 0 0; overflow-wrap: anywhere; }
+.maintained-card .role-label { font-size: 10px; margin-bottom: 6px; }
+.maintained-card .contribution-summary { font-size: 11px; line-height: 1.55; margin-bottom: 10px; }
+.maintained-card .maintained-cta { padding-top: 8px; font-size: 10px; }
+@media (max-width: 1000px) {
+ .maintained-sites { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+ .maintained-sites { gap: 9px; }
+ .maintained-card { padding: 12px; }
+ .maintained-card .contribution-heading { flex-direction: column; gap: 6px; margin-bottom: 7px; }
+ .maintained-card .contribution-mark { flex-basis: auto; width: 28px; }
+ .maintained-card h3 { font-size: 13px; margin-top: 0; }
+ .maintained-card .contribution-summary { font-size: 10px; line-height: 1.5; }
+}
