@@ -290,3 +290,8 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 .direction-bar .flow-item.flow-result { position: relative; left: auto !important; top: auto !important; flex: 0 0 44px; }
 .direction-bar .flow-result + .flow-result { margin-left: -8px; }
 .flow-track-heading { display: none; }
+
+/* Confirmed ongoing work begins in 2023; the current-year view is not an end date. */
+.flow-ongoing-track { position: absolute; height: 56px; border: 1px solid #79bdb4; border-right: 0; border-radius: 10px 0 0 10px; background: #183745; }
+.flow-ongoing-track span { display: block; padding: 16px 12px; color: #b2e6dc; font-size: 12px; }
+.flow-current:after { content: '→'; position: absolute; right: -21px; top: 40px; font-size: 27px; color: #b2e6dc; }
