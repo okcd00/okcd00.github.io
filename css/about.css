@@ -269,3 +269,17 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 .direction-bar .direction-label { top: 9px; left: 12px; color: var(--track-color); white-space: nowrap; }
 .direction-bar:has(.flow-result[open]) { z-index: 40; }
 .direction-bar .flow-item.flow-result { width: 44px; height: 44px; }
+
+/* Compact, borderless outcomes: visual glyph and 44px touch target are separate. */
+.direction-bar { border-radius: 10px; background: color-mix(in srgb, var(--track-color) 8%, #102034); }
+.direction-bar .direction-label { top: 8px; font-size: 11px; letter-spacing: .3px; }
+.flow-result .flow-result-trigger.role-main,
+.flow-result .flow-result-trigger.role-contributor,
+.flow-result .flow-result-trigger.role-owner { border: 0; background: transparent; box-shadow: none; }
+.flow-result .flow-result-trigger { padding: 11px; border-radius: 8px; }
+.flow-result .flow-result-trigger:hover,
+.flow-result[open] .flow-result-trigger { background: #ffffff0c; }
+.flow-result .flow-result-trigger:focus-visible { outline: 2px solid #e3f8fa; outline-offset: -3px; }
+/* Sticky direction names stay above, never over the outcome touch row. */
+.flow-track-heading, .flow-track-label { height: 28px; }
+.flow-track-label small { display: none; }
