@@ -307,3 +307,13 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 .flow-result .flow-result-trigger:after { content: ''; position: absolute; top: 28px; left: 15px; width: 14px; height: var(--stem); background: var(--track-color); clip-path: polygon(0 0,100% 0,50% 100%); z-index: -2; pointer-events: none; }
 .flow-result .flow-result-trigger svg { width: 18px; height: 18px; margin-top: 6px; color: #102034; }
 .flow-result .flow-result-trigger:hover { filter: brightness(1.18); }
+
+/* Softer thematic branches and tighter ongoing rows without shrinking touch targets. */
+.topic-branch { stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; opacity: .38; }
+.flow-current strong { font-size: 14px; line-height: 1.5; }
+.flow-current p { font-size: 10px; line-height: 1.5; margin-top: 4px; }
+.flow-item.flow-current { min-height: 122px; padding: 12px 14px; }
+@media (max-width: 760px) {
+ .flow-current strong { font-size: 14px; }
+ .flow-item.flow-current { padding: 10px 12px; }
+}
