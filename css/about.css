@@ -321,3 +321,9 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 /* Confirmed 2022 convergence: retain exact year anchors and compact wrapped label. */
 .direction-merge { fill: none; stroke-width: 1.8; opacity: .6; stroke-linecap: round; }
 #direction-generative-documents .direction-label { white-space: normal; max-width: 100%; line-height: 1.5; padding: 0 12px; }
+
+/* Separate publication role metadata, and clearly label the full ongoing product span. */
+.paper .paper-meta { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; row-gap: 5px; }
+.paper .paper-meta .role-label { display: inline-block; margin-top: 0; }
+.flow-ongoing-track[data-direction="product"] { background: linear-gradient(90deg,#204a56,#183745); }
+.flow-ongoing-track[data-direction="product"] span { white-space: nowrap; padding-right: 24px; }
