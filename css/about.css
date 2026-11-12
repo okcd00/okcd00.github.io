@@ -327,3 +327,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 .paper .paper-meta .role-label { display: inline-block; margin-top: 0; }
 .flow-ongoing-track[data-direction="product"] { background: linear-gradient(90deg,#204a56,#183745); }
 .flow-ongoing-track[data-direction="product"] span { white-space: nowrap; padding-right: 24px; }
+
+/* Month-precise source endpoint; thematic handoff does not invent target start month. */
+.direction-end-date { position: absolute; right: 0; bottom: -22px; font-size: 10px; color: #a9cfc9; white-space: nowrap; }
+.direction-transition { fill: none; stroke: #9edbd2; stroke-width: 1.8; opacity: .65; stroke-linecap: round; }
