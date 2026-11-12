@@ -263,3 +263,9 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 .flow-result .flow-result-trigger.role-main { border: 1px solid var(--track-color); }
 .flow-result .flow-result-trigger.role-contributor { border: 1px dashed var(--track-color); }
 .flow-result .flow-result-trigger.role-owner { border: 3px solid var(--track-color); }
+
+/* Direction bands contain their dated result buttons; gaps do not assert continuous research. */
+.direction-bar { position: absolute; border: 1px solid color-mix(in srgb, var(--track-color) 55%, transparent); border-radius: 12px; background: color-mix(in srgb, var(--track-color) 10%, #102034); }
+.direction-bar .direction-label { top: 9px; left: 12px; color: var(--track-color); white-space: nowrap; }
+.direction-bar:has(.flow-result[open]) { z-index: 40; }
+.direction-bar .flow-item.flow-result { width: 44px; height: 44px; }
