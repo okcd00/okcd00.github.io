@@ -283,3 +283,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 /* Sticky direction names stay above, never over the outcome touch row. */
 .flow-track-heading, .flow-track-label { height: 28px; }
 .flow-track-label small { display: none; }
+
+/* A single baseline reserves a clean lower row for future real subtitles. */
+.direction-bar { display: flex; align-items: center; gap: 8px; padding: 5px 10px; }
+.direction-bar .direction-label { position: static; flex: 0 1 auto; font-size: 11px; line-height: 1.4; }
+.direction-bar .flow-item.flow-result { position: relative; left: auto !important; top: auto !important; flex: 0 0 44px; }
+.direction-bar .flow-result + .flow-result { margin-left: -8px; }
+.flow-track-heading { display: none; }
