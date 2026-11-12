@@ -295,3 +295,15 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 .flow-ongoing-track { position: absolute; height: 56px; border: 1px solid #79bdb4; border-right: 0; border-radius: 10px 0 0 10px; background: #183745; }
 .flow-ongoing-track span { display: block; padding: 16px 12px; color: #b2e6dc; font-size: 12px; }
 .flow-current:after { content: '→'; position: absolute; right: -21px; top: 40px; font-size: 27px; color: #b2e6dc; }
+
+/* Year labels are centered on the exact coordinates shared by grid and band edges. */
+.flow-year { transform: translateX(-50%); }
+
+/* Year-anchored drop pins: their tips reach the direction band's vertical midpoint. */
+.direction-bar .flow-item.flow-result { position: absolute; left: var(--marker-x) !important; top: var(--marker-y) !important; margin: 0; }
+.direction-bar .direction-label { padding-left: 12px; }
+.flow-result .flow-result-trigger { position: relative; display: flex; align-items: flex-start; justify-content: center; padding: 0; isolation: isolate; }
+.flow-result .flow-result-trigger:before { content: ''; position: absolute; top: 0; left: 7px; width: 30px; height: 30px; border-radius: 50%; background: var(--track-color); z-index: -1; }
+.flow-result .flow-result-trigger:after { content: ''; position: absolute; top: 28px; left: 15px; width: 14px; height: var(--stem); background: var(--track-color); clip-path: polygon(0 0,100% 0,50% 100%); z-index: -2; pointer-events: none; }
+.flow-result .flow-result-trigger svg { width: 18px; height: 18px; margin-top: 6px; color: #102034; }
+.flow-result .flow-result-trigger:hover { filter: brightness(1.18); }
