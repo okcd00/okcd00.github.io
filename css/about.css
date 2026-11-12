@@ -317,3 +317,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
  .flow-current strong { font-size: 14px; }
  .flow-item.flow-current { padding: 10px 12px; }
 }
+
+/* Confirmed 2022 convergence: retain exact year anchors and compact wrapped label. */
+.direction-merge { fill: none; stroke-width: 1.8; opacity: .6; stroke-linecap: round; }
+#direction-generative-documents .direction-label { white-space: normal; max-width: 100%; line-height: 1.5; padding: 0 12px; }
