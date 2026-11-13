@@ -36,6 +36,16 @@
     layer = document.createElement('div');
     layer.className = 'book-flight'; layer.setAttribute('aria-hidden', 'true');
     const paper = document.createElement('div'); paper.className = 'book-flight-paper';
+    const heading = document.createElement('div'); heading.className = 'book-paper-heading';
+    heading.textContent = book.querySelector('.book-title').textContent;
+    const contents = document.createElement('ol'); contents.className = 'book-paper-titles';
+    let titles = [];
+    try { const value = JSON.parse(book.getAttribute('data-book-titles') || '[]'); if (Array.isArray(value)) titles = value.filter(t => typeof t === 'string').slice(0, 3); } catch (_) {}
+    for (const title of titles) {
+      const item = document.createElement('li'); item.textContent = title; contents.append(item);
+    }
+    const stamp = document.createElement('div'); stamp.className = 'book-paper-stamp'; stamp.textContent = '跳转中';
+    paper.append(heading, contents, stamp);
     const cover = document.createElement('div'); cover.className = 'book-flight-cover';
     cover.textContent = book.querySelector('.book-title').textContent;
     layer.append(paper, cover);
@@ -51,6 +61,7 @@
         {transform:`translate(${x}px,${y}px) scale(1)`,width:width+'px',height:height+'px',offset:1}
       ], {duration:420,easing:'cubic-bezier(.22,.7,.2,1)',fill:'forwards'});
       cover.animate([{transform:'rotateY(0deg)',offset:0},{transform:'rotateY(0deg)',offset:.4},{transform:'rotateY(-135deg)',offset:1}], {duration:420,easing:'ease-in-out',fill:'forwards'});
+      stamp.animate([{opacity:0,transform:'rotate(-11deg) scale(1.65)'},{opacity:1,transform:'rotate(-11deg) scale(.94)',offset:.72},{opacity:1,transform:'rotate(-11deg) scale(1)'}], {delay:340,duration:170,easing:'ease-out',fill:'both'});
     } catch (_) { reset(); return; }
     source = book; visibility = book.style.visibility; book.style.visibility = "hidden";
     event.preventDefault(); pending = true;
@@ -59,7 +70,7 @@
       location.assign(url.href);
       // Never leave a slow or failed navigation hidden behind an overlay.
       release = setTimeout(reset, 700);
-    }, 420);
+    }, 700);
   });
   document.addEventListener('keydown', event => {
     if (pending && event.key === 'Escape') reset();
