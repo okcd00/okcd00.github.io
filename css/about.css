@@ -426,3 +426,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img{max-width:100%;heig
 
 /* Optional third-party globe: no request before explicit load. */
 .visitor-globe{overflow:visible}.globe-privacy{font-size:12px;line-height:1.65;max-width:42rem;margin:0 0 12px}.globe-privacy a{text-decoration:underline}.globe-mount{width:300px;max-width:100%;margin:12px auto}.globe-mount iframe{width:100%;max-width:300px;aspect-ratio:1;display:block}.load-globe{min-height:44px;padding:10px 18px;border:1px solid #ffb23f66;border-radius:999px;background:#ffb23f12;color:inherit;cursor:pointer}.load-globe:hover,.load-globe:focus-visible{border-color:#ffb23f;outline-offset:3px}.load-globe:disabled{opacity:.6;cursor:wait}.globe-status:empty{display:none}
+
+/* Preserve transparency across the light-scheme third-party iframe boundary. */
+.visitor-globe .globe-mount{background:transparent}
+.visitor-globe .globe-mount iframe{color-scheme:light;background:transparent}
