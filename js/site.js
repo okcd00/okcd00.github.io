@@ -32,15 +32,17 @@ document.querySelector('.load-comments')?.addEventListener('click', function () 
   document.head.append(script);
 });
 
-// RevolverMaps2 is loaded only after the visitor chooses to connect.
+// Automatically load the existing visitor globe; honor browser privacy signals.
 const globe = document.querySelector('.visitor-globe');
 if (globe) {
   const status = globe.querySelector('.globe-status');
   const button = globe.querySelector('.load-globe');
   const mount = globe.querySelector('.globe-mount');
-  if (button && mount) button.addEventListener('click', () => {
+  const privacyRequested = navigator.globalPrivacyControl === true || navigator.doNotTrack === '1' || window.doNotTrack === '1';
+  function loadGlobe() {
+    if (!button || !mount || privacyRequested) return;
     if (button.disabled) return;
-    button.disabled = true;
+    button.disabled = true; button.hidden = true;
     status.textContent = '正在连接 RevolverMaps2…';
     const script = document.createElement('script');
     script.src = 'https://revolvermaps2.com/embed.js';
@@ -55,7 +57,7 @@ if (globe) {
     script.onerror = () => {
       clearTimeout(timeout);
       status.textContent = '访客地球仪暂时无法连接，请稍后重试。';
-      script.remove(); button.disabled = false;
+      script.remove(); button.disabled = false; button.hidden = false;
     };
     script.onload = () => {
       clearTimeout(timeout);
@@ -69,7 +71,13 @@ if (globe) {
       status.textContent = '访客统计由 RevolverMaps2 提供。若图像未显示，请稍后重试。';
     };
     mount.append(script);
-  });
+  }
+  button?.addEventListener('click', loadGlobe);
+  if (privacyRequested) {
+    status.textContent = '已根据浏览器隐私偏好停用访客统计。';
+  } else {
+    loadGlobe();
+  }
 }
 
 // Galaxy stars: the original free drift and proximity-line interaction.
