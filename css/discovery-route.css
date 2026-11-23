@@ -14,3 +14,8 @@
  .discovery-route { grid-template-columns:minmax(0,1fr); gap:12px; }
  .discovery-stage:not(:last-child)::after { left:22px; width:0; height:12px; top:100%; border-top:0; border-left:1px solid #78a5ac; }
 }
+
+/* Keep the feature link visible, including in the compact mobile timeline card. */
+.flow-item.flow-current:has(.flow-feature-link) { justify-content:flex-start; }
+.flow-current a.flow-feature-link { left:11px; right:auto; top:auto; bottom:2px; width:auto; max-width:calc(100% - 22px); min-height:44px; justify-content:flex-start; padding:0 3px; gap:5px; font-size:11px; line-height:1.3; color:#cceee8; text-decoration:underline; text-underline-offset:3px; }
+.flow-current a.flow-feature-link:focus-visible { outline:2px solid #b2e6dc; outline-offset:-2px; border-radius:5px; }
