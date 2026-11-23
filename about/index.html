@@ -27,6 +27,7 @@
   <div class="mini work-record contribution-card" id="discovery-i2i" style="scroll-margin-top: 100px">
     <div class="contribution-heading"><h3>离线 i2i：让模型学会「买了 A，还可能买什么？」</h3></div>
     <p class="contribution-summary">天气和节气从外部情境找需求；接下来的离线 i2i 从用户上一件交互商品出发，推断另一件可能需要的商品。团队开始为这个填空任务训练模型：标注人员既给更强模型的推理结果评分，也自己填写答案，形成训练样本。</p>
+    <p class="contribution-summary"><strong>变的是输入，不变的是输出。</strong>无论输入是粗类目、原标题还是品类，模型都生成自然语言标签，而不是从固定类目表里选答案，也不直接输出商品 ID。这样，模型可以借助世界知识，沿着用途、场景和需求之间的关系推断「还可能需要什么」；再由下游把标签匹配到真实商品。</p>
     <details>
       <summary><span>看三种输入：粗类目、原标题、品类</span><span class="contribution-toggle i2i-toggle" aria-hidden="true"></span></summary>
       <div class="contribution-body i2i-example">
