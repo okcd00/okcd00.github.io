@@ -1,0 +1,35 @@
+/* Keep a direction's own title in view, bounded by its bar rather than a
+   separate frozen column. Keep the historical titles below the year pins. */
+.flow-viewport .direction-bar {
+  align-items: flex-end;
+  padding: 0 8px 5px;
+}
+.flow-viewport .direction-bar > .direction-label,
+.flow-viewport .flow-ongoing-track > .ongoing-track-label {
+  position: sticky;
+  left: 8px;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  min-width: 0;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: #102235;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.flow-viewport #direction-generative-documents > .direction-label {
+  padding: 2px 5px;
+  white-space: nowrap;
+}
+.flow-viewport .flow-ongoing-track {
+  display: flex;
+  align-items: center;
+  /* The last 24px of the band meet the overlapping end card. */
+  padding: 0 24px 0 8px;
+}
+.flow-viewport .flow-ongoing-track > .ongoing-track-label {
+  padding: 2px 5px;
+  background: #183743;
+}
