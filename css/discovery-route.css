@@ -1,0 +1,16 @@
+/* About only. The stages remain chronological without scripting or motion. */
+.discovery-route { padding:0; margin:0; list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.discovery-stage { position:relative; min-width:0; scroll-margin-top:105px; padding:12px 16px 16px; border:1px solid #385268; border-radius:12px; background:#132338; }
+.discovery-stage:not(:last-child)::after { content:""; position:absolute; left:100%; width:16px; top:27px; border-top:1px solid #78a5ac; }
+.discovery-stage-index { font-size:11px; letter-spacing:.07em; color:#a8d6cf; }
+.discovery-stage-index span { margin-left:5px; color:#a8bad1; }
+.discovery-stage .heading-with-info { justify-content:space-between; gap:0 5px; }
+.discovery-stage h3 { margin:0; font-size:17px; line-height:1.45; }
+.discovery-stage > p { margin:0; font-size:13px; color:#b6c7da; line-height:1.6; }
+.discovery-stage .info-note:not([data-enhanced])[open] { margin-bottom:8px; }
+.discovery-stage .info-article { display:inline-flex; align-items:center; min-height:44px; gap:4px; margin-top:4px; font-weight:600; color:#b2e6dc; text-decoration:underline; text-underline-offset:3px; }
+.discovery-stage .info-article:focus-visible { outline:2px solid #b2e6dc; outline-offset:2px; }
+@media (max-width:640px) {
+ .discovery-route { grid-template-columns:minmax(0,1fr); gap:12px; }
+ .discovery-stage:not(:last-child)::after { left:22px; width:0; height:12px; top:100%; border-top:0; border-left:1px solid #78a5ac; }
+}

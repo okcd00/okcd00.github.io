@@ -10,7 +10,7 @@
 <link rel="canonical" href="https://dian.host/">
 <link rel="stylesheet" href="/css/site.css?v=b65ce6b7a6ec">
 <script src="/js/site.js?v=b65ce6b7a6ec" defer></script>
-<script src="/js/math-config.js"></script><script src="/vendor/mathjax/tex-chtml.js" defer></script>
+
 <link rel="stylesheet" href="/css/back-to-top.css?v=bb93cec4036d"><script src="/js/back-to-top.js?v=bb93cec4036d" defer></script>
 </head>
 <body class="page-listing">
@@ -22,6 +22,33 @@
 <main id="main" class="site-main">
 <section class="hero"><div class="eyebrow">Dian Chen · Alibaba</div><h1>Curiosity, research,<br>and things that work.</h1><p>Algorithm Expert at Alibaba. A personal collection of research, engineering work, and technical notes.</p><div class="hero-links"><a href="/about/">About me</a><a href="/about/#projects">Explore my work</a></div></section><h2 class="section-label">Technical notes</h2>
 <section class="main">
+<div class="post">
+<div class="post-header index">
+<h1 class="title"><a href="/articles/2026-11/discovery-offline-i2i.html">发现性召回 02｜离线 i2i：买了 A，还可能买什么？</a></h1>
+<div class="post-info"><span class="date">2026-11-23</span><span class="category"><a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a></span></div>
+</div>
+<div class="content"><p>从天气和节气出发之后，下一步是从一件已经交互的商品推断另一件可能需要的商品。早期训练改变了左边的输入，但右边一直保留开放的自然语言标签。</p>
+</div>
+<a class="read-more" href="/articles/2026-11/discovery-offline-i2i.html">Read More</a>
+</div>
+<div class="post">
+<div class="post-header index">
+<h1 class="title"><a href="/articles/2026-11/discovery-serengpt-definition.html">发现性召回 03｜SerenGPT：先定义什么叫发现</a></h1>
+<div class="post-info"><span class="date">2026-11-23</span><span class="category"><a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a></span></div>
+</div>
+<div class="content"><p>离线 i2i 从一件商品推另一件。SerenGPT 用 Qwen2-0.5B-Instruct 结合用户画像和近期行为生成商品标题。转向面向用户的发现性推荐，首先要拆开「没点过」「没见过」和「没见过这类商品」。</p>
+</div>
+<a class="read-more" href="/articles/2026-11/discovery-serengpt-definition.html">Read More</a>
+</div>
+<div class="post">
+<div class="post-header index">
+<h1 class="title"><a href="/articles/2026-11/discovery-weather-and-solar-terms.html">发现性召回 01｜从天气与节气出发</a></h1>
+<div class="post-info"><span class="date">2026-11-23</span><span class="category"><a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a></span></div>
+</div>
+<div class="content"><p>第一步还不是训练个性化模型，而是用世界知识补上历史行为没告诉我们的需求：同样降温，为什么不同城市可能适合推荐不同衣物？</p>
+</div>
+<a class="read-more" href="/articles/2026-11/discovery-weather-and-solar-terms.html">Read More</a>
+</div>
 <div class="post">
 <div class="post-header index">
 <h1 class="title"><a href="/articles/2022-08/%E3%80%90SQLite3%E3%80%91%E4%BD%BF%E7%94%A8%20SQLite%20%E4%B8%BA%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E4%B8%AD%E7%9A%84%E5%B9%B6%E8%A1%8C%20dataloader%20%E8%8A%82%E7%9C%81%E5%86%85%E5%AD%98.html">【SQLite3】使用 SQLite 为模型训练中的并行 dataloader 节省内存</a></h1>
@@ -47,42 +74,7 @@
 </div>
 <a class="read-more" href="/articles/2022-08/%E3%80%90SymbolicLink%E3%80%91%E5%88%A9%E7%94%A8%E8%BD%AF%E8%BF%9E%E6%8E%A5%E5%B0%86%E5%B7%B2%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E6%90%AC%E8%BF%81%E5%88%B0%E5%85%B6%E4%BB%96%E7%9B%98%E7%AC%A6.html">Read More</a>
 </div>
-<div class="post">
-<div class="post-header index">
-<h1 class="title"><a href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">【Requests】Bilibili Security 1024程序节 CTF记录</a></h1>
-<div class="post-info"><span class="date">2020-10-24</span><span class="category"><a href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a></span></div>
-</div>
-<div class="content">
-<h2 id="0x00-前言"><a class="headerlink" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html#0x00-前言" title="0x00 前言"></a>0x00 前言</h2><p>B站搞了个1024程序员节，看起来是个 toy CTF，有点开心。<br/>于是想到了曾经在CTF和ACM的路口选择了ACM，CTF一直是心中的一点遗憾，想着要不咱……玩玩看？</p>
-<p>【写在前面】这次有点意思，可能 flag 是需要和各位自己的 uid 有某些计算的，不同账号同一时间以及相同账号不同时间的答案居然会有不同，看来是为了防止无脑抄袭，至少还是需要用自己的 uid 亲自走一遍流程的，不错不错。</p>
-</div>
-<a class="read-more" href="/articles/2020-10/%E3%80%90Requests%E3%80%91Bilibili%20Security%201024%E7%A8%8B%E5%BA%8F%E8%8A%82%20CTF%E8%AE%B0%E5%BD%95.html">Read More</a>
-</div>
-<div class="post">
-<div class="post-header index">
-<h1 class="title"><a href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">【CheatEngine】关于BCR的内存分析</a></h1>
-<div class="post-info"><span class="date">2020-09-04</span><span class="category"><a href="/categories/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/">日常记录</a></span></div>
-</div>
-<div class="content">
-<h2 id="0x00-前言"><a class="headerlink" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html#0x00-前言" title="0x00 前言"></a>0x00 前言</h2><p>随着学级的提升，任务的数量和种类原来越多，深感时间越发不够，犹豫再三还是决定把杀时间却对自己没有什么提升的兴趣爱好逐一舍弃掉，首当其冲的就是占用较多碎片时间以及睡前时间的手游。<br/>弃坑每个手游的时候，在微博上都会发下在下作为开服玩家的仓库和BOX之类的，为了在遥远的未来和别人谈论起这个游戏，能用这些截图证明自己不是云玩家，而是真实确实参与过的。<br/>但仅是如此的话，我觉得还不够吧，不如以一个计算机专业学生的视角，从一些别人不常看到的角度来讲讲，顺便记录一下由于一时兴趣而耗费在这个游戏上的那段时光。          </p>
-<blockquote>
-<p>写给被舍弃掉的 BCR 手游，讲述我所了解的这些游戏的数据、战时内存以及对于防修改的一些建议。<br/>(本来想发到52pojie，但太久没去登陆帐号没了 QvQ) </p>
-</blockquote>
-<p>P.S. 本篇主要用于给数据挖掘与内存理解上已经足够熟练的Coder进行学习交流（以及留档），<br/>本文仅提供分析，不给出定位及修改过程，并会刻意省略零基础玩家到内存分析中的gap知识点，<br/>防止普通玩家基于本篇对游戏肆意修改破坏游戏环境。</p>
-</div>
-<a class="read-more" href="/articles/2020-09/%E3%80%90CheatEngine%E3%80%91%E5%85%B3%E4%BA%8EBCR%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90.html">Read More</a>
-</div>
-<div class="post">
-<div class="post-header index">
-<h1 class="title"><a href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">【Grpc】使用grpc配置通过端口访问的python服务</a></h1>
-<div class="post-info"><span class="date">2020-04-16</span><span class="category"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AE%B0%E5%BF%86/">编程记忆</a></span></div>
-</div>
-<div class="content">
-<h2 id="0x00-前言"><a class="headerlink" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html#0x00-前言" title="0x00 前言"></a>0x00 前言</h2><p>近期兴趣使然的技术调研越发的少了（TTS算一个），主要的都是为了项目和任务去研究的东西。目前的情况是为了节约显存，对一个较大的模型而言，比起使用4个worker来重复的占用显存，不如只占用一份显存，但是开启服务流式或触发式地处理不同项目的需求。<br/>于是 @caoyixuan93 学长向我推荐了GRPC，经过 @hongfeng 和 @phchang 的帮助，终于得以成功实现了一个小的自定义demo，后续再花些时间把模型装载上去。</p>
-</div>
-<a class="read-more" href="/articles/2020-04/%E3%80%90Grpc%E3%80%91%E4%BD%BF%E7%94%A8grpc%E9%85%8D%E7%BD%AE%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE%E7%9A%84python%E6%9C%8D%E5%8A%A1.html">Read More</a>
-</div>
-</section><nav class="pagination" aria-label="Pagination"><span></span><span>Page 1 / 5</span><a rel="next" href="/page/2/">Next page</a></nav>
+</section><nav class="pagination" aria-label="Pagination"><span></span><span>Page 1 / 6</span><a rel="next" href="/page/2/">Next page</a></nav>
 </main>
 <footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="mailto:joshua.cd@alibaba-inc.com">Work email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><section class="visitor-globe" aria-label="访客地球仪"><h2>访客足迹</h2><p class="globe-privacy">本页自动连接 RevolverMaps2，并向其发送 IP 与当前页面地址以统计访问地区。<a href="https://revolvermaps2.com/privacy.php" target="_blank" rel="noopener noreferrer">隐私说明</a></p><button class="load-globe" type="button" hidden>重试加载地球仪</button><p class="globe-status" role="status"></p><div class="globe-mount"></div><noscript>需启用 JavaScript 才能显示地球仪。</noscript></section><p class="credits">© Dian Chen · Theme with dot<!-- Historical theme license: /licenses/alpha-dust.txt --></p></footer>
 <button class="back-to-top" type="button" aria-label="返回顶部" aria-describedby="back-to-top-help" hidden><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M6 12l6-6 6 6M12 6v14"/></svg><span aria-hidden="true">顶部</span></button><span id="back-to-top-help" hidden>点击返回顶部；可拖动调整位置。键盘 Enter 或空格返回顶部，方向键移动按钮，Escape 恢复右下角。</span>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Dian Chen · Algorithm Expert at Alibaba. Research, engineering, and technical notes.">
+<meta name="author" content="Dian Chen">
+<meta name="theme-color" content="#060b19">
+<title>发现性召回 03｜SerenGPT：先定义什么叫发现 · Dian Chen</title>
+<link rel="canonical" href="https://dian.host/articles/2026-11/discovery-serengpt-definition.html">
+<link rel="stylesheet" href="/css/site.css?v=b65ce6b7a6ec">
+<script src="/js/site.js?v=b65ce6b7a6ec" defer></script>
+
+<link rel="stylesheet" href="/css/back-to-top.css?v=bb93cec4036d"><script src="/js/back-to-top.js?v=bb93cec4036d" defer></script>
+</head>
+<body class="page-detail">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="header-inner">
+<a class="brand" href="/" aria-label="Dian Chen home"><img class="brand-avatar" src="/assets/avatar.png" width="42" height="42" alt=""><span>Dian Chen<small>Research & engineering</small></span></a>
+<nav class="site-nav" aria-label="Main navigation"><a href="/"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 10 9-7 9 7M5 9v12h5v-7h4v7h5V9"/></svg><span class="nav-label">Home</span></a><a href="/categories/"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span class="nav-label">Categories</span></a><a href="/tags/"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3h8l10 10-8 8L3 11V3Z"/><circle cx="7.5" cy="7.5" r="1"/></svg><span class="nav-label">Tags</span></a><a href="/archives/"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="5" rx="1"/><path d="M5 8v13h14V8M9 12h6"/></svg><span class="nav-label">Archive</span></a><a href="/about/"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg><span class="nav-label">About</span></a></nav>
+</div></header>
+<main id="main" class="site-main">
+
+<section class="main"><article class="post">
+<div class="post-header"><h1 class="title"><a href="/articles/2026-11/discovery-serengpt-definition.html">发现性召回 03｜SerenGPT：先定义什么叫发现</a></h1>
+<div class="post-info"><span class="date">2026-11-23</span><a class="comments" href="#disqus_thread">留言</a><span class="category"><a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a></span></div></div>
+<div class="content">
+<p>离线 i2i 从一件商品推另一件。SerenGPT 用 Qwen2-0.5B-Instruct 结合用户画像和近期行为生成商品标题。转向面向用户的发现性推荐，首先要拆开「没点过」「没见过」和「没见过这类商品」。</p>
+<span id="more"></span>
+<h2 id="post-heading-旧口径为什么会误判">旧口径为什么会误判</h2>
+<p>旧口径回看 30 个自然日，只要用户没点过某个一、二级类目，它就可能被算作「新」。一件商品即使已反复曝光，只要一直没被点，仍可能被重复算作发现；对每月才来一次的人，30 个自然日甚至无法覆盖第二次访问。</p>
+<h2 id="post-heading-三个调整">三个调整</h2>
+<ol>
+<li><strong>信号：从点击扩到曝光和交互。</strong> 假设七天前展示过鱼线，但用户没点，它在这个窗口内就不再算新。没点过也不能反过来断定用户不喜欢。</li>
+<li><strong>时间窗：从自然日改成 10 个实际到访日。</strong> 对每天都来的人，20 天前点过的品类可能已经出了窗口；对每月来一次的人，两个月前点过的品类却还在窗口里。这不是一律拉长或缩短，而是从用户有机会看到推荐的日子往回数。</li>
+<li><strong>商品粒度：另建叶子对应单一品类的划分。</strong> 如果共用类目，点过鱼线就可能把鱼钩也算成熟悉；拆成不同叶子后，没见过的鱼钩仍是新候选。这套商品划分后来持续迭代，并扩展到淘宝的搜索、推荐与广告场景；这里讲的是商品划分的复用，不是发现性指标的推广。</li>
+</ol>
+<h2 id="post-heading-新-不等于合适">新，不等于合适</h2>
+<p>示例只演示如何判定「以前是否见过」，没有证明用户喜欢候选商品。<a href="https://arxiv.org/html/2502.13539v1#S3.SS2">SERAL 论文的定义</a>还要求用户点击该候选，并按过去 10 个到访日的有效曝光来判断它的叶子类目是否新颖。对应论文的模型版本见<a href="https://arxiv.org/html/2502.13539v1#S5.SS1.SSS4">复现实验</a>。</p>
+<p><a href="/articles/2026-11/discovery-offline-i2i.html">上一篇：离线 i2i</a> · <a href="/about/#discovery-definition">回到 About 的研究脉络</a></p>
+</div>
+<div class="post-tags">Tags <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E8%8D%90/">#大模型推荐</a> <a href="/tags/%E5%8F%91%E7%8E%B0%E6%80%A7%E5%8F%AC%E5%9B%9E/">#发现性召回</a></div>
+<div class="comments"><div id="disqus_thread"><p>Comments are hosted by Disqus. Loading them connects to a third-party service.</p><button class="load-comments" type="button">Load comments</button><p class="comment-status" role="status"></p></div></div>
+</article></section>
+
+</main>
+<footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="mailto:joshua.cd@alibaba-inc.com">Work email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><section class="visitor-globe" aria-label="访客地球仪"><h2>访客足迹</h2><p class="globe-privacy">本页自动连接 RevolverMaps2，并向其发送 IP 与当前页面地址以统计访问地区。<a href="https://revolvermaps2.com/privacy.php" target="_blank" rel="noopener noreferrer">隐私说明</a></p><button class="load-globe" type="button" hidden>重试加载地球仪</button><p class="globe-status" role="status"></p><div class="globe-mount"></div><noscript>需启用 JavaScript 才能显示地球仪。</noscript></section><p class="credits">© Dian Chen · Theme with dot<!-- Historical theme license: /licenses/alpha-dust.txt --><br><a href="#main">Back to top</a></p></footer>
+<button class="back-to-top" type="button" aria-label="返回顶部" aria-describedby="back-to-top-help" hidden><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M6 12l6-6 6 6M12 6v14"/></svg><span aria-hidden="true">顶部</span></button><span id="back-to-top-help" hidden>点击返回顶部；可拖动调整位置。键盘 Enter 或空格返回顶部，方向键移动按钮，Escape 恢复右下角。</span>
+</body></html>

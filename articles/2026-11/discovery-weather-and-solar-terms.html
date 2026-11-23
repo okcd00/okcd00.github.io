@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Dian Chen · Algorithm Expert at Alibaba. Research, engineering, and technical notes.">
+<meta name="author" content="Dian Chen">
+<meta name="theme-color" content="#060b19">
+<title>发现性召回 01｜从天气与节气出发 · Dian Chen</title>
+<link rel="canonical" href="https://dian.host/articles/2026-11/discovery-weather-and-solar-terms.html">
+<link rel="stylesheet" href="/css/site.css?v=b65ce6b7a6ec">
+<script src="/js/site.js?v=b65ce6b7a6ec" defer></script>
+
+<link rel="stylesheet" href="/css/back-to-top.css?v=bb93cec4036d"><script src="/js/back-to-top.js?v=bb93cec4036d" defer></script>
+</head>
+<body class="page-detail">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="header-inner">
+<a class="brand" href="/" aria-label="Dian Chen home"><img class="brand-avatar" src="/assets/avatar.png" width="42" height="42" alt=""><span>Dian Chen<small>Research & engineering</small></span></a>
+<nav class="site-nav" aria-label="Main navigation"><a href="/"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 10 9-7 9 7M5 9v12h5v-7h4v7h5V9"/></svg><span class="nav-label">Home</span></a><a href="/categories/"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span class="nav-label">Categories</span></a><a href="/tags/"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3h8l10 10-8 8L3 11V3Z"/><circle cx="7.5" cy="7.5" r="1"/></svg><span class="nav-label">Tags</span></a><a href="/archives/"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="5" rx="1"/><path d="M5 8v13h14V8M9 12h6"/></svg><span class="nav-label">Archive</span></a><a href="/about/"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg><span class="nav-label">About</span></a></nav>
+</div></header>
+<main id="main" class="site-main">
+
+<section class="main"><article class="post">
+<div class="post-header"><h1 class="title"><a href="/articles/2026-11/discovery-weather-and-solar-terms.html">发现性召回 01｜从天气与节气出发</a></h1>
+<div class="post-info"><span class="date">2026-11-23</span><a class="comments" href="#disqus_thread">留言</a><span class="category"><a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a></span></div></div>
+<div class="content">
+<p>第一步还不是训练个性化模型，而是用世界知识补上历史行为没告诉我们的需求：同样降温，为什么不同城市可能适合推荐不同衣物？</p>
+<span id="more"></span>
+<h2 id="post-heading-从外部情境找需求">从外部情境找需求</h2>
+<p>天气召回结合用户所在城市的当前天气和未来一周预报；时令节气召回则关注即将到来的二十四节气。两路都让大模型生成自然语言商品标签。简单的时令节气召回在 2023 年双十一首次上线，当时恰逢多地骤冷，羽绒服等御寒商品是一个直观场景。</p>
+<h2 id="post-heading-世界知识比规则多走一步">世界知识比规则多走一步</h2>
+<p>一条直写的规则可以把「降温」映射到「御寒衣物」。模型还可以考虑当地气候：例如，有些南方城市降温时毛衣可能合适，某些北方城市遇到伴随大风的降温时，风衣可能更实用。这不是一条固定的南北分界，而是同一个信号在不同情境下可以指向不同需求。</p>
+<h2 id="post-heading-从标签进入召回">从标签进入召回</h2>
+<p>触发场景可枚举，映射可以离线生成和缓存；线上用当下的条件取回对应的商品候选。早期由运营同事根据自然语言标签选品。模型先回答「什么值得推荐」，而「具体是哪件商品」由后续环节解决。</p>
+<p><a href="/about/#discovery-recall">回到 About 的研究脉络</a> · <a href="/articles/2026-11/discovery-offline-i2i.html">下一篇：离线 i2i</a></p>
+</div>
+<div class="post-tags">Tags <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E8%8D%90/">#大模型推荐</a> <a href="/tags/%E5%8F%91%E7%8E%B0%E6%80%A7%E5%8F%AC%E5%9B%9E/">#发现性召回</a></div>
+<div class="comments"><div id="disqus_thread"><p>Comments are hosted by Disqus. Loading them connects to a third-party service.</p><button class="load-comments" type="button">Load comments</button><p class="comment-status" role="status"></p></div></div>
+</article></section>
+
+</main>
+<footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="mailto:joshua.cd@alibaba-inc.com">Work email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><section class="visitor-globe" aria-label="访客地球仪"><h2>访客足迹</h2><p class="globe-privacy">本页自动连接 RevolverMaps2，并向其发送 IP 与当前页面地址以统计访问地区。<a href="https://revolvermaps2.com/privacy.php" target="_blank" rel="noopener noreferrer">隐私说明</a></p><button class="load-globe" type="button" hidden>重试加载地球仪</button><p class="globe-status" role="status"></p><div class="globe-mount"></div><noscript>需启用 JavaScript 才能显示地球仪。</noscript></section><p class="credits">© Dian Chen · Theme with dot<!-- Historical theme license: /licenses/alpha-dust.txt --><br><a href="#main">Back to top</a></p></footer>
+<button class="back-to-top" type="button" aria-label="返回顶部" aria-describedby="back-to-top-help" hidden><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M6 12l6-6 6 6M12 6v14"/></svg><span aria-hidden="true">顶部</span></button><span id="back-to-top-help" hidden>点击返回顶部；可拖动调整位置。键盘 Enter 或空格返回顶部，方向键移动按钮，Escape 恢复右下角。</span>
+</body></html>

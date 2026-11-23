@@ -10,7 +10,7 @@
 <link rel="canonical" href="https://dian.host/page/3/">
 <link rel="stylesheet" href="/css/site.css?v=b65ce6b7a6ec">
 <script src="/js/site.js?v=b65ce6b7a6ec" defer></script>
-<script src="/js/math-config.js"></script><script src="/vendor/mathjax/tex-chtml.js" defer></script>
+
 <link rel="stylesheet" href="/css/back-to-top.css?v=bb93cec4036d"><script src="/js/back-to-top.js?v=bb93cec4036d" defer></script>
 </head>
 <body class="page-listing">
@@ -22,6 +22,40 @@
 <main id="main" class="site-main">
 
 <section class="main">
+<div class="post">
+<div class="post-header index">
+<h1 class="title"><a href="/articles/2017-10/%E3%80%90Codeforces%E3%80%9133th_Codeforces_Contest.html">【Codeforces】33th_Codeforces_Contest</a></h1>
+<div class="post-info"><span class="date">2017-10-17</span><span class="category"><a href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></span></div>
+</div>
+<div class="content">
+<h2 id="0x00-前言"><a class="headerlink" href="/articles/2017-10/%E3%80%90Codeforces%E3%80%9133th_Codeforces_Contest.html#0x00-前言" title="0x00 前言"></a>0x00 前言</h2><p>哇，真的是好久好久没有打Codeforces了呢……<br/>距离上一次（<a href="http://blog.csdn.net/okcd00/article/details/45049565" rel="noopener" target="_blank">2015-04-14 23:47</a>）竟然已经过了两年半之久…<br/>嘛，总之……还凑合QvQ……</p>
+</div>
+<a class="read-more" href="/articles/2017-10/%E3%80%90Codeforces%E3%80%9133th_Codeforces_Contest.html">Read More</a>
+</div>
+<div class="post">
+<div class="post-header index">
+<h1 class="title"><a href="/articles/2017-10/%E3%80%90Chrome-crx%E3%80%91%E9%94%AE%E7%9B%98%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%BD%91%E9%A1%B5%E6%8C%89%E9%92%AE.html">【Chrome-crx】键盘模拟鼠标点击网页按钮</a></h1>
+<div class="post-info"><span class="date">2017-10-11</span><span class="category"><a href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a></span></div>
+</div>
+<div class="content">
+<h2 id="0x00-前言"><a class="headerlink" href="/articles/2017-10/%E3%80%90Chrome-crx%E3%80%91%E9%94%AE%E7%9B%98%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%BD%91%E9%A1%B5%E6%8C%89%E9%92%AE.html#0x00-前言" title="0x00 前言"></a>0x00 前言</h2><p>最近在做一个标注任务：<br/>简单的说，就是屏幕上有好多小方块，选中其中的部分，<br/>然后在页面下面的四个标注按钮（红绿蓝黑）上点一下，<br/>小方块们就会被染成这个按钮的颜色，需要把所有的小方块们染色完。</p>
+<p>请各位想象一下：纯鼠标工作，在一个白底的网页上来回翻飞舞动，眼睛都看花啦！<br/>所以我决定想个法子把这四个染色按钮绑在我键盘上的几个键上（QWER就是你们了）。<br/>（以后标注起来看起来在打DOTA一样哈哈哈）</p>
+</div>
+<a class="read-more" href="/articles/2017-10/%E3%80%90Chrome-crx%E3%80%91%E9%94%AE%E7%9B%98%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%BD%91%E9%A1%B5%E6%8C%89%E9%92%AE.html">Read More</a>
+</div>
+<div class="post">
+<div class="post-header index">
+<h1 class="title"><a href="/articles/2017-10/%E3%80%90Pytorch%E3%80%91Torch_NN_Learning.html">【Pytorch】Torch_NN_Learning</a></h1>
+<div class="post-info"><span class="date">2017-10-06</span><span class="category"><a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div>
+</div>
+<div class="content">
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</span><br/><span class="line"><span class="keyword">import</span> torch</span><br/><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br/><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br/><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br/><span class="line"><span class="keyword">import</span> torch.autograd <span class="keyword">as</span> autograd</span><br/><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br/><span class="line"><span class="built_in">print</span>(<span class="string">"Import success.\nTorch Version:{}"</span>.<span class="built_in">format</span>(torch.__version__))</span><br/></pre></td></tr></table></figure>
+<pre><code>Import success.
+Torch Version:0.2.1+a4fc05a
+</code></pre>
+</div>
+<a class="read-more" href="/articles/2017-10/%E3%80%90Pytorch%E3%80%91Torch_NN_Learning.html">Read More</a>
+</div>
 <div class="post">
 <div class="post-header index">
 <h1 class="title"><a href="/articles/2017-09/%E3%80%90Pytorch%E3%80%91Torch_Basic_Learning.html">【Pytorch】Torch_Basic_Learning</a></h1>
@@ -52,40 +86,7 @@
 </div>
 <a class="read-more" href="/articles/2017-09/%E3%80%90Pytorch%E3%80%91Windows10%E4%B8%8B%E9%85%8D%E7%BD%AEPytorch%E7%8E%AF%E5%A2%83.html">Read More</a>
 </div>
-<div class="post">
-<div class="post-header index">
-<h1 class="title"><a href="/articles/2017-09/%E3%80%90GAN%E3%80%91Generative%20Adversarial%20Nets.html">Generative Adversarial Nets</a></h1>
-<div class="post-info"><span class="date">2017-09-04</span><span class="category"><a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></span></div>
-</div>
-<div class="content">
-<h2 id="Problem-Restatement"><a class="headerlink" href="/articles/2017-09/%E3%80%90GAN%E3%80%91Generative%20Adversarial%20Nets.html#Problem-Restatement" title="Problem Restatement"></a>Problem Restatement</h2><p>This part mainly introduces the principle and realization method of GAN (Generative Adversarial Nets), GAN is proposed by lan.J et al. In 2014, they propose a new framework for estimating generative models via an adversarial process, in which simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The training procedure for G is to maximize the probability of D making a mistake. This framework corresponds to a minimax two-player game. In the space of arbitrary functions G and D, a unique solution exists, with G recovering the training data distribution and D equal to 1/2 everywhere. In the case where G and D are defined by multilayer perceptron’s, the entire system can be trained with backpropagation. There is no need for any Markov chains or unrolled approximate inference net-works during either training or generation of samples[1].</p>
-</div>
-<a class="read-more" href="/articles/2017-09/%E3%80%90GAN%E3%80%91Generative%20Adversarial%20Nets.html">Read More</a>
-</div>
-<div class="post">
-<div class="post-header index">
-<h1 class="title"><a href="/articles/2017-09/%E3%80%90O2OTM%E3%80%91%E4%BD%A0%E7%9A%84%E6%90%9C%E7%B4%A2%E9%80%8F%E9%9C%B2%E4%BA%86%E4%BD%A0%E7%9A%84%E5%96%9C%E5%A5%BD%E2%80%94%E2%80%94%E8%B7%A8%E6%A8%A1%E6%80%81%E6%8E%A8%E8%8D%90.html">【O2OTM】你的搜索透露了你的喜好——跨模态推荐</a></h1>
-<div class="post-info"><span class="date">2017-09-04</span><span class="category"><a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></span></div>
-</div>
-<div class="content">
-<p>@(关键词)[跨模态，推荐系统，O2OTM，可解释性，机器学习]</p>
-<p><a class="image-original" href="/assets/1499226349278.png" aria-label="Alt text · 点击查看原图"><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1499226349278.png"/></a></p>
-<p>论文地址：<a href="http://mldm.ict.ac.cn/platform/pweb/academicDetail.htm?id=94" rel="noopener" target="_blank">http://mldm.ict.ac.cn/platform/pweb/academicDetail.htm?id=94</a></p>
-<p>论文翻译：<a href="http://blog.csdn.net/okcd00/article/details/51814745" rel="noopener" target="_blank">http://blog.csdn.net/okcd00/article/details/51814745</a></p>
-</div>
-<a class="read-more" href="/articles/2017-09/%E3%80%90O2OTM%E3%80%91%E4%BD%A0%E7%9A%84%E6%90%9C%E7%B4%A2%E9%80%8F%E9%9C%B2%E4%BA%86%E4%BD%A0%E7%9A%84%E5%96%9C%E5%A5%BD%E2%80%94%E2%80%94%E8%B7%A8%E6%A8%A1%E6%80%81%E6%8E%A8%E8%8D%90.html">Read More</a>
-</div>
-<div class="post">
-<div class="post-header index">
-<h1 class="title"><a href="/articles/2017-08/%E3%80%90Selenium%E3%80%91Windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8python%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86%E7%BD%91%E5%85%B3.html">【Selenium】Windows平台使用python自动登陆网关</a></h1>
-<div class="post-info"><span class="date">2017-08-29</span><span class="category"><a href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a></span></div>
-</div>
-<div class="content">
-<h2 id="0x00-前言"><a class="headerlink" href="/articles/2017-08/%E3%80%90Selenium%E3%80%91Windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8python%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86%E7%BD%91%E5%85%B3.html#0x00-前言" title="0x00 前言"></a>0x00 前言</h2><p>所里开启了两步验证与二级加密（就不说是哪里了）；<br/>以前的auto_login用不了了，所以尝试着有没有什么新法子；<br/>看到一个用 Phantomjs + Selenium 的解决方案，着手试试看好了。</p>
-</div>
-<a class="read-more" href="/articles/2017-08/%E3%80%90Selenium%E3%80%91Windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8python%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86%E7%BD%91%E5%85%B3.html">Read More</a>
-</div>
-</section><nav class="pagination" aria-label="Pagination"><a rel="prev" href="/page/2/">Previous page</a><span>Page 3 / 5</span><a rel="next" href="/page/4/">Next page</a></nav>
+</section><nav class="pagination" aria-label="Pagination"><a rel="prev" href="/page/2/">Previous page</a><span>Page 3 / 6</span><a rel="next" href="/page/4/">Next page</a></nav>
 </main>
 <footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="mailto:joshua.cd@alibaba-inc.com">Work email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><section class="visitor-globe" aria-label="访客地球仪"><h2>访客足迹</h2><p class="globe-privacy">本页自动连接 RevolverMaps2，并向其发送 IP 与当前页面地址以统计访问地区。<a href="https://revolvermaps2.com/privacy.php" target="_blank" rel="noopener noreferrer">隐私说明</a></p><button class="load-globe" type="button" hidden>重试加载地球仪</button><p class="globe-status" role="status"></p><div class="globe-mount"></div><noscript>需启用 JavaScript 才能显示地球仪。</noscript></section><p class="credits">© Dian Chen · Theme with dot<!-- Historical theme license: /licenses/alpha-dust.txt --></p></footer>
 <button class="back-to-top" type="button" aria-label="返回顶部" aria-describedby="back-to-top-help" hidden><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M6 12l6-6 6 6M12 6v14"/></svg><span aria-hidden="true">顶部</span></button><span id="back-to-top-help" hidden>点击返回顶部；可拖动调整位置。键盘 Enter 或空格返回顶部，方向键移动按钮，Escape 恢复右下角。</span>

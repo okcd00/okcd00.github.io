@@ -10,7 +10,7 @@
 <link rel="canonical" href="https://dian.host/page/4/">
 <link rel="stylesheet" href="/css/site.css?v=b65ce6b7a6ec">
 <script src="/js/site.js?v=b65ce6b7a6ec" defer></script>
-
+<script src="/js/math-config.js"></script><script src="/vendor/mathjax/tex-chtml.js" defer></script>
 <link rel="stylesheet" href="/css/back-to-top.css?v=bb93cec4036d"><script src="/js/back-to-top.js?v=bb93cec4036d" defer></script>
 </head>
 <body class="page-listing">
@@ -22,6 +22,39 @@
 <main id="main" class="site-main">
 
 <section class="main">
+<div class="post">
+<div class="post-header index">
+<h1 class="title"><a href="/articles/2017-09/%E3%80%90GAN%E3%80%91Generative%20Adversarial%20Nets.html">Generative Adversarial Nets</a></h1>
+<div class="post-info"><span class="date">2017-09-04</span><span class="category"><a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></span></div>
+</div>
+<div class="content">
+<h2 id="Problem-Restatement"><a class="headerlink" href="/articles/2017-09/%E3%80%90GAN%E3%80%91Generative%20Adversarial%20Nets.html#Problem-Restatement" title="Problem Restatement"></a>Problem Restatement</h2><p>This part mainly introduces the principle and realization method of GAN (Generative Adversarial Nets), GAN is proposed by lan.J et al. In 2014, they propose a new framework for estimating generative models via an adversarial process, in which simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The training procedure for G is to maximize the probability of D making a mistake. This framework corresponds to a minimax two-player game. In the space of arbitrary functions G and D, a unique solution exists, with G recovering the training data distribution and D equal to 1/2 everywhere. In the case where G and D are defined by multilayer perceptron’s, the entire system can be trained with backpropagation. There is no need for any Markov chains or unrolled approximate inference net-works during either training or generation of samples[1].</p>
+</div>
+<a class="read-more" href="/articles/2017-09/%E3%80%90GAN%E3%80%91Generative%20Adversarial%20Nets.html">Read More</a>
+</div>
+<div class="post">
+<div class="post-header index">
+<h1 class="title"><a href="/articles/2017-09/%E3%80%90O2OTM%E3%80%91%E4%BD%A0%E7%9A%84%E6%90%9C%E7%B4%A2%E9%80%8F%E9%9C%B2%E4%BA%86%E4%BD%A0%E7%9A%84%E5%96%9C%E5%A5%BD%E2%80%94%E2%80%94%E8%B7%A8%E6%A8%A1%E6%80%81%E6%8E%A8%E8%8D%90.html">【O2OTM】你的搜索透露了你的喜好——跨模态推荐</a></h1>
+<div class="post-info"><span class="date">2017-09-04</span><span class="category"><a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></span></div>
+</div>
+<div class="content">
+<p>@(关键词)[跨模态，推荐系统，O2OTM，可解释性，机器学习]</p>
+<p><a class="image-original" href="/assets/1499226349278.png" aria-label="Alt text · 点击查看原图"><img alt="Alt text" decoding="async" loading="lazy" src="/assets/1499226349278.png"/></a></p>
+<p>论文地址：<a href="http://mldm.ict.ac.cn/platform/pweb/academicDetail.htm?id=94" rel="noopener" target="_blank">http://mldm.ict.ac.cn/platform/pweb/academicDetail.htm?id=94</a></p>
+<p>论文翻译：<a href="http://blog.csdn.net/okcd00/article/details/51814745" rel="noopener" target="_blank">http://blog.csdn.net/okcd00/article/details/51814745</a></p>
+</div>
+<a class="read-more" href="/articles/2017-09/%E3%80%90O2OTM%E3%80%91%E4%BD%A0%E7%9A%84%E6%90%9C%E7%B4%A2%E9%80%8F%E9%9C%B2%E4%BA%86%E4%BD%A0%E7%9A%84%E5%96%9C%E5%A5%BD%E2%80%94%E2%80%94%E8%B7%A8%E6%A8%A1%E6%80%81%E6%8E%A8%E8%8D%90.html">Read More</a>
+</div>
+<div class="post">
+<div class="post-header index">
+<h1 class="title"><a href="/articles/2017-08/%E3%80%90Selenium%E3%80%91Windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8python%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86%E7%BD%91%E5%85%B3.html">【Selenium】Windows平台使用python自动登陆网关</a></h1>
+<div class="post-info"><span class="date">2017-08-29</span><span class="category"><a href="/categories/%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC/">功能脚本</a></span></div>
+</div>
+<div class="content">
+<h2 id="0x00-前言"><a class="headerlink" href="/articles/2017-08/%E3%80%90Selenium%E3%80%91Windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8python%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86%E7%BD%91%E5%85%B3.html#0x00-前言" title="0x00 前言"></a>0x00 前言</h2><p>所里开启了两步验证与二级加密（就不说是哪里了）；<br/>以前的auto_login用不了了，所以尝试着有没有什么新法子；<br/>看到一个用 Phantomjs + Selenium 的解决方案，着手试试看好了。</p>
+</div>
+<a class="read-more" href="/articles/2017-08/%E3%80%90Selenium%E3%80%91Windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8python%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86%E7%BD%91%E5%85%B3.html">Read More</a>
+</div>
 <div class="post">
 <div class="post-header index">
 <h1 class="title"><a href="/articles/2017-08/%E3%80%90%E5%88%97%E8%A1%A8%E8%A7%A3%E6%9E%90%E5%BC%8F%E3%80%91Python%E7%9A%84%E5%8D%95%E8%A1%8C%E6%93%8D%E4%BD%9C%E7%A7%80.html">【列表解析式】Python的单行操作秀</a></h1>
@@ -46,43 +79,7 @@
 </div>
 <a class="read-more" href="/articles/2017-06/%E3%80%90%E9%80%89%E8%AF%BE%E8%84%9A%E6%9C%AC%E3%80%91%E7%94%A8Python%E7%BD%91%E9%A1%B5%E7%88%AC%E8%99%AB%E6%9D%A5%E8%BF%9B%E8%A1%8C%E9%80%89%28qiang%29%E8%AF%BE.html">Read More</a>
 </div>
-<div class="post">
-<div class="post-header index">
-<h1 class="title"><a href="/articles/2017-05/%E3%80%90Editdistance%E3%80%91%E5%9C%A8Windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%85%8D%E7%BD%AEpython%E5%BA%93editdistance.html">【Editdistance】在Windows环境下配置python库editdistance</a></h1>
-<div class="post-info"><span class="date">2017-05-05</span><span class="category"><a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a></span></div>
-</div>
-<div class="content">
-<p>编辑距离是文本处理中很常见的一种判别相似度的方法，</p>
-<blockquote>
-<p><strong>Wikipedia</strong><br/>In computer science, edit distance is a way of quantifying how dissimilar two strings (e.g., words) are to one another by counting the minimum number of operations required to transform one string into the other.</p>
-</blockquote>
-<blockquote>
-<p>Given two strings a and b on an alphabet Σ (e.g. the set of ASCII characters, the set of bytes [0..255], etc.), the edit distance d(a, b) is the minimum-weight series of edit operations that transforms a into b. One of the simplest sets of edit operations is that defined by Levenshtein in 1966:[2]</p>
-</blockquote>
-</div>
-<a class="read-more" href="/articles/2017-05/%E3%80%90Editdistance%E3%80%91%E5%9C%A8Windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%85%8D%E7%BD%AEpython%E5%BA%93editdistance.html">Read More</a>
-</div>
-<div class="post">
-<div class="post-header index">
-<h1 class="title"><a href="/articles/2017-05/%E3%80%90TensorFlow%E3%80%91Windows10%E4%B8%8B%E9%85%8D%E7%BD%AETensorFlow%E7%8E%AF%E5%A2%83.html">【TensorFlow】Windows10下配置TensorFlow环境</a></h1>
-<div class="post-info"><span class="date">2017-05-04</span><span class="category"><a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a></span></div>
-</div>
-<div class="content">
-<h2 id="0x00-前言"><a class="headerlink" href="/articles/2017-05/%E3%80%90TensorFlow%E3%80%91Windows10%E4%B8%8B%E9%85%8D%E7%BD%AETensorFlow%E7%8E%AF%E5%A2%83.html#0x00-前言" title="0x00 前言"></a>0x00 前言</h2><p>前言什么的也懒得说了……<br/>总之：<br/>用<code>TeamViewer</code>中转+<code>VNC</code>连接来图形化，<br/><code>SecureCRT</code>两重<code>ssh</code>跳转来改代码，<br/>以及<code>paste.ubuntu.com</code>来复制粘贴，<br/>这样的日子我已经受够了…… 我要在我的windows上配一个！</p>
-</div>
-<a class="read-more" href="/articles/2017-05/%E3%80%90TensorFlow%E3%80%91Windows10%E4%B8%8B%E9%85%8D%E7%BD%AETensorFlow%E7%8E%AF%E5%A2%83.html">Read More</a>
-</div>
-<div class="post">
-<div class="post-header index">
-<h1 class="title"><a href="/articles/2017-02/%E3%80%90Theano%E3%80%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%94%E2%80%94%E2%80%9Cg%2B%2B%20not%20detected%E2%80%9D.html">【Theano】环境配置——“g++ not detected”</a></h1>
-<div class="post-info"><span class="date">2017-02-07</span><span class="category"><a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a></span></div>
-</div>
-<div class="content">
-<h2 id="0x00-前言"><a class="headerlink" href="/articles/2017-02/%E3%80%90Theano%E3%80%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%94%E2%80%94%E2%80%9Cg%2B%2B%20not%20detected%E2%80%9D.html#0x00-前言" title="0x00 前言"></a>0x00 前言</h2><p>不管想要做些什么，配置环境总是最让人头疼的部分……<br/>看了半天的Theano，终于打算跑跑程序瞧瞧了……<br/>谁知道新的一轮配置才刚刚开始……<br/>提示：懒得看我那么多废话的可以直接跳到配置方法</p>
-</div>
-<a class="read-more" href="/articles/2017-02/%E3%80%90Theano%E3%80%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%94%E2%80%94%E2%80%9Cg%2B%2B%20not%20detected%E2%80%9D.html">Read More</a>
-</div>
-</section><nav class="pagination" aria-label="Pagination"><a rel="prev" href="/page/3/">Previous page</a><span>Page 4 / 5</span><a rel="next" href="/page/5/">Next page</a></nav>
+</section><nav class="pagination" aria-label="Pagination"><a rel="prev" href="/page/3/">Previous page</a><span>Page 4 / 6</span><a rel="next" href="/page/5/">Next page</a></nav>
 </main>
 <footer class="site-footer"><div><strong>Dian Chen</strong><p>To be more curious and less lazy.</p></div><nav aria-label="Contact links"><a href="https://github.com/okcd00">GitHub</a><a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=eTHw56AAAAAJ">Google Scholar</a><a href="mailto:okcd00@vip.qq.com">Email</a><a href="mailto:joshua.cd@alibaba-inc.com">Work email</a><a href="https://blog.csdn.net/okcd00">CSDN</a></nav><section class="visitor-globe" aria-label="访客地球仪"><h2>访客足迹</h2><p class="globe-privacy">本页自动连接 RevolverMaps2，并向其发送 IP 与当前页面地址以统计访问地区。<a href="https://revolvermaps2.com/privacy.php" target="_blank" rel="noopener noreferrer">隐私说明</a></p><button class="load-globe" type="button" hidden>重试加载地球仪</button><p class="globe-status" role="status"></p><div class="globe-mount"></div><noscript>需启用 JavaScript 才能显示地球仪。</noscript></section><p class="credits">© Dian Chen · Theme with dot<!-- Historical theme license: /licenses/alpha-dust.txt --></p></footer>
 <button class="back-to-top" type="button" aria-label="返回顶部" aria-describedby="back-to-top-help" hidden><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M6 12l6-6 6 6M12 6v14"/></svg><span aria-hidden="true">顶部</span></button><span id="back-to-top-help" hidden>点击返回顶部；可拖动调整位置。键盘 Enter 或空格返回顶部，方向键移动按钮，Escape 恢复右下角。</span>
