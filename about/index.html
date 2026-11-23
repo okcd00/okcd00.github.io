@@ -21,12 +21,24 @@
   </div></div>
   <div class="mini work-record contribution-card">
     <div class="contribution-heading"><h3>同样降温，不同城市可能需要不同衣物</h3></div>
-    <p class="contribution-summary">我先从两个场景入手：天气召回结合城市当前天气和未来一周预报，时令节气召回则关注即将到来的二十四节气。两路都用大模型生成自然语言商品标签。触发条件可以枚举，映射离线生成并缓存，线上按条件取回商品候选。早期由运营同事根据标签选品。</p>
+    <p class="contribution-summary">时令节气召回在 2023 年双十一首次上线，恰逢多地骤冷，羽绒服等御寒商品成了直观的推荐场景。早期我先从两个场景入手：天气召回结合城市当前天气和未来一周预报，时令节气召回则关注即将到来的二十四节气。两路都用大模型生成自然语言商品标签。触发条件可以枚举，映射离线生成并缓存，线上按条件取回商品候选。早期由运营同事根据标签选品。</p>
     <p class="contribution-summary">世界知识的作用，是让模型能在「降温」这个规则之外考虑当地气候。例如，一些南方城市降温时毛衣可能更合适，而某些北方城市遇到降温伴随大风时，风衣可能更实用。同一个天气信号，可以导向不同的商品需求。</p>
   </div>
+  <div class="mini work-record contribution-card" id="discovery-i2i" style="scroll-margin-top: 100px">
+    <div class="contribution-heading"><h3>离线 i2i：让模型学会「买了 A，还可能买什么？」</h3></div>
+    <p class="contribution-summary">天气和节气从外部情境找需求；接下来的离线 i2i 从用户上一件交互商品出发，推断另一件可能需要的商品。团队开始为这个填空任务训练模型：标注人员既给更强模型的推理结果评分，也自己填写答案，形成训练样本。</p>
+    <details>
+      <summary><span>看三种输入：粗类目、原标题、品类</span><span class="contribution-toggle i2i-toggle" aria-hidden="true"></span></summary>
+      <div class="contribution-body i2i-example">
+        <p><strong>粗类目：</strong>能看出大方向，但同一类目下的不同商品容易被当成同一种，推理结果也容易雷同。</p>
+        <p><strong>原标题：</strong>比类目具体，但营销话术和冗余描述容易把模型带偏。</p>
+        <p><strong>品类：</strong>我提出保留一个指向具体商品种类的名词，前面最多加三个限定词。比如将冗长的露营椅标题归成「便携折叠露营椅」（示意）：保留影响用途的信息，不让营销修饰左右推理。</p>
+      </div>
+    </details>
+  </div>
   <div class="mini work-record contribution-card" id="discovery-definition" style="scroll-margin-top: 100px">
-    <div class="contribution-heading"><h3>从天气召回到 SerenGPT：先定义什么叫发现</h3></div>
-    <p class="contribution-summary">从为一个城市生成商品标签，到用 Qwen2-0.5B-Instruct 为一个用户生成商品标题，第一步不是选模型，而是决定什么样的历史行为能说明用户遇到了新商品。旧口径只看用户在最近 30 个自然日里有没有点过某个一、二级类目：只要没点过，就可能被算作「新」。</p>
+    <div class="contribution-heading"><h3>从商品到用户：SerenGPT 先定义什么叫发现</h3></div>
+    <p class="contribution-summary">离线 i2i 从一件商品推断另一件商品；SerenGPT 则用 Qwen2-0.5B-Instruct 结合用户画像和近期行为生成商品标题。转向面向用户的发现性推荐后，需要先定义什么样的历史行为能说明用户遇到了新商品。旧口径只看用户在最近 30 个自然日里有没有点过某个一、二级类目：只要没点过，就可能被算作「新」。</p>
     <p class="contribution-summary">我提出把已曝光或已交互的品类纳入回看，并把时间窗改成最近 10 个实际到访日。为了让小模型能区分边界相近的商品，团队另建了一套叶子节点对应单一品类的商品划分。这套商品划分后来持续迭代，并扩展到淘宝的搜索、推荐与广告场景。</p>
     <details>
       <summary><span>01 · 什么算见过：不只看点击</span><span class="contribution-toggle discovery-example-toggle" aria-hidden="true"></span></summary>
